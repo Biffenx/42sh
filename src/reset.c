@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:30:03 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 14:02:55 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 16:16:47 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	reset(char *prompt, t_shell *shell)
 	ft_bzero(shell->editor.buffer, ARG_MAX);
 	shell->editor.length = 0;
 	shell->editor.x = 0;
-	shell->editor.y = 0;
+	shell->editor.y = 0; // ?
+	shell->history_index = -1;
 }

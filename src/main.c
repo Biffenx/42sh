@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 14:05:00 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 18:43:29 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ static void	shell(char **env)
 	{
 		terminal(&shell.terminal);
 		signals(&shell);
+		fetch(&shell);
 	}
 	while (42)
 	{
@@ -92,9 +93,11 @@ static void	shell(char **env)
 		if (shell.mode & ENDOFFILE)
 			break ;
 		ft_putendl(shell.editor.buffer);
+		add_entry(&shell);
 		// preprocess(editor->buffer); ?
 		// clean_paths(editor->ac); ?
 	}
+	save(&shell);
 }
 
 int		main(int argc, char **argv, char **env)

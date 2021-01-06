@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 14:44:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 19:14:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,6 @@ static void	terminal_mode(int reset, t_terminal *terminal)
 		tcsetattr(STDIN_FILENO, TCSANOW, &terminal->original);
 	else
 		tcsetattr(STDIN_FILENO, TCSANOW, &terminal->raw);
-}
-
-static int	keypress(void)
-{
-	char	buffer[KEY_SIZE + 1];
-	ssize_t	bytes;
-	size_t	i;
-	int		key;
-
-	bytes = read(STDIN_FILENO, buffer, KEY_SIZE);
-	buffer[bytes] = '\0';
-	i = -1;
-	key = 0;
-	while (buffer[++i])
-		key += buffer[i];
-	return (key);
 }
 
 static void	input(t_shell *shell)
@@ -68,8 +52,8 @@ static void	loop(t_shell *shell)
 			reset(PROMPT_NORMAL, shell);
 			continue ;
 		}
-		// else if (search_exclamation(editor)) ?
-			// continue ;
+		else if (exclamation(shell))
+			continue ;
 		else
 			break ;
 	}
