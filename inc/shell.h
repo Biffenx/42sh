@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/05 21:55:18 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 10:59:23 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHELL_H
 
 # include "libft.h"
+# include "keyboard.h"
 # include <term.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -28,6 +29,7 @@
 # define INTERACTIVE 1 << 0
 # define INTERRUPT 1 << 1
 # define ENDOFFILE 1 << 2
+# define READMORE 1 << 3
 
 typedef struct			s_terminal
 {
@@ -40,6 +42,8 @@ typedef struct 			s_editor
 {
 	char				buffer[ARG_MAX];
 	size_t				length;
+	size_t				x;
+	size_t				y;
 }						t_editor;
 
 typedef struct	s_shell
@@ -54,5 +58,9 @@ typedef struct	s_shell
 
 int		print_char(int c);
 void	signals(t_shell *shell);
+void	reset(char *prompt, t_shell *shell);
+void	editor(t_shell *shell);
+void	action(int key, t_shell *shell);
+void	print(t_editor editor);
 
 #endif

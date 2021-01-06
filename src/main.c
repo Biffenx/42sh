@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/05 21:58:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 10:49:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void		termcaps(void)
+static void	termcaps(void)
 {
 	char	*type;
 	char	buffer[2048];
@@ -31,7 +31,7 @@ void		termcaps(void)
 	exit(1);
 }
 
-void		create_pgroup(t_shell *shell)
+static void	create_pgroup(t_shell *shell)
 {
 	pid_t	shell_pgid;
 
@@ -60,7 +60,7 @@ void		create_pgroup(t_shell *shell)
 	}
 }
 
-static void		terminal(t_terminal *terminal)
+static void	terminal(t_terminal *terminal)
 {
 		if (tcgetattr(STDIN_FILENO, &terminal->original) == -1)
 			exit(1);
@@ -68,26 +68,9 @@ static void		terminal(t_terminal *terminal)
 		terminal->raw.c_lflag &= ~(ICANON | ECHO);
 }
 
-void	reset(char *prompt, t_shell *shell)
+static void	shell(char **env)
 {
-	shell->mode = shell->mode & INTERACTIVE;
-	if (!prompt)
-	{
-		/* create_prompt(editor->prompt);
-		load_filenames(editor->ac, editor->prompt->cwd); */
-	}
-	else
-	{
-		/* ft_bzero(editor->prompt->prompt, PROMPT_SIZE);
-		ft_strcat(editor->prompt->prompt, prompt); */
-	}
-	ft_bzero(shell->editor.buffer, ARG_MAX);
-	shell->editor.length = 0;
-}
-
-static void		shell(char **env)
-{
-	t_shell		shell;
+	t_shell	shell;
 
 	shell.mode = isatty(STDIN_FILENO);
 	shell.env = env;
@@ -104,17 +87,17 @@ static void		shell(char **env)
 	}
 	while (42)
 	{
-		return ;
-		// editor(&shell); ?
+		editor(&shell);
 		if (shell.mode & ENDOFFILE)
 			break ;
+		ft_putendl(shell.editor.buffer);
 		// preprocess(editor->buffer); ?
 		reset(NULL, &shell);
 		// clean_paths(editor->ac); ?
 	}
 }
 
-int				main(int argc, char **argv, char **env)
+int		main(int argc, char **argv, char **env)
 {
 	if (!argc || !argv || !env)
 		return (1);

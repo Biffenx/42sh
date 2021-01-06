@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 10:35:47 by vkuokka          ###   ########.fr       */
+/*   Created: 2021/01/06 10:57:51 by vkuokka           #+#    #+#             */
+/*   Updated: 2021/01/06 11:08:31 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int		print_char(int c)
+void			print(t_editor editor)
 {
-	return (write(0, &c, 1));
+	tputs(tgetstr("rc", NULL), 1, print_char);
+	tputs(tgetstr("cd", NULL), 1, print_char);
+	ft_putstr(editor.buffer);
 }
