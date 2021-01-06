@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   cursor_movement_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 10:57:51 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 11:53:48 by vkuokka          ###   ########.fr       */
+/*   Created: 2021/01/06 11:23:33 by vkuokka           #+#    #+#             */
+/*   Updated: 2021/01/06 11:25:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void	cursor(t_editor editor)
+int	move_cursor_right(t_editor *editor)
 {
-	size_t	cursor;
-
-	tputs(tgetstr("rc", NULL), 1, print_char);
-	cursor = 0;
-	while (cursor < editor.x)
-	{
-		tputs(tgetstr("nd", NULL), 1, print_char);
-		cursor++;
-	}
+	if (editor->buffer[editor->x])
+		editor->x++;
+	return (1);
 }
 
-void		print(t_editor editor)
+int	move_cursor_left(t_editor *editor)
 {
-	tputs(tgetstr("rc", NULL), 1, print_char);
-	tputs(tgetstr("cd", NULL), 1, print_char);
-	ft_putstr(editor.buffer);
-	cursor(editor);
+	if (editor->x > 0)
+		editor->x--;
+	return (1);
 }

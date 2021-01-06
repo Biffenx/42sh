@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 11:15:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 12:21:43 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,13 @@ static void	loop(t_shell *shell)
 	{
 		// mark_working_jobs(); ?
 		input(shell);
-		if (shell->mode & INTERRUPT)
+		if (shell->mode & ENDOFFILE)
 			break ;
-		else if (!shell->editor.buffer[0])
+		else if (!shell->editor.buffer[0] || shell->mode & INTERRUPT)
+		{
+			reset(NULL, shell);
 			continue ;
+		}
 		// else if (search_exclamation(editor)) ?
 			// continue ;
 		else

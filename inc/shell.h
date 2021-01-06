@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 10:59:23 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 12:01:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,14 @@ void	reset(char *prompt, t_shell *shell);
 void	editor(t_shell *shell);
 void	action(int key, t_shell *shell);
 void	print(t_editor editor);
+int		move_cursor_right_word(t_editor *editor);
+int		move_cursor_right(t_editor *editor);
+int		move_cursor_left(t_editor *editor);
+int		move_cursor_right_word(t_editor *editor);
+int		move_cursor_left_word(t_editor *editor);
+int		move_cursor_up(t_shell *shell);
+int		move_cursor_down(t_shell *shell);
+int		handle_eof(t_shell *shell);
+int		handle_backspace(t_editor *editor);
 
 #endif
