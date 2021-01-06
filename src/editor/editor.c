@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 12:21:43 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 14:44:29 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	input(t_shell *shell)
 	tputs(tgetstr("sc", NULL), 1, print_char);
 	while (1)
 	{
-		print(shell->editor);
+		print(shell);
 		key = keypress();
 		action(key, shell);
 		if (shell->mode & ENDOFFILE || shell->mode & INTERRUPT || key == ENTER)
@@ -65,7 +65,7 @@ static void	loop(t_shell *shell)
 			break ;
 		else if (!shell->editor.buffer[0] || shell->mode & INTERRUPT)
 		{
-			reset(NULL, shell);
+			reset(PROMPT_NORMAL, shell);
 			continue ;
 		}
 		// else if (search_exclamation(editor)) ?

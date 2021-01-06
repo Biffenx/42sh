@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 12:01:41 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/06 14:43:00 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@
 # define ENDOFFILE 1 << 2
 # define READMORE 1 << 3
 
+# define PROMPT_SIZE 9
+# define PROMPT_NORMAL ">"
+# define PROMPT_QUOTE "quote>"
+# define PROMPT_HEREDOC "heredoc>"
+# define PROMPT_PIPE "pipe>"
+
 typedef struct			s_terminal
 {
 	struct termios		original;
@@ -40,6 +46,7 @@ typedef struct			s_terminal
 
 typedef struct 			s_editor
 {
+	char				prompt[PROMPT_SIZE];
 	char				buffer[ARG_MAX];
 	size_t				length;
 	size_t				x;
@@ -61,7 +68,7 @@ void	signals(t_shell *shell);
 void	reset(char *prompt, t_shell *shell);
 void	editor(t_shell *shell);
 void	action(int key, t_shell *shell);
-void	print(t_editor editor);
+void	print(t_shell *shell);
 int		move_cursor_right_word(t_editor *editor);
 int		move_cursor_right(t_editor *editor);
 int		move_cursor_left(t_editor *editor);
