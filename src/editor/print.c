@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:57:51 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 14:49:43 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/07 21:59:28 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	cursor(t_shell *shell)
 
 	tputs(tgetstr("rc", NULL), 1, print_char);
 	cursor = 0;
-	while (cursor < ft_strlen(shell->editor.prompt) + shell->editor.x)
+	while (cursor < ft_strlen(shell->editor.prompt) + shell->editor.cursor)
 	{
 		tputs(tgetstr("nd", NULL), 1, print_char);
 		cursor++;

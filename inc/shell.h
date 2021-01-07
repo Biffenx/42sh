@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 20:17:10 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/07 21:55:16 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ typedef struct 			s_editor
 {
 	char				prompt[PROMPT_SIZE];
 	char				buffer[ARG_MAX];
-	size_t				length;
-	size_t				x;
-	size_t				y;
+	size_t				cursor;
 }						t_editor;
 
 typedef struct	s_shell

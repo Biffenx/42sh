@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 21:52:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/07 22:01:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ int				exclamation(t_shell *shell)
 			i++;
 			j++;
 		}
-	shell->editor.length = ft_strlen(shell->editor.buffer);
-	shell->editor.x = shell->editor.length;
+	shell->editor.cursor = ft_strlen(shell->editor.buffer);
 	return (parsed);
 }

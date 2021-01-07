@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 20:07:44 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/07 22:00:56 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 static void	add_char(t_editor *editor, char c)
 {
-	if (editor->length >= ARG_MAX)
+	if (ft_strlen(editor->buffer) >= ARG_MAX)
 		return ;
-	if (editor->buffer[editor->x])
-		ft_memmove(editor->buffer + editor->x + 1, \
-		editor->buffer + editor->x, \
-		editor->length + editor->x);
-	editor->buffer[editor->x] = c;
-	editor->length++;
-	editor->x++;
+	if (editor->buffer[editor->cursor])
+		ft_memmove(editor->buffer + editor->cursor + 1, \
+		editor->buffer + editor->cursor, \
+		ft_strlen(editor->buffer) + editor->cursor);
+	editor->buffer[editor->cursor] = c;
+	editor->cursor++;
 }
 
 static int	check_arrow_keys(int key, t_shell *shell)
@@ -59,12 +58,12 @@ static int	check_leap_keys(int key, t_shell *shell)
 		return (move_cursor_down(shell));
 	else if (key == HOME)
 	{
-		shell->editor.x = 0;
+		shell->editor.cursor = 0;
 		return (1);
 	}
 	else if (key == END)
 	{
-		shell->editor.x = shell->editor.length;
+		shell->editor.cursor = ft_strlen(shell->editor.buffer);
 		return (1);
 	}
 	return (0);

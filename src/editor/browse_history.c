@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:09:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 19:04:38 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/07 22:02:49 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static int	find_match(t_shell *shell, char *str)
 		{
 			reset(NULL, shell);
 			ft_strcat(shell->editor.buffer, shell->history[i]);
-			shell->editor.length = ft_strlen(shell->editor.buffer);
-			shell->editor.x = shell->editor.length;
+			shell->editor.cursor = ft_strlen(shell->editor.buffer);
 			return (1);
 		}
 		i++;
@@ -69,8 +68,7 @@ int			browse_up(t_shell *shell)
 			shell->history_index++;
 			ft_bzero(shell->editor.buffer, ARG_MAX);
 			ft_strcat(shell->editor.buffer, shell->history[shell->history_index]);
-			shell->editor.length = ft_strlen(shell->editor.buffer);
-			shell->editor.x = ft_strlen(shell->editor.buffer);
+			shell->editor.cursor= ft_strlen(shell->editor.buffer);
 		}
 	}
 	return (1);
@@ -78,15 +76,14 @@ int			browse_up(t_shell *shell)
 
 int			browse_down(t_shell *shell)
 {
-	if (shell->history_index >= 0)
+	if (shell->history_index > 0)
 	{
 		if (shell->history[shell->history_index - 1])
 		{
 			shell->history_index--;
 			ft_bzero(shell->editor.buffer, ARG_MAX);
 			ft_strcat(shell->editor.buffer, shell->history[shell->history_index]);
-			shell->editor.length = ft_strlen(shell->editor.buffer);
-			shell->editor.x = ft_strlen(shell->editor.buffer);
+			shell->editor.cursor = ft_strlen(shell->editor.buffer);
 		}
 	}
 	return (1);

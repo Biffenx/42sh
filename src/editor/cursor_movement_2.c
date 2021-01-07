@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:23:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 11:25:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/07 21:58:42 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	move_cursor_right(t_editor *editor)
 {
-	if (editor->buffer[editor->x])
-		editor->x++;
+	if (editor->buffer[editor->cursor])
+		editor->cursor++;
 	return (1);
 }
 
 int	move_cursor_left(t_editor *editor)
 {
-	if (editor->x > 0)
-		editor->x--;
+	if (editor->cursor > 0)
+		editor->cursor--;
 	return (1);
 }
