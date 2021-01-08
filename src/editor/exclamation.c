@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 22:01:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/08 22:14:59 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,20 @@ static size_t	head(t_shell *shell, size_t start, char *tmp)
 		num += (tmp[i] - '0');
 		i++;
 	}
-	num = HISTORY_SIZE - num;
-	if (num < 0)
-		num = 0;
-	add(shell->history[num], shell);
+	i = HISTORY_SIZE - 1;
+	while (!shell->history[i])
+		i--;
+	i -= num - 1;
+	if (i < 0)
+		i = 0;
+	add(shell->history[i], shell);
 	return (ft_count_digits_only(num, 10) + 1);
 }
 
 static size_t	tail(t_shell *shell, size_t start, char *tmp)
 {
-	size_t		i;
-	size_t		num;
+	int			i;
+	int			num;
 
 	i = start + 2;
 	num = 0;
@@ -53,16 +56,20 @@ static size_t	tail(t_shell *shell, size_t start, char *tmp)
 		num += (tmp[i] - '0');
 		i++;
 	}
-	num--;
-	if (num >= HISTORY_SIZE)
-		num = HISTORY_SIZE - 1;
-	add(shell->history[num], shell);
+	i = num - 1;
+	if (i >= HISTORY_SIZE)
+		{
+			i = HISTORY_SIZE - 1;
+			while (!shell->history[i] && i >= 0)
+				i--;
+		}
+	add(shell->history[i], shell);
 	return (ft_count_digits_only(num, 10) + 2);
 }
 
 static size_t	word(t_shell *shell, size_t start, char *tmp)
 {
-	size_t		i;
+	int			i;
 	char		*str;
 	size_t		length;
 
@@ -71,7 +78,8 @@ static size_t	word(t_shell *shell, size_t start, char *tmp)
 		i++;
 	str = ft_strsub(tmp, start + 1, i - start);
 	i = 0;
-	while (i < HISTORY_SIZE && !ft_strstr(shell->history[i], str))
+	while (i < HISTORY_SIZE && shell->history[i] \
+	&& !ft_strstr(shell->history[i], str))
 		i++;
 	add(shell->history[i], shell);
 	length = ft_strlen(str);
@@ -112,7 +120,7 @@ int				exclamation(t_shell *shell)
 		if (tmp[i] == '!' && ft_isprint(tmp[i + 1]))
 		{
 			i += parse(shell, i, tmp);
-			j = ft_strlen(tmp);
+			j = ft_strlen(shell->editor.buffer);
 			parsed++;
 		}
 		else
