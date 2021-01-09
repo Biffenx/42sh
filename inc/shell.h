@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 21:55:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/09 17:37:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "keyboard.h"
+# include "lexer.h"
 # include <term.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -40,6 +41,48 @@
 
 # define HISTORY_SIZE 10
 # define HISTORY_FILE ".history"
+
+# define OUTPUT 			STDOUT_FILENO
+# define PASS 				(void)0
+
+/*
+** Error numbers
+*/
+
+# define MALLOC_ERROR		2
+# define FORK_ERR			3
+# define EXECVE_ERROR		4
+# define SYNTAX_ERR			5
+# define PERMISSION_ERR 	6
+# define NOT_FOUND_ERR		7
+# define NOT_DIR_ERR		8
+# define PIPE_ERR			9
+# define DUP_ERR			10
+# define REDIR_ERR			11
+# define AMB_REDIR_ERR		12
+# define EOF_ERR			14
+# define HEREDOC_ERR		15
+# define BAD_FD_ERR			16
+
+/*
+** Error messages
+*/
+
+# define STR_MALLOC_ERR	"42sh: malloc error."
+# define STR_FORK_ERR "42sh: failed to create child process."
+# define STR_EXECVE_ERR	"42sh: execve error."
+# define STR_SYNTAX_ERR	"42sh: syntax error near unexpected token"
+# define STR_PERMISSION_ERR	"42sh: permission denied:"
+# define STR_NOT_FOUND_ERR "42sh: No such file or directory"
+# define STR_NOT_DIR_ERR "42sh: Not a directory"
+# define STR_IS_DIR "42sh: is a directory:"
+# define STR_PIPE_ERR "42sh: pipe error"
+# define STR_DUP_ERR "42sh: dup error."
+# define STR_REDIR_ERR "42sh: redirection error."
+# define STR_AMB_REDIR_ERR "42sh: ambiguous redirection:"
+# define STR_EOF_ERR "42sh: unexpected EOF while looking for matching"
+# define STR_HERE_ERR "42sh: warning: here-document delimited by end-of-file"
+# define STR_BAD_FD_ERR	"42sh: Bad file descriptor:"
 
 typedef struct			s_terminal
 {
@@ -90,5 +133,7 @@ int		handle_eof(t_shell *shell);
 int		handle_backspace(t_editor *editor);
 void	fetch(t_shell *shell);
 void 	save(t_shell *shell);
+void	exit_error(int err, char *msg);
+void	preprocess(char *input, t_shell *shell);
 
 #endif

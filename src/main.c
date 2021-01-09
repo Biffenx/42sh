@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/09 16:47:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/09 17:16:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static void	shell(char **env)
 	// editor->ac = create_completer(); ?
 	// load_runnables(editor->ac, editor->envp); ?
 	// load_envs(editor->ac, editor->envp); ?
-	// reset(NULL, editor); ?
 	if (shell.mode & INTERACTIVE)
 	{
 		terminal(&shell.terminal);
@@ -96,7 +95,7 @@ static void	shell(char **env)
 			continue ;
 		ft_printf("Input is: %s\n", shell.editor.buffer);
 		add_entry(&shell);
-		// preprocess(editor->buffer); ?
+		preprocess(shell.editor.buffer, &shell);
 		// clean_paths(editor->ac); ?
 	}
 	save(&shell);
