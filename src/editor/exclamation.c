@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/08 22:14:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/09 16:38:25 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,29 +105,27 @@ static size_t	parse(t_shell *shell, size_t i, char *tmp)
 
 int				exclamation(t_shell *shell)
 {
-	size_t		i;
-	size_t		j;
+	size_t		i[2];
 	char		tmp[ARG_MAX];
 	int			parsed;
 
-	i = 0;
-	j = 0;
+	ft_bzero(i, 2);
 	ft_bzero(tmp, ARG_MAX);
 	ft_strcat(tmp, shell->editor.buffer);
 	reset(PROMPT_NORMAL, shell);
 	parsed = 0;
-	while (tmp[i])
-		if (tmp[i] == '!' && ft_isprint(tmp[i + 1]))
+	while (tmp[i[0]])
+		if (tmp[i[0]] == '!' && ft_isprint(tmp[i[0] + 1]))
 		{
-			i += parse(shell, i, tmp);
-			j = ft_strlen(shell->editor.buffer);
+			i[0] += parse(shell, i[0], tmp);
+			i[1] = ft_strlen(shell->editor.buffer);
 			parsed++;
 		}
 		else
 		{
-			shell->editor.buffer[j] = tmp[i];
-			i++;
-			j++;
+			shell->editor.buffer[i[1]] = tmp[i[0]];
+			i[0]++;
+			i[1]++;
 		}
 	shell->editor.cursor = ft_strlen(shell->editor.buffer);
 	return (parsed);

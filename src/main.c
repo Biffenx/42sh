@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/06 18:43:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/09 16:47:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,9 @@ static void	shell(char **env)
 		editor(&shell);
 		if (shell.mode & ENDOFFILE)
 			break ;
-		ft_putendl(shell.editor.buffer);
+		else if (!shell.editor.buffer[0] || shell.mode & INTERRUPT)
+			continue ;
+		ft_printf("Input is: %s\n", shell.editor.buffer);
 		add_entry(&shell);
 		// preprocess(editor->buffer); ?
 		// clean_paths(editor->ac); ?
