@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/01/09 17:40:56 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/01/10 12:46:00 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ lib = -L libft/ -lft -I libft/
 inc = inc/
 src = src/main.c \
 	src/add_entry.c \
-	src/debug.c \
 	src/fetch.c \
 	src/preprocess.c \
 	src/reset.c \
@@ -32,6 +31,7 @@ src = src/main.c \
 	src/editor/exclamation.c \
 	src/editor/keypress.c \
 	src/editor/print.c \
+	src/lexer/debug.c \
 	src/lexer/index.c \
 	src/lexer/token_control.c \
 	src/lexer/token_new.c \
