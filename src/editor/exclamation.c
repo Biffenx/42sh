@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/09 16:38:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/10 12:42:31 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ int				exclamation(t_shell *shell)
 	char		tmp[ARG_MAX];
 	int			parsed;
 
-	ft_bzero(i, 2);
+	i[0] = 0;
+	i[1] = 0;
 	ft_bzero(tmp, ARG_MAX);
 	ft_strcat(tmp, shell->editor.buffer);
 	reset(PROMPT_NORMAL, shell);
