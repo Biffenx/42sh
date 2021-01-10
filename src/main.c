@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/09 17:16:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/10 13:35:32 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static void	shell(char **env)
 {
 	t_shell	shell;
 
+	shell.mode = 0;
 	shell.mode = isatty(STDIN_FILENO);
 	shell.env = env;
 	// create_shell(envp, editor); ?

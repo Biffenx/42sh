@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/09 17:37:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/10 13:40:23 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ typedef struct 			s_editor
 
 typedef struct	s_shell
 {
+	int			status;
 	int			mode;
 	char		**env;
 	pid_t		pgid;
@@ -109,6 +110,8 @@ typedef struct	s_shell
 	char		*history[HISTORY_SIZE];
 	int			history_index;
 }				t_shell;
+
+# include "parser.h"
 
 int		print_char(int c);
 void	signals(t_shell *shell);
@@ -135,5 +138,6 @@ void	fetch(t_shell *shell);
 void 	save(t_shell *shell);
 void	exit_error(int err, char *msg);
 void	preprocess(char *input, t_shell *shell);
+void	print_error(int err, char *msg);
 
 #endif

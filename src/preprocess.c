@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/09 17:41:15 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/10 13:42:30 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		preprocess(char *input, t_shell *shell)
 	tokenize(&lexer, input);
 	if (lexer.flags & DEBUG_LEXER)
 		lexer_debug(lexer);
-	// else
-	// 	parser(&lexer) == PARSER_OK ? PASS /*execute(lexer)*/ : PASS;
+	else
+	 	parser(&lexer, shell) == PARSER_OK ? /*execute(lexer)*/ PASS : PASS;
 	lexer_del(&lexer);
 }

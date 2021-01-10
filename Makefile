@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/01/10 12:46:00 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/01/10 13:41:41 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,13 @@ src = src/main.c \
 	src/lexer/token_control.c \
 	src/lexer/token_new.c \
 	src/lexer/token_string.c \
-	src/lexer/utils.c
+	src/lexer/utils.c \
+	src/parser/expand.c \
+	src/parser/index.c \
+	src/parser/syntax.c \
+	src/parser/utils.c \
+	src/parser/heredoc.c \
+	src/parser/quotes.c
 flags = -Wall -Wextra -Werror
 
 all:
