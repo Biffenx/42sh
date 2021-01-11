@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 21:12:44 by srouhe            #+#    #+#             */
-/*   Updated: 2020/10/01 13:34:17 by hege             ###   ########.fr       */
+/*   Updated: 2021/01/11 20:05:15 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int		check_stack(int prev, int curr, t_token *next)
 
 int				check_syntax(t_lexer *lexer)
 {
-	int		top;
-	int		stack[4096]; // dynamic allocation based on token count? hifistelyy
-	t_token *token;
+	int			top;
+	int			stack[4096]; // dynamic allocation based on token count? hifistelyy
+	t_token 	*token;
 
 	top = 0;
 	stack[top] = 0;

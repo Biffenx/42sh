@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/10 13:37:27 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 19:48:02 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void			expand_tokens(t_lexer *lexer, t_shell *shell)
 		{
 			parse_dollar(&token->data, shell);
 			parse_tilde(&token->data);
-			// tokenize_alias(lexer, &token); ?
+			tokenize_alias(lexer, &token, shell);
 		}
 		if (token->heredoc)
 		{

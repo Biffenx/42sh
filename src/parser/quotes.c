@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:21:20 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/10 13:25:17 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 20:05:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static char *reader(t_shell *shell)
+static char		*reader(t_shell *shell)
 {
 	reset(PROMPT_QUOTE, shell);
 	editor(shell);
@@ -21,9 +21,9 @@ static char *reader(t_shell *shell)
 
 static void		read_open_quote(char **data, int wquote, t_shell *shell)
 {
-	char	*input;
-	char	*tmp;
-	int		flag;
+	char		*input;
+	char		*tmp;
+	int			flag;
 
 	flag = 0;
 	while ((input = reader(shell)) != NULL)
@@ -49,7 +49,7 @@ static void		read_open_quote(char **data, int wquote, t_shell *shell)
 
 int				open_quote(t_lexer *lexer, int wquote, t_shell *shell)
 {
-	char	err_msg;
+	char		err_msg;
 
 	read_open_quote(&lexer->last->data, wquote, shell);
 	if (lexer->last->data)

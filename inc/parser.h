@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:03:47 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/11 19:09:18 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 19:49:54 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int						open_quote(t_lexer *lexer, int wquote, t_shell *shell);
 int						remove_last_token(t_lexer *lexer);
 void					expand_tokens(t_lexer *lexer, t_shell *shell);
 void					remove_quotes(t_token *token, int wquote);
-void			        tokenize_alias(t_lexer **lexer, t_token **token);
+void					tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell);
+char					*split_val(const char *s);
+char					*split_key(const char *s);
+char					*parse_quotes(char *s);
 
 #endif

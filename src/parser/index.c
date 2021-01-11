@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:24:20 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/10 13:32:03 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 20:04:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 
 int			parser(t_lexer *lexer, t_shell *shell)
 {
-	int r;
+	int		r;
 
 	if (!lexer || !lexer || !lexer->count)
 		return (PARSER_ERROR);
