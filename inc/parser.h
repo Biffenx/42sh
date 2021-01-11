@@ -6,14 +6,14 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:03:47 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/10 13:43:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 19:09:18 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-#include "lexer.h"
+# include "lexer.h"
 
 # define PARSER_OK 		0
 # define PARSER_ERROR 	1

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/10 13:35:32 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 19:19:08 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,8 @@ static void	shell(char **env)
 	shell.mode = 0;
 	shell.mode = isatty(STDIN_FILENO);
 	shell.env = env;
-	// create_shell(envp, editor); ?
+	create_shell(env, &shell);
 	create_pgroup(&shell);
-	// editor->ac = create_completer(); ?
-	// load_runnables(editor->ac, editor->envp); ?
-	// load_envs(editor->ac, editor->envp); ?
 	if (shell.mode & INTERACTIVE)
 	{
 		terminal(&shell.terminal);
@@ -97,7 +94,6 @@ static void	shell(char **env)
 		ft_printf("Input is: %s\n", shell.editor.buffer);
 		add_entry(&shell);
 		preprocess(shell.editor.buffer, &shell);
-		// clean_paths(editor->ac); ?
 	}
 	save(&shell);
 }

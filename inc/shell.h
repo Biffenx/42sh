@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/10 14:39:18 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/11 19:12:25 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,22 @@
 # define STR_HERE_ERR		"42sh: warning: here-document delimited by end-of-file"
 # define STR_BAD_FD_ERR		"42sh: Bad file descriptor:"
 
+# define HASH_SIZE 20
+
+enum	              	  	e_arrays
+{
+	SH_ALIAS,
+	SH_VARS,
+    SH_ENV,
+	SH_JOBS
+}							t_arrays;
+
+typedef struct				s_dict
+{
+	int			       		 key;
+	char					**data;
+}							t_dict;
+
 typedef struct				s_terminal
 {
 	struct termios			original;
@@ -109,9 +125,19 @@ typedef struct				s_shell
 	t_editor				editor;
 	char					*history[HISTORY_SIZE];
 	int						history_index;
+	t_dict					*dict[HASH_SIZE];
 }							t_shell;
 
 # include "parser.h"
+
+void						hash_insert(int key, char **data, t_shell *shell);
+t_dict						*hash_search(int key, t_shell *shell);
+int							array_display(int hashkey);
+int							array_find(int hashkey, char *var);
+void						array_set(int hashkey, char *key, char *val);
+void						array_delete(int hashkey, int pos);
+char						*array_get(int hashkey, char *var);
+char						**array_realloc(char **arr, size_t size);
 
 int							print_char(int c);
 void						signals(t_shell *shell);
@@ -139,5 +165,6 @@ void 						save(t_shell *shell);
 void						exit_error(int err, char *msg);
 void						preprocess(char *input, t_shell *shell);
 void						print_error(int err, char *msg);
+void						create_shell(char **env, t_shell *shell);
 
 #endif

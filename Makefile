@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/01/10 13:41:41 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/01/11 19:08:56 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ inc = inc/
 src = src/main.c \
 	src/add_entry.c \
 	src/fetch.c \
+	src/hash.c \
 	src/preprocess.c \
 	src/reset.c \
 	src/save.c \
