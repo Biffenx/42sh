@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 09:45:18 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/09 17:35:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/12 21:26:23 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	lexer_del(t_lexer *lexer)
 	t_token	*tmp;
 	t_token	*prev;
 
-	if (!lexer || !lexer)
+	if (!lexer)
 		return ;
 	tmp = lexer->first;
 	while (tmp)
