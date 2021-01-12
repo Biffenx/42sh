@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/11 19:12:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/12 20:16:16 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 # include "keyboard.h"
-# include "lexer.h"
+# include "hash.h"
 # include <term.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -31,7 +31,6 @@
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
 # define ENDOFFILE 			1 << 2
-# define READMORE 			1 << 3
 
 # define PROMPT_SIZE 		9
 # define PROMPT_NORMAL 		">"
@@ -84,22 +83,6 @@
 # define STR_HERE_ERR		"42sh: warning: here-document delimited by end-of-file"
 # define STR_BAD_FD_ERR		"42sh: Bad file descriptor:"
 
-# define HASH_SIZE 20
-
-enum	              	  	e_arrays
-{
-	SH_ALIAS,
-	SH_VARS,
-    SH_ENV,
-	SH_JOBS
-}							t_arrays;
-
-typedef struct				s_dict
-{
-	int			       		 key;
-	char					**data;
-}							t_dict;
-
 typedef struct				s_terminal
 {
 	struct termios			original;
@@ -128,6 +111,7 @@ typedef struct				s_shell
 	t_dict					*dict[HASH_SIZE];
 }							t_shell;
 
+# include "lexer.h"
 # include "parser.h"
 
 void						hash_insert(int key, char **data, t_shell *shell);
@@ -158,6 +142,7 @@ int							browse_up(t_shell *shell);
 int							browse_down(t_shell *shell);
 void						search_history(t_shell *shell);
 int							exclamation(t_shell *shell);
+size_t						parse(t_shell *shell, size_t i, char *tmp);
 int							handle_eof(t_shell *shell);
 int							handle_backspace(t_editor *editor);
 void						fetch(t_shell *shell);

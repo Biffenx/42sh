@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/10 12:34:12 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/12 20:05:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	loop(t_shell *shell)
 {
 	while (1)
 	{
-		// mark_working_jobs(); ?
 		input(shell);
 		if (shell->mode & ENDOFFILE || shell->mode & INTERRUPT)
 			break ;

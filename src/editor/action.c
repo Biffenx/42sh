@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 22:00:56 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/01/12 20:04:16 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,8 @@ void		action(int key, t_shell *shell)
 		search_history(shell);
 	else if (key == CTRL_L)
 		tputs(tgetstr("cl", NULL), 1, print_char);
-	else if (key == TAB)
-	{
-		/* if (!shell->mode & READMORE)
+	/* else if (key == TAB)
 			autocomplete(shell); */
-	}
 	else if (check_arrow_keys(key, shell))
 		return ;
 	/* else if (check_clipboard_keys(key, shell))
