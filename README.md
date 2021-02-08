@@ -8,3 +8,8 @@ Time has come. Make way for the famous 42sh!
 - [ ] A hash table and built-inhashto interact with it.
 - [ ] Contextual dynamic completion.
 - [ ] Undecided.
+
+#### Required package installation (linux)
+```
+sudo apt install libncurses5-dev
+```
