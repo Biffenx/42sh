@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/11 19:19:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/02/09 14:42:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ static void	create_pgroup(t_shell *shell)
 		write(1, "create process group\n", 22);
 		return ;
 		while (tcgetpgrp(STDIN_FILENO) != (shell_pgid = getpgrp()))
-			kill (- shell_pgid, SIGTTIN);
-		signal (SIGINT, SIG_IGN);
-		signal (SIGQUIT, SIG_IGN);
-		signal (SIGTSTP, SIG_IGN);
-		signal (SIGTTIN, SIG_IGN);
-		signal (SIGTTOU, SIG_IGN);
-		signal (SIGCHLD, SIG_IGN);
+			kill(-shell_pgid, SIGTTIN);
+		signal(SIGINT, SIG_IGN);
+		signal(SIGQUIT, SIG_IGN);
+		signal(SIGTSTP, SIG_IGN);
+		signal(SIGTTIN, SIG_IGN);
+		signal(SIGTTOU, SIG_IGN);
+		signal(SIGCHLD, SIG_IGN);
 		shell->pgid = getpid();
 		if (setpgid (shell->pgid, shell->pgid) < 0)
 		{
@@ -91,7 +91,6 @@ static void	shell(char **env)
 			break ;
 		else if (!shell.editor.buffer[0] || shell.mode & INTERRUPT)
 			continue ;
-		ft_printf("Input is: %s\n", shell.editor.buffer);
 		add_entry(&shell);
 		preprocess(shell.editor.buffer, &shell);
 	}
