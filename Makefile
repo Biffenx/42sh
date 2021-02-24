@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
+#    By: vesa <vesa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/01/12 20:16:51 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/02/24 15:00:31 by vesa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 name = 42sh
 
 lib = -L libft/ -lft -I libft/
-inc = inc/
+inc = -I inc/ -I libft/inc
 src = src/main.c \
 	src/add_entry.c \
 	src/fetch.c \
@@ -49,7 +49,7 @@ src = src/main.c \
 flags = -Wall -Wextra -Werror
 
 all:
-	gcc $(flags) -I $(inc) $(src) $(lib) -ltermcap -o $(name) 
+	gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name) 
 
 clean:
 
