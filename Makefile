@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vesa <vesa@student.42.fr>                  +#+  +:+       +#+         #
+#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/02/24 15:00:31 by vesa             ###   ########.fr        #
+#    Updated: 2021/02/24 15:24:39 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,14 @@ src = src/main.c \
 flags = -Wall -Wextra -Werror
 
 all:
-	gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name) 
+	-@git clone https://github.com/vkuokka/42-libft.git libft
+	@make -C libft
+	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name) 
 
 clean:
-
+	make clean -C libft
 fclean:
+	make fclean -C libft
 	rm -f 42sh
 
 re: fclean all
