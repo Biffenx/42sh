@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/09 14:42:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/02/24 19:11:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static void	create_pgroup(t_shell *shell)
 
 	if (shell->mode & INTERACTIVE)
 	{
-		write(1, "create process group\n", 22);
-		return ;
 		while (tcgetpgrp(STDIN_FILENO) != (shell_pgid = getpgrp()))
 			kill(-shell_pgid, SIGTTIN);
 		signal(SIGINT, SIG_IGN);

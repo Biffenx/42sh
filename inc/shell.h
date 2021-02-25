@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/12 20:16:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/02/24 19:00:29 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ typedef struct				s_shell
 
 # include "lexer.h"
 # include "parser.h"
+
+extern t_shell *g_shell;
 
 void						hash_insert(int key, char **data, t_shell *shell);
 t_dict						*hash_search(int key, t_shell *shell);
