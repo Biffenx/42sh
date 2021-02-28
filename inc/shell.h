@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/24 19:00:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/02/28 13:45:55 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,15 @@ typedef struct 				s_editor
 	size_t					cursor;
 }							t_editor;
 
+# include "job.h"
+
 typedef struct				s_shell
 {
 	int						status;
 	int						mode;
 	char					**env;
 	pid_t					pgid;
-	// job control here
+	t_job					*jobs;
 	t_terminal				terminal;
 	t_editor				editor;
 	char					*history[HISTORY_SIZE];
