@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:09:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 22:02:49 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/02/28 12:54:03 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		search_history(t_shell *shell)
 	tputs(tgetstr("sc", NULL), 1, print_char);
 	while (1)
 	{
-		find_match(shell, str) ? ft_printf("(reverse-i-search)`%s': ", str)
+		find_match(shell, str) ? ft_printf("(reverse-i-search)`%s': ", str) \
 		: ft_printf("(failed reverse-i-search)`%s': ", str);
 		ft_putstr(shell->editor.buffer);
 		key = keypress();

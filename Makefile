@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/02/24 15:24:39 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/02/28 12:56:04 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ inc = -I inc/ -I libft/inc
 src = src/main.c \
 	src/add_entry.c \
 	src/fetch.c \
+	src/globl.c \
 	src/hash.c \
 	src/preprocess.c \
 	src/reset.c \
