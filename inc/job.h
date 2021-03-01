@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 13:35:48 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/01 19:47:52 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <term.h>
+# include "lexer.h"
 
 /*
 ** A process is a single process.
@@ -37,6 +38,7 @@ typedef struct			s_process
 typedef struct			s_job
 {
 	struct s_job		*next;			/* next active job */
+	int					foreground;
 	char				*command;		/* command line, used for messages */
 	t_process 			*first_process;	/* list of processes in this job */
 	pid_t				pgid;			/* process group ID */
@@ -46,5 +48,9 @@ typedef struct			s_job
 	int					stdout;
 	int					stderr;
 }						t_job;
+
+t_job					*create_job(t_token **tokens);
+void 					job_debug();
+char					**tokens_to_array(t_token **tokens);
 
 #endif

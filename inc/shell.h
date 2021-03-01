@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 13:45:55 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/01 20:02:27 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <signal.h>
 # include <termios.h>
 # include <sys/ioctl.h>
+# include <sys/wait.h>
 # include <fcntl.h>
 
 # ifndef ARG_MAX
@@ -116,7 +117,7 @@ typedef struct				s_shell
 # include "lexer.h"
 # include "parser.h"
 
-extern t_shell *g_shell;
+extern						t_shell *g_shell;
 
 void						hash_insert(int key, char **data, t_shell *shell);
 t_dict						*hash_search(int key, t_shell *shell);
