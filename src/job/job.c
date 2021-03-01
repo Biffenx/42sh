@@ -6,19 +6,19 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 15:51:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/01 11:55:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void launch_job(t_job *job, int foreground)
+void			launch_job(t_job *job, int foreground)
 {
-	t_process *process;
-	pid_t pid;
-	int mypipe[2];
-	int infile;
-	int outfile;
+	t_process	*process;
+	pid_t		pid;
+	int			mypipe[2];
+	int			infile;
+	int			outfile;
 
 	infile = job->stdin;
 	process = job->first_process;

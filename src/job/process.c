@@ -6,15 +6,15 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 15:22:03 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/01 11:56:05 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void launch_process(t_process *process, pid_t pgid, int infile, int outfile, int errfile, int foreground)
+void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, int errfile, int foreground)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	if (g_shell->mode & INTERACTIVE)
 	{
