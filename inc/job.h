@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 18:56:48 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 20:59:54 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct			s_job
 }						t_job;
 
 t_job					*create_job(t_token **tokens);
-void 					job_debug();
+void					job_debug(t_job *job);
 char					**tokens_to_array(t_token **tokens);
 
 /*

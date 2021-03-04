@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:06:06 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 19:40:10 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 20:59:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void			process_debug(t_process *first)
 	}
 }
 
-void		job_debug()
+void		job_debug(t_job *job)
 {
-	t_job 	*job;
 	size_t	i;
 
 	i = 0;
-	job = g_shell->jobs;
 	while (job)
 	{
 		ft_printf("%i\ncommand: %s\n", i, job->command);

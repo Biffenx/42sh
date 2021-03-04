@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 11:55:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 21:41:54 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void			launch_job(t_job *job, int foreground)
 		if (pid == 0)
 			launch_process(process, job->pgid, infile, outfile, job->stderr, foreground);
 		else if (pid < 0)
-		{
 			exit(1);
-		}
 		else
 		{
 			process->pid = pid;

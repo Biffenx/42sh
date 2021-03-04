@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 11:56:05 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 21:46:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 		close(errfile);
 	}
 	execve(process->argv[0], process->argv, g_shell->env); // BINARY PATH HAS TO BE LOCATED!!!
+	write(2, "Process launch failed\n", 23);
 	exit (1);
 }
