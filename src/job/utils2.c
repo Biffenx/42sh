@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 20:01:33 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 20:32:12 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ void			update_status(void)
 	int			status;
 	pid_t		pid;
 
-	while (!mark_process_status(pid, status));
+	status = 0;
+	pid = 0;
+	while (!mark_process_status(pid, status))
 		pid = waitpid(WAIT_ANY, &status, WUNTRACED | WNOHANG);
 }
 
@@ -88,6 +90,8 @@ void wait_for_job(t_job *job)
 	int status;
 	pid_t pid;
 
+	status = 0;
+	pid = 0;
 	while (!mark_process_status(pid, status) && !job_is_stopped(job) && !job_is_completed(job))
 		pid = waitpid(WAIT_ANY, &status, WUNTRACED);
 }

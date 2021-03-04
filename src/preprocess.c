@@ -6,15 +6,15 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/03 18:33:50 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 18:27:27 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void append_job(t_job **head, t_job *new)
+static void		append_job(t_job **head, t_job *new)
 {
-	t_job *tmp;
+	t_job		*tmp;
 
 	tmp = *head;
 	if (tmp)
@@ -42,9 +42,9 @@ static void		loader(t_lexer *lexer)
 		job_debug();
 }
 
-void		preprocess(char *input, t_shell *shell)
+void			preprocess(char *input, t_shell *shell)
 {
-	t_lexer	lexer;
+	t_lexer		lexer;
 
 	lexer.head = NULL;
 	lexer.first = NULL;

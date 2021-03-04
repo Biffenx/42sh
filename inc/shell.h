@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 20:02:27 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/04 18:16:29 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct				s_shell
 
 # include "lexer.h"
 # include "parser.h"
+# include "launcher.h"
 
 extern						t_shell *g_shell;
 
