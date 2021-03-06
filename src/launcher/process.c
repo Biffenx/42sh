@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 21:46:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/06 10:45:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 		if (pgid == 0)
 			pgid = pid;
 		setpgid(pid, pgid);
-		if (foreground)
-			tcsetpgrp(STDIN_FILENO, pgid); // MAY CAUSE PROBLEMS!!!
+		/* if (foreground)
+			tcsetpgrp(STDIN_FILENO, pgid); // MAY CAUSE PROBLEMS!!! */
+		foreground = foreground;
 		signal(SIGINT, SIG_DFL);
 		signal(SIGQUIT, SIG_DFL);
 		signal(SIGTSTP, SIG_DFL);
@@ -46,7 +47,7 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 		dup2(errfile, STDERR_FILENO);
 		close(errfile);
 	}
-	execve(process->argv[0], process->argv, g_shell->env); // BINARY PATH HAS TO BE LOCATED!!!
+	execve("/bin/ls", process->argv, g_shell->env); // BINARY PATH HAS TO BE LOCATED!!!
 	write(2, "Process launch failed\n", 23);
 	exit (1);
 }
