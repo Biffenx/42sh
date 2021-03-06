@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 21:41:54 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/06 16:47:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,24 @@ void			launch_job(t_job *job, int foreground)
 		}
 		else
 			outfile = job->stdout;
-		pid = fork();
-		if (pid == 0)
-			launch_process(process, job->pgid, infile, outfile, job->stderr, foreground);
-		else if (pid < 0)
-			exit(1);
+		if (isbuiltin(process->argv[0]))
+			run_builtin(process->argv); // BUILTIN RETURN VALUE???
 		else
 		{
-			process->pid = pid;
-			if (g_shell->mode & INTERACTIVE)
+			pid = fork();
+			if (pid == 0)
+				launch_process(process, job->pgid, infile, outfile, job->stderr, foreground);
+			else if (pid < 0)
+				exit(1);
+			else
 			{
-				if (!job->pgid)
-					job->pgid = pid;
-				setpgid(pid, job->pgid);
+				process->pid = pid;
+				if (g_shell->mode & INTERACTIVE)
+				{
+					if (!job->pgid)
+						job->pgid = pid;
+					setpgid(pid, job->pgid);
+				}
 			}
 		}
 		if (infile != job->stdin)
