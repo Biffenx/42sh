@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 22:10:03 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/06 14:47:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void		launcher(t_job *job)
 		launch_job(job, job->foreground);
 		job = job->next;
 	}
+	do_job_notification();
 }
 
 static void		loader(t_lexer *lexer)

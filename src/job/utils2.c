@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/06 10:51:06 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/06 14:48:15 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 
 void			put_job_in_foreground(t_job *job, int cont)
 {
-	tcsetpgrp(STDIN_FILENO, job->pgid); // MAY CAUSE PROBLEMS!!!
+	tcsetpgrp(STDIN_FILENO, job->pgid);
 	if (cont)
 	{
-		tcsetattr(STDIN_FILENO, TCSADRAIN, &job->tmodes); // PROBLEMS???
+		tcsetattr(STDIN_FILENO, TCSADRAIN, &job->tmodes);
 		if (kill(-job->pgid, SIGCONT) < 0)
 			exit(1);
 	}
 	wait_for_job(job);
-	tcsetpgrp(STDIN_FILENO, g_shell->pgid); // PROBLEMS???
-	tcgetattr(STDIN_FILENO, &job->tmodes); // PROBLEMS???
-	tcsetattr(STDIN_FILENO, TCSADRAIN, &g_shell->terminal.original); // PROBLEMS???
+	tcsetpgrp(STDIN_FILENO, g_shell->pgid);
+	tcgetattr(STDIN_FILENO, &job->tmodes);
+	tcsetattr(STDIN_FILENO, TCSADRAIN, &g_shell->terminal.original);
 }
 
 void			put_job_in_background(t_job *job, int cont)
 {
 	if (cont)
-		if (kill (-job->pgid, SIGCONT) < 0)
+		if (kill(-job->pgid, SIGCONT) < 0)
 			exit(1);
 }
 
@@ -81,6 +81,7 @@ void			update_status(void)
 
 	status = 0;
 	pid = 0;
+	pid = waitpid(WAIT_ANY, &status, WUNTRACED | WNOHANG);
 	while (!mark_process_status(pid, status))
 		pid = waitpid(WAIT_ANY, &status, WUNTRACED | WNOHANG);
 }
