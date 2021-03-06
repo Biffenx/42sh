@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 18:16:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/06 13:21:12 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 
-# ifndef ARG_MAX
-#  define ARG_MAX 			2097152
+# ifdef __linux__
+#  include "linux/limits.h"
 # endif
+
+// MACOS LIMITS INCLUDE???
 
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
