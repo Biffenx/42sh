@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 19:47:39 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/07 17:57:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,35 @@ static void			append_process(t_process **head, t_process *new)
 		*head = new;
 }
 
+static char			*find_path(char *command)
+{
+	char			*path;
+	size_t			i;
+	char			**paths;
+
+	if (access(command, X_OK) == 0)
+		return (ft_strdup(command));
+	path = (char *)malloc(sizeof(char) * PATH_MAX);
+	i = 0;
+	while (g_shell->env[i] && !ft_strnequ(g_shell->env[i], "PATH=", 5))
+		i += 1;
+	paths = ft_strsplit(g_shell->env[i] + 5, ':');
+	i = 0;
+	while (paths[i])
+	{
+		ft_bzero(path, PATH_MAX);
+		ft_strcat(path, paths[i]);
+		ft_strcat(path, "/");
+		ft_strcat(path, command);
+		ft_putendl(path);
+		if (access(path, X_OK) == 0)
+			break ;
+		i += 1;
+	}
+	ft_arrfree(paths);
+	return (path);
+}
+
 static t_process	*create_process(t_token **tokens)
 {
 	t_process		*process;
@@ -35,6 +64,7 @@ static t_process	*create_process(t_token **tokens)
 	if (!process)
 		exit(1);
 	process->argv = tokens_to_array(tokens);
+	process->path = find_path(process->argv[0]);
 	// process->re_ag = create_re_ag_list(tokens);
 	process->pid = 0;
 	process->completed = 0;

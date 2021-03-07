@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 20:59:54 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/07 17:50:42 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct			s_process
 {
 	struct s_process	*next;			/* next process in pipeline */
 	char				**argv;			/* for exec */
+	char				*path;
 	pid_t				pid;			/* process ID */
 	char				completed;		/* true if process has completed */
 	char				stopped;		/* true if process has stopped */
