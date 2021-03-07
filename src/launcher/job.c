@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/06 16:47:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:24:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			launch_job(t_job *job, int foreground)
 		else
 			outfile = job->stdout;
 		if (isbuiltin(process->argv[0]))
-			run_builtin(process->argv); // BUILTIN RETURN VALUE???
+			g_shell->status = run_builtin(process->argv);
 		else
 		{
 			pid = fork();

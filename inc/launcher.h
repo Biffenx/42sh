@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/06 17:02:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:25:20 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 int			isbuiltin(char *command);
 void		launch_job(t_job *job, int foreground);
 void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, int errfile, int foreground);
-void		run_builtin(char **argv);
+int			run_builtin(char **argv);
 
 /*
 ** BUILTINS
 */
 
 void		shell_exit();
-void		jobs(char **argv);
+int			jobs(char **argv);
 
 #endif

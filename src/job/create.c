@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/07 17:57:51 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:21:28 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char			*find_path(char *command)
 		ft_strcat(path, paths[i]);
 		ft_strcat(path, "/");
 		ft_strcat(path, command);
-		ft_putendl(path);
+
 		if (access(path, X_OK) == 0)
 			break ;
 		i += 1;

@@ -6,14 +6,14 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/06 17:04:46 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:34:46 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void		jobs(char **argv)
+int jobs(char **argv)
 {
 	ft_printf("%s builtin\n", argv[0]);
-	return ;
+	return (1);
 }
