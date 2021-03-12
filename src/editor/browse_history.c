@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:09:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 12:54:03 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/12 13:02:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ void		search_history(t_shell *shell)
 }
 int			browse_up(t_shell *shell)
 {
-	if (shell->history_index < HISTORY_SIZE - 1)
+	if (shell->history_index > 0)
 	{
-		if (shell->history[shell->history_index + 1])
+		if (shell->history[shell->history_index - 1])
 		{
-			shell->history_index++;
+			shell->history_index--;
 			ft_bzero(shell->editor.buffer, ARG_MAX);
 			ft_strcat(shell->editor.buffer, shell->history[shell->history_index]);
 			shell->editor.cursor= ft_strlen(shell->editor.buffer);
@@ -76,11 +76,11 @@ int			browse_up(t_shell *shell)
 
 int			browse_down(t_shell *shell)
 {
-	if (shell->history_index > 0)
+	if (shell->history_index < HISTORY_SIZE - 1)
 	{
-		if (shell->history[shell->history_index - 1])
+		if (shell->history[shell->history_index + 1])
 		{
-			shell->history_index--;
+			shell->history_index++;
 			ft_bzero(shell->editor.buffer, ARG_MAX);
 			ft_strcat(shell->editor.buffer, shell->history[shell->history_index]);
 			shell->editor.cursor = ft_strlen(shell->editor.buffer);
