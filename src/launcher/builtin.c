@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/07 20:26:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/14 12:27:47 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@ int run_builtin(char **argv)
 		shell_exit();
 	else if (ft_strequ(argv[0], "jobs"))
 		return (jobs(argv));
+	else if (ft_strequ(argv[0], "fc"))
+		return (fc(argv));
 	return (1);
 }

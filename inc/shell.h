@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/06 13:21:12 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/14 12:46:43 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ typedef struct 				s_editor
 typedef struct				s_shell
 {
 	int						status;
-	int						mode;
+	char					mode;
 	char					**env;
 	pid_t					pgid;
 	t_job					*jobs;
