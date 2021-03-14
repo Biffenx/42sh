@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/14 12:49:50 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/14 20:03:52 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int 		fc(char **argv)
 	char	options;
 
 	options = parse_options(&argv);
-	ft_print_bits(options, 8);
-	ft_putendl(*argv);
+	if (options & 1 << 1)
+		list(argv, options);
 	return (0);
 }
