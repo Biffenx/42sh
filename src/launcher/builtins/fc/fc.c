@@ -6,13 +6,30 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/14 20:03:52 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/30 17:46:09 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static int parse_options(char ***argv)
+/*
+** Bits 1-4 in options are reserved for the flags and the fifth bit
+** indicates possible error during builtin execution.
+*/
+
+static void parse_editor(char **editor, char ***argv, int *options)
+{
+	if (!**argv)
+	{
+		ft_putstr(FC_ERR_EDIT);
+		*options |= 1 << 5;
+		return ;
+	}
+	*editor = **argv;
+	*argv += 1;
+}
+
+static int parse_options(char ***argv, char **editor)
 {
 	int		options;
 	size_t	i;
@@ -33,14 +50,21 @@ static int parse_options(char ***argv)
 		}
 		*argv += 1;
 	}
+	if (options & 1 << 0)
+		parse_editor(editor, argv, &options);
 	return (options);
 }
 
 int 		fc(char **argv)
 {
 	char	options;
+	char	*editor;
 
-	options = parse_options(&argv);
+	editor = FCEDIT;
+	options = parse_options(&argv, &editor);
+	ft_putendl(editor);
+	if (options & 1 << 5)
+		return (1);
 	if (options & 1 << 1)
 		list(argv, options);
 	return (0);

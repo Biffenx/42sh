@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/14 19:34:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/03/30 17:43:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@
 */
 
 # define FCEDIT "nano"
+# define FCFILE "/var/tmp/42shfcfile.txt"
+# define FC_ERR_PATH "%s: command not found\n"
+# define FC_ERR_OPT "fc: bad option: -%c\n"
+# define FC_ERR_EDIT "fc: -e: option requires an argument\n"
+# define FC_ERR_FD "fc: could not open fcfile\n"
+# define FC_ERR_ARG "fc: too many arguments\n"
+# define FC_ERR_EXEBCK "fc: history events can't be executed backwards, aborted\n"
+# define FC_ERR_EVENT "fc: event not found: %s\n"
+# define FC_ERR_REPARG "fc: replace argument invalid\n"
 
 void 		list(char **argv, char options);
 
