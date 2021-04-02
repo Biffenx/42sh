@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/30 17:46:09 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/02 20:09:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int parse_options(char ***argv, char **editor)
 
 	options = 0;
 	*argv += 1;
-	while (**argv && ***argv == '-')
+	while (**argv && ***argv == '-' && ft_isalpha(*(**argv + 1)))
 	{
 		i = 1;
 		while ((**argv)[i] != '\0')
@@ -62,7 +62,6 @@ int 		fc(char **argv)
 
 	editor = FCEDIT;
 	options = parse_options(&argv, &editor);
-	ft_putendl(editor);
 	if (options & 1 << 5)
 		return (1);
 	if (options & 1 << 1)
