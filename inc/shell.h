@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/14 19:26:19 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/05 10:57:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ typedef struct 				s_editor
 	char					prompt[PROMPT_SIZE];
 	char					buffer[ARG_MAX];
 	size_t					cursor;
+	char					clipboard[ARG_MAX];
 }							t_editor;
 
 # include "job.h"
@@ -149,6 +150,7 @@ int							move_cursor_down(t_shell *shell);
 int							browse_up(t_shell *shell);
 int							browse_down(t_shell *shell);
 void						search_history(t_shell *shell);
+int							check_clipboard_keys(int key, t_shell *shell);
 int							exclamation(t_shell *shell);
 size_t						parse(t_shell *shell, size_t i, char *tmp);
 int							handle_eof(t_shell *shell);

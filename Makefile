@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/03/14 19:34:55 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/04/05 10:57:41 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ src = src/main.c \
 	src/utils.c \
 	src/editor/action.c \
 	src/editor/browse_history.c \
+	src/editor/clipboard.c \
 	src/editor/cursor_movement_1.c \
 	src/editor/cursor_movement_2.c \
 	src/editor/deletion.c \
