@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 19:25:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/08 20:08:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:15:49 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int	find_index(char *str, int *options)
 
 	if (ft_isdigit(str[0]) || (str[0] == '-' && ft_isdigit(str[1])))
 		return (ft_atoi(str));
-	i = 0;
+	i = ft_arrlen(g_shell->history, HISTORY_SIZE) - 2;
+	i < 0 ? i = 0 : 0;
 	while (g_shell->history[i])
 	{
 		if (ft_strstr(g_shell->history[i], str))
