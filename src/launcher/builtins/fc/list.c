@@ -6,11 +6,29 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 19:25:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/05 14:31:10 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:08:42 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
+
+static int	find_index(char *str, int *options)
+{
+	int		i;
+
+	if (ft_isdigit(str[0]) || (str[0] == '-' && ft_isdigit(str[1])))
+		return (ft_atoi(str));
+	i = 0;
+	while (g_shell->history[i])
+	{
+		if (ft_strstr(g_shell->history[i], str))
+			return (i);
+		i += 1;
+	}
+	ft_putstr(FC_ERR_EVENT);
+	*options |= 1 << 5;
+	return (0);
+}
 
 static void	list_latest(char options)
 {
@@ -41,12 +59,14 @@ static void	list_latest(char options)
 	}
 }
 
-static void	list_from(char *argv, char options)
+static void	list_from(char *argv, int options)
 {
 	int		i;
 	int		histsize;
 
-	i = ft_atoi(argv);
+	i = find_index(argv, &options);
+	if (options &= 1 << 5)
+		return ;
 	histsize = ft_arrlen(g_shell->history, HISTORY_SIZE);
 	i < 0 ? i = histsize + i : 0;
 	i > histsize ? i = histsize - 1 : 0;
@@ -76,8 +96,10 @@ static void	list_to(char *from, char *to, int options)
 	int		j;
 	int		histsize;
 
-	i = ft_atoi(from);
-	j = ft_atoi(to);
+	i = find_index(from, &options);
+	j = find_index(to, &options);
+	if (options &= 1 << 5)
+		return ;
 	histsize = ft_arrlen(g_shell->history, HISTORY_SIZE);
 	i < 0 ? i = histsize + i : 0;
 	i > histsize ? i = histsize - 1 : 0;
@@ -99,7 +121,6 @@ static void	list_to(char *from, char *to, int options)
 			: ft_printf("%-10d%s\n", i, g_shell->history[i]);
 			i -= 1;
 		}
-
 }
 
 void		list(char **argv, char options)
