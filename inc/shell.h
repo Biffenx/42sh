@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/05 10:57:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/05 14:25:44 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@
 # define PROMPT_HEREDOC 	"heredoc>"
 # define PROMPT_PIPE 		"pipe>"
 
-# define HISTORY_SIZE 		50
-# define HISTORY_FILE 		".history"
+# define HISTORY_SIZE 		1000
+# define HISTORY_FILE 		".42history"
 
 # define OUTPUT 			STDOUT_FILENO
 # define PASS 				(void)0

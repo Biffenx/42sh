@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 19:25:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/02 20:13:38 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/05 14:31:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static void	list_latest(char options)
 	}
 }
 
-static void	list_from(char **argv, char options)
+static void	list_from(char *argv, char options)
 {
 	int		i;
 	int		histsize;
 
-	i = ft_atoi(*argv);
+	i = ft_atoi(argv);
 	histsize = ft_arrlen(g_shell->history, HISTORY_SIZE);
 	i < 0 ? i = histsize + i : 0;
 	i > histsize ? i = histsize - 1 : 0;
@@ -70,6 +70,38 @@ static void	list_from(char **argv, char options)
 	}
 }
 
+static void	list_to(char *from, char *to, int options)
+{
+	int 	i;
+	int		j;
+	int		histsize;
+
+	i = ft_atoi(from);
+	j = ft_atoi(to);
+	histsize = ft_arrlen(g_shell->history, HISTORY_SIZE);
+	i < 0 ? i = histsize + i : 0;
+	i > histsize ? i = histsize - 1 : 0;
+	i < 0 ? i = 0 : 0;
+	j < 0 ? j = histsize + j : 0;
+	j > histsize ? j = histsize - 1 : 0;
+	j < 0 ? j = 0 : 0;
+	if (i <= j)
+		while (i <= j)
+		{
+			options & 1 << 2 ? ft_putendl(g_shell->history[i])
+			: ft_printf("%-10d%s\n", i, g_shell->history[i]);
+			i += 1;
+		}
+	else if (i >= j)
+		while (i >= j)
+		{
+			options & 1 << 2 ? ft_putendl(g_shell->history[i])
+			: ft_printf("%-10d%s\n", i, g_shell->history[i]);
+			i -= 1;
+		}
+
+}
+
 void		list(char **argv, char options)
 {
 	if (!*argv)
@@ -77,6 +109,12 @@ void		list(char **argv, char options)
 	else
 	{
 		if (!*(argv + 1))
-			list_from(argv, options);
+			list_from(*argv, options);
+		else
+		{
+			if (options & 1 << 3)
+				ft_swap_str(argv, (argv + 1));
+			list_to(*argv, *(argv + 1), options);
+		}
 	}
 }
