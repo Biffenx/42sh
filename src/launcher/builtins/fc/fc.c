@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/02 20:09:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:54:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ static int parse_options(char ***argv, char **editor)
 		i = 1;
 		while ((**argv)[i] != '\0')
 		{
+			if (!ft_strchr(FCOPT, (**argv)[i]))
+			{
+				ft_putstr(FC_ERR_OPT);
+				options |= 1 << 5;
+				return (options);
+			}
 			(**argv)[i] == 'e' ? options |= 1 << 0 : 0;
 			(**argv)[i] == 'l' ? options |= 1 << 1 : 0;
 			(**argv)[i] == 'n' ? options |= 1 << 2 : 0;
@@ -66,5 +72,6 @@ int 		fc(char **argv)
 		return (1);
 	if (options & 1 << 1)
 		list(argv, options);
+	create_file(argv, options);
 	return (0);
 }

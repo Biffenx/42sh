@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/04/05 10:57:41 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/04/17 20:53:25 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ src = src/main.c \
 	src/launcher/process.c \
 	src/launcher/builtins/fc/fc.c \
 	src/launcher/builtins/fc/list.c \
+	src/launcher/builtins/fc/file.c \
 	src/launcher/builtins/shell_exit.c \
 	src/launcher/builtins/jobs.c \
 	src/lexer/debug.c \

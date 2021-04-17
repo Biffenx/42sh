@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/08 20:08:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:52:46 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 # define FCEDIT "nano"
 # define FCFILE "/var/tmp/42shfcfile.txt"
+# define FCOPT "elrns"
 # define FC_ERR_PATH "%s: command not found\n"
 # define FC_ERR_OPT "fc: bad option: -%c\n"
 # define FC_ERR_EDIT "fc: -e: option requires an argument\n"
@@ -34,6 +35,7 @@
 # define FC_ERR_REPARG "fc: replace argument invalid\n"
 
 void 		list(char **argv, char options);
+void		create_file(char **argv, int options);
 
 int			isbuiltin(char *command);
 void		launch_job(t_job *job, int foreground);
