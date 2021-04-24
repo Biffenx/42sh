@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/04/24 09:43:43 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/04/24 11:18:55 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ src = src/main.c \
 	src/editor/parse.c \
 	src/editor/print.c \
 	src/job/create.c \
+	src/job/find_path.c \
 	src/job/free_job.c \
 	src/job/job_debug.c \
 	src/job/tokens_to_array.c \
@@ -50,6 +51,7 @@ src = src/main.c \
 	src/launcher/builtins/fc/list.c \
 	src/launcher/builtins/fc/file.c \
 	src/launcher/builtins/fc/parse.c \
+	src/launcher/builtins/fc/execute.c \
 	src/launcher/builtins/shell_exit.c \
 	src/launcher/builtins/jobs.c \
 	src/lexer/debug.c \

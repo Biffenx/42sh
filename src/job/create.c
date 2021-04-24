@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/07 20:21:28 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/24 11:17:02 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,6 @@ static void			append_process(t_process **head, t_process *new)
 	}
 	else
 		*head = new;
-}
-
-static char			*find_path(char *command)
-{
-	char			*path;
-	size_t			i;
-	char			**paths;
-
-	if (access(command, X_OK) == 0)
-		return (ft_strdup(command));
-	path = (char *)malloc(sizeof(char) * PATH_MAX);
-	i = 0;
-	while (g_shell->env[i] && !ft_strnequ(g_shell->env[i], "PATH=", 5))
-		i += 1;
-	paths = ft_strsplit(g_shell->env[i] + 5, ':');
-	i = 0;
-	while (paths[i])
-	{
-		ft_bzero(path, PATH_MAX);
-		ft_strcat(path, paths[i]);
-		ft_strcat(path, "/");
-		ft_strcat(path, command);
-
-		if (access(path, X_OK) == 0)
-			break ;
-		i += 1;
-	}
-	ft_arrfree(paths);
-	return (path);
 }
 
 static t_process	*create_process(t_token **tokens)

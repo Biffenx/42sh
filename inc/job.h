@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/07 17:50:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/24 11:18:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct			s_job
 t_job					*create_job(t_token **tokens);
 void					job_debug(t_job *job);
 char					**tokens_to_array(t_token **tokens);
+char					*find_path(char *command);
 
 /*
 ** JOB CONTROL

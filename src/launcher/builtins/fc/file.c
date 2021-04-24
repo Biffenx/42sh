@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 20:28:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 09:44:12 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/24 11:28:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ static void	write_entry(char *argv, int fd, int options)
 	if (options &= 1 << 5)
 		return ;
 	histsize = ft_arrlen(g_shell->history, HISTORY_SIZE);
-	i < 0 ? i = histsize + i : 0;
-	i > histsize ? i = histsize - 1 : 0;
-	i < 0 ? i = 0 : 0;
+	i = parse_index(i, histsize);
 	ft_putendl_fd(g_shell->history[i], fd);
 }
 
@@ -43,14 +41,14 @@ static void	write_between(char *from, char *to, int fd, int options)
 	if (i <= j)
 		while (i <= j)
 		{
-			ft_putendl_fd(g_shell->history[i], fd);
-			i += 1;
+			ft_putendl_fd(g_shell->history[j], fd);
+			j -= 1;
 		}
 	else if (i >= j)
 		while (i >= j)
 		{
-			ft_putendl_fd(g_shell->history[i], fd);
-			i -= 1;
+			ft_putendl_fd(g_shell->history[j], fd);
+			j += 1;
 		}
 }
 
