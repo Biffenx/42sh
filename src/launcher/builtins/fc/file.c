@@ -6,30 +6,11 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 20:28:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/17 21:00:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/24 09:44:12 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-
-static int	find_index(char *str, int *options)
-{
-	int		i;
-
-	if (ft_isdigit(str[0]) || (str[0] == '-' && ft_isdigit(str[1])))
-		return (ft_atoi(str));
-	i = ft_arrlen(g_shell->history, HISTORY_SIZE) - 2;
-	i < 0 ? i = 0 : 0;
-	while (g_shell->history[i])
-	{
-		if (ft_strstr(g_shell->history[i], str))
-			return (i);
-		i += 1;
-	}
-	ft_putstr(FC_ERR_EVENT);
-	*options |= 1 << 5;
-	return (0);
-}
 
 static void	write_entry(char *argv, int fd, int options)
 {
@@ -57,12 +38,8 @@ static void	write_between(char *from, char *to, int fd, int options)
 	if (options &= 1 << 5)
 		return ;
 	histsize = ft_arrlen(g_shell->history, HISTORY_SIZE);
-	i < 0 ? i = histsize + i : 0;
-	i > histsize ? i = histsize - 1 : 0;
-	i < 0 ? i = 0 : 0;
-	j < 0 ? j = histsize + j : 0;
-	j > histsize ? j = histsize - 1 : 0;
-	j < 0 ? j = 0 : 0;
+	i = parse_index(i, histsize);
+	j = parse_index(j, histsize);
 	if (i <= j)
 		while (i <= j)
 		{

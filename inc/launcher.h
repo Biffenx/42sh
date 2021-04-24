@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/17 20:52:46 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/24 09:43:05 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 
 void 		list(char **argv, char options);
 void		create_file(char **argv, int options);
+int			find_index(char *str, int *options);
+int			parse_index(int nbr, int histsize);
 
 int			isbuiltin(char *command);
 void		launch_job(t_job *job, int foreground);
