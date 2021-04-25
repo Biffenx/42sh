@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:28:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/25 10:42:40 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 11:22:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		parse_index(int nbr, int histsize)
 {
+	histsize -= 1; // BLOCKS CURRENT COMMAND
 	nbr < 0 ? nbr = histsize + nbr : 0;
 	nbr > histsize ? nbr = histsize - 1 : 0;
 	nbr < 0 ? nbr = 0 : 0;
