@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:57:05 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 11:19:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 10:43:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void	split(char **args, int options)
+static void	launch_editor(char **args, int options)
 {
 	pid_t	pid;
 
@@ -53,6 +53,6 @@ void		execute_fc(char *editor, int options)
 	args[1] = FCFILE;
 	args[2] = NULL;
 	if (!(options & 1 << 4))
-		split(args, options);
+		launch_editor(args, options);
 	execute_file(options);
 }

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 10:01:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 10:47:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ static void parse_editor(char **editor, char ***argv, int *options)
 {
 	if (!**argv)
 	{
-		ft_putstr(FC_ERR_EDIT);
+		ft_putstr_fd(FC_ERR_EDIT, STDERR_FILENO);
 		*options |= 1 << 5;
-		return ;
 	}
-	*editor = **argv;
-	*argv += 1;
+	else
+	{
+		*editor = **argv;
+		*argv += 1;
+	}
 }
 
 static int parse_options(char ***argv, char **editor)
@@ -43,7 +45,7 @@ static int parse_options(char ***argv, char **editor)
 		{
 			if (!ft_strchr(FCOPT, (**argv)[i]))
 			{
-				ft_putstr(FC_ERR_OPT);
+				ft_putstr_fd(FC_ERR_OPT, STDERR_FILENO);
 				options |= 1 << 5;
 				return (options);
 			}
@@ -63,11 +65,16 @@ static int parse_options(char ***argv, char **editor)
 
 int 		fc(char **argv)
 {
-	char	options;
+	int		options;
 	char	*editor;
 
 	editor = FCEDIT;
 	options = parse_options(&argv, &editor);
+	if (*(argv + 2))
+	{
+		ft_putstr_fd(FC_ERR_ARG, STDERR_FILENO);
+		options |= 1 << 5;
+	}
 	if (options & 1 << 5)
 		return (1);
 	if (options & 1 << 1)

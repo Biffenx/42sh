@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:28:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 09:34:28 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 10:42:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		find_index(char *str, int *options)
 			return (i);
 		i += 1;
 	}
-	ft_putstr(FC_ERR_EVENT);
+	ft_putstr_fd(FC_ERR_EVENT, STDERR_FILENO);
 	*options |= 1 << 5;
 	return (0);
 }

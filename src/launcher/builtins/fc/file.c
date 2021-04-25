@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 20:28:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 11:28:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 10:41:55 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		create_file(char **argv, int options)
 	fd = open(FCFILE, O_WRONLY | O_TRUNC | O_CREAT, 0666);
 	if (fd == -1)
 	{
-		ft_putstr(FC_ERR_FD);
+		ft_putstr_fd(FC_ERR_FD, STDERR_FILENO);
 		options |= 1 << 5;
 		return ;
 	}
