@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/05 14:25:44 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 11:59:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
 # define ENDOFFILE 			1 << 2
+# define GEBUG				1 << 3 // GLOBAL DEBUG NOT IMPLEMENTED
 
 # define PROMPT_SIZE 		9
 # define PROMPT_NORMAL 		">"

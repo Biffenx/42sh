@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/25 11:23:24 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 11:50:18 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ static int parse_options(char ***argv, char **editor)
 	return (options);
 }
 
+static void	verify_arguments(char **argv, int *options)
+{
+	if (argv[0] && argv[1] && argv[2])
+	{
+		ft_putstr_fd(FC_ERR_ARG, STDERR_FILENO);
+		*options |= 1 << 5;
+	}
+}
+
 int 		fc(char **argv)
 {
 	int		options;
@@ -70,6 +79,7 @@ int 		fc(char **argv)
 
 	editor = FCEDIT;
 	options = parse_options(&argv, &editor);
+	verify_arguments(argv, &options);
 	if (options & 1 << 5)
 		return (1);
 	if (options & 1 << 1)

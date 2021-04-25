@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:58:32 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/07 20:29:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/04/25 11:56:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 void			format_job_info(t_job *job, const char *status)
 {
-	ft_dprintf(STDERR_FILENO, "%ld (%s): %s\n", (long)job->pgid, status, job->command);
+	if (g_shell->status & GEBUG)
+		ft_dprintf(STDERR_FILENO, "%ld (%s): %s\n", (long)job->pgid, status, job->command);
 }
 
 void 			do_job_notification(void)
