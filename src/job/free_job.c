@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:38:38 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/07 18:02:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/05 14:51:53 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void			free_job(t_job *job)
 {
 	free(job->command);
 	free_process(job->first_process);
+	job = NULL;
 }

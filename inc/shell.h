@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/25 11:59:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/05 13:53:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@
 # define PROMPT_QUOTE 		"quote>"
 # define PROMPT_HEREDOC 	"heredoc>"
 # define PROMPT_PIPE 		"pipe>"
-
-# define HISTORY_SIZE 		1000
-# define HISTORY_FILE 		".42history"
 
 # define OUTPUT 			STDOUT_FILENO
 # define PASS 				(void)0
@@ -104,6 +101,9 @@ typedef struct 				s_editor
 
 # include "job.h"
 
+# define HISTORY_SIZE 		1000
+# define HISTORY_FILE 		".42history"
+
 typedef struct				s_shell
 {
 	int						status;
@@ -118,9 +118,10 @@ typedef struct				s_shell
 	t_dict					*dict[HASH_SIZE];
 }							t_shell;
 
+# include "history.h"
+# include "launcher.h"
 # include "lexer.h"
 # include "parser.h"
-# include "launcher.h"
 
 extern						t_shell *g_shell;
 
@@ -136,7 +137,6 @@ char						**array_realloc(char **arr, size_t size);
 int							print_char(int c);
 void						signals(t_shell *shell);
 void						reset(char *prompt, t_shell *shell);
-void						add_entry(t_shell *shell);
 void						editor(t_shell *shell);
 int							keypress(void);
 void						action(int key, t_shell *shell);
@@ -148,16 +148,10 @@ int							move_cursor_right_word(t_editor *editor);
 int							move_cursor_left_word(t_editor *editor);
 int							move_cursor_up(t_shell *shell);
 int							move_cursor_down(t_shell *shell);
-int							browse_up(t_shell *shell);
-int							browse_down(t_shell *shell);
-void						search_history(t_shell *shell);
 int							check_clipboard_keys(int key, t_shell *shell);
-int							exclamation(t_shell *shell);
 size_t						parse(t_shell *shell, size_t i, char *tmp);
 int							handle_eof(t_shell *shell);
 int							handle_backspace(t_editor *editor);
-void						fetch(t_shell *shell);
-void 						save(t_shell *shell);
 void						exit_error(int err, char *msg);
 void						preprocess(char *input, t_shell *shell);
 void						print_error(int err, char *msg);

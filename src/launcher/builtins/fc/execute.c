@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:57:05 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/25 10:43:10 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/05 14:42:08 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	launch_editor(char **args, int options)
 {
 	pid_t	pid;
+	char	*path;
 
 	pid = fork();
 	if (pid < 0)
@@ -22,10 +23,12 @@ static void	launch_editor(char **args, int options)
 		options |= 1 << 5;
 		return ;
 	}
+	path = find_path(args[0]);
 	if (pid == 0)
-		execve(find_path(args[0]), args, g_shell->env);
+		execve(path, args, g_shell->env);
 	else
 		wait(&pid);
+	free(path);
 }
 
 static void	execute_file(int options)
@@ -40,15 +43,17 @@ static void	execute_file(int options)
 		return ;
 	}
 	while (get_next_line(fd, &buff))
+	{
 		preprocess(buff, g_shell);
+		ft_strdel(&buff);
+	}
 	close(fd);
-	return ;
 }
 
 void		execute_fc(char *editor, int options)
 {
 	char	*args[3];
-	
+
 	args[0] = editor;
 	args[1] = FCFILE;
 	args[2] = NULL;
