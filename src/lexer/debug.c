@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:10:44 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 13:02:00 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 13:10:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	lexer_debug(t_lexer lexer)
 {
+	ft_putstr("\n--LEXER DEBUG--\n");
 	ft_printf("%s: [%d]\n", "token count", lexer.count);
 	ft_printf("flags: ");
 	ft_print_bits(lexer.flags, 24);

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 11:32:53 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 13:08:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void		loader(t_lexer *lexer)
 	append_job(&g_shell->jobs, job);
 	while (tokens)
 		append_job(&g_shell->jobs, create_job(&tokens));
-	if (lexer->flags & DEBUG_JOBS)
+	if (lexer->flags & DEBUG_JOBS || g_debug)
 		job_debug(job);
 	launcher(job);
 }
@@ -62,7 +62,7 @@ void			preprocess(char *input, t_shell *shell)
 	lexer.count = 0;
 	lexer.flags = 0;
 	tokenize(&lexer, input);
-	if (lexer.flags & DEBUG_LEXER)
+	if (lexer.flags & DEBUG_LEXER || g_debug)
 		lexer_debug(lexer);
 	parser(&lexer, shell) == PARSER_OK ? loader(&lexer) : PASS;
 	lexer_del(&lexer);

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:06:06 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 20:59:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 13:11:18 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		job_debug(t_job *job)
 	size_t	i;
 
 	i = 0;
+	ft_putstr("\n--JOB DEBUG--\n");
 	while (job)
 	{
 		ft_printf("%i\ncommand: %s\n", i, job->command);
