@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 11:18:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 10:47:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ typedef struct			s_process
 
 typedef struct			s_job
 {
-	struct s_job		*next;			/* next active job */
+	struct s_job		*next;
+	int					running;
 	int					foreground;
-	char				*command;		/* command line, used for messages */
-	t_process 			*first_process;	/* list of processes in this job */
-	pid_t				pgid;			/* process group ID */
-	char				notified;		/* true if user told about stopped job */
-	struct termios		tmodes;			/* saved terminal modes */
-	int					stdin;			/* standard i/o channels */
+	char				*command;
+	t_process 			*first_process;
+	pid_t				pgid;
+	char				notified;
+	struct termios		tmodes;
+	int					stdin;
 	int					stdout;
 	int					stderr;
 }						t_job;

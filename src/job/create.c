@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 11:17:02 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 10:48:03 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ t_job				*create_job(t_token **tokens)
 	if (!job)
 		exit(1);
 	job->foreground = check_bg(*tokens);
+	job->running = 0;
 	job->command = ft_strdup((*tokens)->data);
 	job->first_process = list_process(tokens); 
 	job->pgid = 0;
