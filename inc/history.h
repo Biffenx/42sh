@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:45:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/05 13:52:27 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 14:12:54 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		create_file(char **argv, int options);
 int			find_index(char *str, int *options);
 int			parse_index(int nbr, int histsize);
 void		execute_fc(char *editor, int options);
+void		fc_debug(int options);
 
 
 #endif

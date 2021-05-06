@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/05 14:39:32 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 14:14:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int 		fc(char **argv)
 	editor = FCEDIT;
 	options = parse_options(&argv, &editor);
 	verify_arguments(argv, &options);
+	if (g_debug)
+		fc_debug(options);
 	if (options & 1 << 5)
 		return (1);
 	if (options & 1 << 1)
