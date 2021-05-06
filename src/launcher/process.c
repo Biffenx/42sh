@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/05 14:54:39 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:06:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 		if (pgid == 0)
 			pgid = pid;
 		setpgid(pid, pgid);
-		/* if (foreground)
-			tcsetpgrp(STDIN_FILENO, pgid); // MAY CAUSE PROBLEMS!!! */
-		foreground = foreground;
+		if (foreground)
+			tcsetpgrp(STDIN_FILENO, pgid);
 		signal(SIGINT, SIG_DFL);
 		signal(SIGQUIT, SIG_DFL);
 		signal(SIGTSTP, SIG_DFL);

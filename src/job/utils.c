@@ -6,13 +6,11 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:58:14 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/01 11:55:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:03:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-
-// Functions are not tested!!!
 
 t_job			*find_job (pid_t pgid)
 {
