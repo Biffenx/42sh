@@ -6,10 +6,11 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:54:40 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 12:55:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:39:02 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-t_shell *g_shell;
+t_shell	*g_shell;
+int		g_debug;

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 10:49:30 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:32:53 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		append_job(t_job **head, t_job *new)
 
 static void		launcher(t_job *job)
 {
-	while (job && !job->running)
+	while (job && !job->launched)
 	{
 		launch_job(job, job->foreground);
 		job = job->next;

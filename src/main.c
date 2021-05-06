@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/04 22:04:12 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:38:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int		main(int argc, char **argv, char **env)
 {
 	if (!argc || !argv || !env)
 		return (1);
+	if (ft_strequ(argv[1], "--debug"))
+		g_debug = 1;
 	termcaps();
 	tputs(tgetstr("cl", NULL), 1, &print_char);
 	shell(env);

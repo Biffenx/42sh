@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:58:32 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 11:03:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:43:33 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			format_job_info(t_job *job, const char *status)
 {
-	if (g_shell->mode & GEBUG)
+	if (g_debug)
 		ft_dprintf(STDERR_FILENO, "%ld (%s): %s\n", (long)job->pgid, status, job->command);
 }
 
@@ -38,7 +38,7 @@ void 			do_job_notification(void)
 				g_shell->jobs = jnext;
 			free_job(job);
 		}
-		else if (job_is_stopped (job) && !job->notified) {
+		else if (job_is_stopped(job) && !job->notified) {
 			format_job_info(job, "stopped");
 			job->notified = 1;
 			jlast = job;

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 11:03:19 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:39:33 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
 # define ENDOFFILE 			1 << 2
-# define GEBUG				1 << 3
 
 # define PROMPT_SIZE 		9
 # define PROMPT_NORMAL 		">"
@@ -124,6 +123,7 @@ typedef struct				s_shell
 # include "parser.h"
 
 extern						t_shell *g_shell;
+extern						int		g_debug;
 
 void						hash_insert(int key, char **data, t_shell *shell);
 t_dict						*hash_search(int key, t_shell *shell);

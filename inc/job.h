@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 10:47:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/06 11:32:17 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct			s_process
 typedef struct			s_job
 {
 	struct s_job		*next;
-	int					running;
+	int					launched;
 	int					foreground;
 	char				*command;
 	t_process 			*first_process;
