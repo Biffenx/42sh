@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 16:56:02 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/09 17:38:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 15:56:32 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct			s_token
 
 typedef struct			s_lexer
 {
+	char				*data;
 	int					flags;
 	int					count;
 	struct s_token		*head;

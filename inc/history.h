@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:45:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 14:12:54 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 15:52:21 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define FC_ERR_EVENT "fc: event not found: %s\n"
 # define FC_ERR_REPARG "fc: replace argument invalid\n"
 
-void		add_entry(t_shell *shell);
+void		add_entry(char *cmd, t_shell *shell);
 int			browse_up(t_shell *shell);
 int			browse_down(t_shell *shell);
 void		search_history(t_shell *shell);

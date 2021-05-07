@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:16:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/12 13:08:48 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 15:51:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void		add_entry(t_shell *shell)
+void		add_entry(char *cmd, t_shell *shell)
 {
 	int		i;
 	char	*entry;
@@ -29,7 +29,7 @@ void		add_entry(t_shell *shell)
 		}
 		i -= 1;
 	}
-	entry = ft_strdup(shell->editor.buffer);
+	entry = ft_strdup(cmd);
 	if (!entry)
 		return ;
 	shell->history[i] = entry;
