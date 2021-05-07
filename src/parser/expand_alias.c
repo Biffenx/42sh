@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:49:22 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/11 20:04:24 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:13:38 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell)
 	int			i;
 	char		*key;
 	char		*val;
-	t_dict		*als;
+	t_hashmap		*als;
 	t_lexer		lexer_als;
 
 	i = 0;

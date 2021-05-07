@@ -8,7 +8,7 @@ Time has come. Make way for the famous 42sh!
 	- [ ] Error monitoring without using erno, and return values of commands
 	- [ ] Correct spaces and tabulations monitoring
 - 21sh prerequisites
-	- [ ] Full edition of commands line
+	- [ ] Full edition of command line
 	- [ ] Redirection and aggregation operators
 	- [ ] Pipe
 	- [ ] Separator
@@ -20,17 +20,17 @@ Time has come. Make way for the famous 42sh!
 - Logical operators
 	- [ ] "&&"
 	- [ ] "||"
-- Monitoring of intern shell variables
-	- [ ] Intern variable creation depending on syntax: name=value
-	- [ ] Intern variable exportation to the enviroment via built-in export
-	- [ ] Possibility to list shell intern variables via built-in set
-	- [ ] Intern and enviroment variales revocation via built-in unset
+- Monitoring of internal shell variables
+	- [ ] Internal variable creation depending on syntax: name=value
+	- [ ] Internal variable exportation to the enviroment via built-in export
+	- [ ] Possibility to list shell internal variables via built-in set
+	- [ ] Internal and enviroment variables revocation via built-in unset
 	- [ ] Enviroment variable creation for unique command
 	- [ ] Simple expansion of parameters depending on syntax ${}
 	- [ ] Exit code access of previous command via expansion ${?}
 	- [ ] Job control monitoring with built-ins jobs, fg, bg and the & operator
 	- [ ] Correct monitoring of all signals
-	- [ ] Each built-in must have the enounced options by POSIX standard execpt for explicit case ad set or unset
+	- [ ] Each built-in must have the enounced options by POSIX standard execept for explicit case ad set or unset
 
 ### Modular Part Features
 - [ ] Inhibitors ” (double quote), ’ (simple quote) and \\.

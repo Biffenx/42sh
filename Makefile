@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/06 14:13:47 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/07 11:37:13 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ src = src/main.c \
 	src/add_entry.c \
 	src/fetch.c \
 	src/globl.c \
-	src/hash.c \
+	src/hashmap.c \
 	src/preprocess.c \
 	src/reset.c \
 	src/save.c \
@@ -75,7 +75,10 @@ all:
 	-@git clone https://github.com/vkuokka/42-libft.git libft
 	@make -C libft
 	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name) 
-
+simple:
+	@echo Skipped libft creation. Launching 42sh ...
+	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name)
+	./42sh
 clean:
 	make clean -C libft
 fclean:

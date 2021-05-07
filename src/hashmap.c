@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 18:47:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/25 13:30:53 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:36:44 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int	hash_code(int key)
 void		hash_insert(int key, char **data, t_shell *shell)
 {
 	int		hash_index;
-	t_dict	*item;
+	t_hashmap	*item;
 
-	item = (t_dict *)malloc(sizeof(t_dict));
+	item = (t_hashmap *)malloc(sizeof(t_hashmap));
 	item->data = data;
 	item->key = key;
 	hash_index = hash_code(key);
@@ -34,7 +34,7 @@ void		hash_insert(int key, char **data, t_shell *shell)
 	shell->dict[hash_index] = item;
 }
 
-t_dict		*hash_search(int key, t_shell *shell)
+t_hashmap		*hash_search(int key, t_shell *shell)
 {
 	int		hash_index;
 

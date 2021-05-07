@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 14:14:40 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:35:36 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,28 @@
 /*
 ** Bits 1-4 in options are reserved for the flags and the fifth bit
 ** indicates possible error during builtin execution.
+**
+** Flags:
+** 0 = -e editor
+**		Use the editor named by editor to edit the commands.
+**		The editor string is a utility name, subject to search
+**		via the PATH variable (see the Base Definitions volume
+**		of POSIX.1-2008, Chapter 8, Environment Variables).
+**		The value in the FCEDIT variable  shall	be used as a default
+**		when -e is not specified. If FCEDIT is null or unset,
+**		ed shall be used as the editor.
+** 1 = l (The  letter  ell.)
+**		List the commands rather than invoking an editor on them.
+**		The commands shall be written in the sequence indicated by
+**		the first and last operands, as affected by -r, with each
+**		command preceded by the command number.
+** 2 = n
+**		Suppress command numbers when listing with -l.
+** 3 = r
+**		Reverse the order of the commands listed (with -l)
+**		or edited (with neither -l nor -s).
+** 4 = s
+**		Re-execute the command without invoking an editor.
 */
 
 static void parse_editor(char **editor, char ***argv, int *options)

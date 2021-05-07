@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 11:39:33 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:40:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 # include "keyboard.h"
-# include "hash.h"
+# include "hashmap.h"
 # include <term.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -36,7 +36,7 @@
 # define ENDOFFILE 			1 << 2
 
 # define PROMPT_SIZE 		9
-# define PROMPT_NORMAL 		">"
+# define PROMPT_NORMAL 		"command>"
 # define PROMPT_QUOTE 		"quote>"
 # define PROMPT_HEREDOC 	"heredoc>"
 # define PROMPT_PIPE 		"pipe>"
@@ -107,14 +107,14 @@ typedef struct				s_shell
 {
 	int						status;
 	char					mode;
-	char					**env;
 	pid_t					pgid;
+	char					**env;
 	t_job					*jobs;
 	t_terminal				terminal;
 	t_editor				editor;
 	char					*history[HISTORY_SIZE];
 	int						history_index;
-	t_dict					*dict[HASH_SIZE];
+	t_hashmap				*dict[HASH_SIZE];
 }							t_shell;
 
 # include "history.h"
@@ -126,7 +126,7 @@ extern						t_shell *g_shell;
 extern						int		g_debug;
 
 void						hash_insert(int key, char **data, t_shell *shell);
-t_dict						*hash_search(int key, t_shell *shell);
+t_hashmap						*hash_search(int key, t_shell *shell);
 int							array_display(int hashkey);
 int							array_find(int hashkey, char *var);
 void						array_set(int hashkey, char *key, char *val);

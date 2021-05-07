@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/25 13:33:00 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:17:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,4 @@ void		create_shell(char **env, t_shell *shell)
 	hash_insert(SH_ENV, init_env(env), shell);
 	hash_insert(SH_VARS, init_env(env), shell);
 	hash_insert(SH_ALIAS, init_alias(), shell);
-	// editor->ac = create_completer(); ?
-	// load_runnables(editor->ac, editor->envp); ?
-	// load_envs(editor->ac, editor->envp); ?
 }
