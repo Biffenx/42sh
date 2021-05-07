@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 11:42:12 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 15:27:19 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	shell(char **env)
 		else if (!shell.editor.buffer[0] || shell.mode & INTERRUPT)
 			continue ;
 		add_entry(&shell);
-		preprocess(shell.editor.buffer, &shell);
+		preprocess(ft_strdup(shell.editor.buffer), &shell);
 	}
 	save(&shell);
 }
