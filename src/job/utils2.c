@@ -6,13 +6,11 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/06 14:48:15 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 12:22:00 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-
-// Functions are not tested!!!
 
 void			put_job_in_foreground(t_job *job, int cont)
 {
@@ -57,6 +55,7 @@ int				mark_process_status(pid_t pid, int status)
 					else
 					{
 						process->completed = 1;
+						g_shell->status = WEXITSTATUS(status);
 						if (WIFSIGNALED(status))
 							ft_dprintf(STDERR_FILENO, "%d: Terminated by signal %d.\n", \
 									(int)pid, WTERMSIG(process->status));
