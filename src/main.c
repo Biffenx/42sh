@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 13:55:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:42:12 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	create_pgroup(t_shell *shell)
 		if (setpgid(shell->pgid, shell->pgid) < 0)
 		{
 			write(2, "Couldn't put the shell in its own process group", 48);
-			exit (1);
+			exit(1);
         }
 		tcsetpgrp(STDIN_FILENO, shell->pgid);
 	}
@@ -68,7 +68,6 @@ static void	shell(char **env)
 	t_shell	shell;
 
 	shell.mode = isatty(STDIN_FILENO);
-	shell.env = env;
 	create_shell(env, &shell);
 	create_pgroup(&shell);
 	if (shell.mode & INTERACTIVE)

@@ -48,3 +48,4 @@ sudo apt install libncurses5-dev
 ### Issues
 - [ ] New opening quote in open quote.
 - [ ] Open pipe segmentation fault.
+- [ ] Fc carbage. Rewrite the whole built-in.

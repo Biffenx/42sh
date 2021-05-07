@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 11:17:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 11:17:46 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/07 11:48:16 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 char		*find_path(char *command)
 {
+	char	**env;
 	char	*path;
 	size_t	i;
 	char	**paths;
 
+	env = hash_search(SH_VARS, g_shell)->data;
 	if (access(command, X_OK) == 0)
 		return (ft_strdup(command));
 	path = (char *)malloc(sizeof(char) * PATH_MAX);
 	i = 0;
-	while (g_shell->env[i] && !ft_strnequ(g_shell->env[i], "PATH=", 5))
+	while (env[i] && !ft_strnequ(env[i], "PATH=", 5))
 		i += 1;
-	paths = ft_strsplit(g_shell->env[i] + 5, ':');
+	paths = ft_strsplit(env[i] + 5, ':');
 	i = 0;
 	while (paths[i])
 	{
