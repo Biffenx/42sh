@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 14:06:23 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 18:35:46 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static void	termcaps(void)
 
 	type = getenv("TERM");
 	if (type == 0)
-		write(2, "Specify a terminal type.", 25);
+		write(2, TERM_ERR_ENV, ft_strlen(TERM_ERR_ENV));
 	success = tgetent(buffer, type);
 	if (success > 0)
 		return ;
 	else if (success < 0)
-		write(2, "Could not access the termcap data base.", 40);
+		write(2, TERM_ERR_DB, ft_strlen(TERM_ERR_DB));
 	else if (success == 0)
-		write(2, "Terminal type is not defined.", 30);
+		write(2, TERM_ERR_TYPE, ft_strlen(TERM_ERR_TYPE));
 	exit(1);
 }
 
@@ -47,7 +47,7 @@ static void	create_pgroup(t_shell *shell)
 		shell->pgid = getpid();
 		if (setpgid(shell->pgid, shell->pgid) < 0)
 		{
-			write(2, "Couldn't put the shell in its own process group", 48);
+			write(2, SHELL_ERR_PGRP, ft_strlen(SHELL_ERR_PGRP));
 			exit(1);
         }
 		tcsetpgrp(STDIN_FILENO, shell->pgid);
@@ -73,9 +73,10 @@ static void	shell(char **env)
 	if (shell.mode & INTERACTIVE)
 	{
 		terminal(&shell.terminal);
-		signals(&shell);
+		signals();
 		fetch(&shell);
 	}
+	g_shell = &shell;
 	while (42)
 	{
 		reset(PROMPT_NORMAL, &shell);

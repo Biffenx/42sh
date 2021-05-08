@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:45:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 17:55:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 18:13:36 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,12 @@
 # define HISTORY_H
 
 /*
-** Core history definitions.
-*/
-
-# define ERR_HISTFILE "Could not open history file.\n"
-/*
 ** Fc builtin definitions
 */
 
 # define FCEDIT "nano"
 # define FCFILE "/var/tmp/42shfcfile.txt"
 # define FCOPT "elrns"
-# define FC_ERR_PATH "%s: command not found\n"
-# define FC_ERR_OPT "fc: bad option: -%c\n"
-# define FC_ERR_EDIT "fc: -e: option requires an argument\n"
-# define FC_ERR_FD "fc: could not open fcfile\n"
-# define FC_ERR_ARG "fc: too many arguments\n"
-# define FC_ERR_EXEC "fc: history events can't be executed backwards, aborted\n"
-# define FC_ERR_EVENT "fc: event not found: %s\n"
-# define FC_ERR_REPL "fc: replace argument invalid\n"
 
 /*
 ** Core history management.

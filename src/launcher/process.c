@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 11:49:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 18:49:21 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 		close(errfile);
 	}
 	execve(process->path, process->argv, hash_search(SH_ENV, g_shell)->data);
-	write(2, "Process launch failed\n", 23);
-	exit (1);
+	write(2, PROC_ERR_EXEC, ft_strlen(PROC_ERR_EXEC));
+	exit (127);
 }

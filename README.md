@@ -5,8 +5,8 @@ Time has come. Make way for the famous 42sh!
 - Minishell prerequisites
 	- [x] Prompt display
 	- [x] Run commands with their parameters and PATH monitoring
-	- [ ] Error monitoring without using erno, and return values of commands
-	- [ ] Correct spaces and tabulations monitoring
+	- [x] Error monitoring without using erno, and return values of commands
+	- [x] Correct spaces and tabulations monitoring
 - 21sh prerequisites
 	- [ ] Full edition of command line
 	- [ ] Redirection and aggregation operators
@@ -50,3 +50,4 @@ sudo apt install libncurses5-dev
 - [ ] Open pipe segmentation fault.
 - [ ] Fc carbage. Rewrite the whole built-in.
 - [ ] Line edition with command including newlines.
+- [ ] History exclamation expanded even if inside single quotes.

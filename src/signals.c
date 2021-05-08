@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:01:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/02/28 12:55:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 18:35:31 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ static void	signal_interrupt(int signum)
 	}
 }
 
-void		signals(t_shell *shell)
+void		signals(void)
 {
-	g_shell = shell;
 	signal(SIGWINCH, signal_resize);
 	signal(SIGINT, signal_interrupt);
 }
