@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 11:32:17 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:41:49 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 
 typedef struct			s_process
 {
-	struct s_process	*next;			/* next process in pipeline */
-	char				**argv;			/* for exec */
+	struct s_process	*next;
+	char				**argv;
 	char				*path;
-	pid_t				pid;			/* process ID */
-	char				completed;		/* true if process has completed */
-	char				stopped;		/* true if process has stopped */
-	int					status;			/* reported status value */
+	pid_t				pid;
+	char				completed;
+	char				stopped;
+	int					status;
 }						t_process;
 
 /* 
@@ -51,13 +51,17 @@ typedef struct			s_job
 	int					stderr;
 }						t_job;
 
+/*
+** Job creation.
+*/
+
 t_job					*create_job(t_token **tokens);
 void					job_debug(t_job *job);
 char					**tokens_to_array(t_token **tokens);
 char					*find_path(char *command);
 
 /*
-** JOB CONTROL
+** Job control.
 */
 
 t_job					*find_job(pid_t pgid);

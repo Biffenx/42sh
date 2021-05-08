@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 12:07:27 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:44:36 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 int			run_builtin(char **argv);
 
 /*
-** BUILTINS
+** Builtin command protoypes.
 */
 
 void		shell_exit();

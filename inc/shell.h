@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 17:32:13 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 18:07:15 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,8 @@ extern						t_shell *g_shell;
 extern						int		g_debug;
 
 void						hash_insert(int key, char **data, t_shell *shell);
-t_hashmap						*hash_search(int key, t_shell *shell);
+t_hashmap					*hash_search(int key, t_shell *shell);
+
 int							array_display(int hashkey);
 int							array_find(int hashkey, char *var);
 void						array_set(int hashkey, char *key, char *val);
@@ -133,8 +134,11 @@ void						array_delete(int hashkey, int pos);
 char						*array_get(int hashkey, char *var);
 char						**array_realloc(char **arr, size_t size);
 
+/*
+** Line edition prototypes.
+*/
+
 int							print_char(int c);
-void						signals(t_shell *shell);
 void						reset(char *prompt, t_shell *shell);
 void						editor(t_shell *shell);
 int							keypress(void);
@@ -148,12 +152,12 @@ int							move_cursor_left_word(t_editor *editor);
 int							move_cursor_up(t_shell *shell);
 int							move_cursor_down(t_shell *shell);
 int							check_clipboard_keys(int key, t_shell *shell);
-size_t						parse(t_shell *shell, size_t i, char *tmp);
 int							handle_eof(t_shell *shell);
 int							handle_backspace(t_editor *editor);
 void						exit_error(int err, char *msg);
 void						preprocess(char *input, t_shell *shell);
 void						print_error(int err, char *msg);
 void						create_shell(char **env, t_shell *shell);
+void						signals(t_shell *shell);
 
 #endif

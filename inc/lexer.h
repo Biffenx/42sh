@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 16:56:02 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/08 13:58:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:45:23 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LEXER_H
 
 /*
-** Token flags
+** Token flags.
 */
 
 # define T_AND_IF		(1 << 0)
@@ -42,7 +42,7 @@
 # define T_NOEXPAND		(1 << 22)
 
 /*
-** Token flag masks
+** Token flag masks.
 */
 
 # define MASK_STR		0b1000000000000
@@ -55,7 +55,7 @@
 # define MASK_ECHO		0b111000000000000
 
 /*
-** Definitions for tokenizing
+** Definitions for tokenizing.
 */
 
 # define OPERATORS 		";|<>&"
@@ -64,7 +64,7 @@
 # define OP_LEN			3
 
 /*
-** Utils for adding correct flags to tokens
+** Utils for adding correct flags to tokens.
 */
 
 # define STRING			12
@@ -93,7 +93,7 @@ typedef struct			s_token
 }						t_token;
 
 # ifdef __linux__
-#  include "linux/limits.h"
+#  include				"linux/limits.h"
 # endif
 
 typedef struct			s_lexer
