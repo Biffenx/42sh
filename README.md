@@ -3,8 +3,8 @@ Time has come. Make way for the famous 42sh!
 
 ### Mandatory part
 - Minishell prerequisites
-	- [ ] Prompt display
-	- [ ] Run commands with their parameters and PATH monitoring
+	- [x] Prompt display
+	- [x] Run commands with their parameters and PATH monitoring
 	- [ ] Error monitoring without using erno, and return values of commands
 	- [ ] Correct spaces and tabulations monitoring
 - 21sh prerequisites
@@ -46,6 +46,7 @@ sudo apt install libncurses5-dev
 ```
 
 ### Issues
-- [ ] New opening quote in open quote.
+- [x] New opening quote in open quote.
 - [ ] Open pipe segmentation fault.
 - [ ] Fc carbage. Rewrite the whole built-in.
+- [ ] Line edition with command including newlines.

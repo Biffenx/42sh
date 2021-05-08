@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/07 16:03:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:11:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 **	Update count and flags to lexer
 */
 
-void			tokenize(t_lexer *lexer, char *input)
+void	tokenize(t_lexer *lexer, char *input)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	lexer->data = input;
-	while (lexer->data[i])
+	ft_strcat(lexer->data, input);
+	while (lexer->data[i] && !(g_shell->mode & INTERRUPT))
 	{
 		if (ft_strchr(OPERATORS, lexer->data[i]))
 			i += tokenize_operator(lexer, &lexer->data[i]);
@@ -46,5 +46,4 @@ void			tokenize(t_lexer *lexer, char *input)
 			i++;
 	}
 	lexer->first = lexer->head;
-	add_entry(lexer->data, g_shell);
 }

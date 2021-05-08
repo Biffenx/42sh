@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 11:41:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:32:13 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 # define INTERRUPT 			1 << 1
 # define ENDOFFILE 			1 << 2
 
-# define PROMPT_SIZE 		9
-# define PROMPT_NORMAL 		"command>"
-# define PROMPT_QUOTE 		"quote>"
-# define PROMPT_HEREDOC 	"heredoc>"
-# define PROMPT_PIPE 		"pipe>"
+# define PROMPT_SIZE 		10
+# define PROMPT_NORMAL 		"command> "
+# define PROMPT_QUOTE 		"quote> "
+# define PROMPT_HEREDOC 	"heredoc> "
+# define PROMPT_PIPE 		"pipe> "
 
 # define OUTPUT 			STDOUT_FILENO
 # define PASS 				(void)0

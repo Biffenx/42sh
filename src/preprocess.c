@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 15:56:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:09:48 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,19 @@ void			preprocess(char *input, t_shell *shell)
 {
 	t_lexer		lexer;
 
-	if (!input)
-		return ;
+	ft_bzero(lexer.data, ARG_MAX);
+	lexer.flags = 0;
+	lexer.count = 0;
 	lexer.head = NULL;
 	lexer.first = NULL;
 	lexer.last = NULL;
-	lexer.count = 0;
-	lexer.flags = 0;
 	tokenize(&lexer, input);
-	free(input);
 	if (lexer.flags & DEBUG_LEXER || g_debug)
 		lexer_debug(lexer);
-	parser(&lexer, shell) == PARSER_OK ? loader(&lexer) : PASS;
+	if (~shell->mode & INTERRUPT)
+	{
+		add_entry(lexer.data, shell);
+		parser(&lexer, shell) == PARSER_OK ? loader(&lexer) : PASS;
+	}
 	lexer_del(&lexer);
 }

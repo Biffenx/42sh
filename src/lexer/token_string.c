@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:07:32 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/07 16:11:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 17:13:17 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,33 @@
 ** Parse quotes and check open squotes and dquotes
 */
 
+static void	append_data(t_lexer *lexer, t_shell *shell)
+{
+	reset(PROMPT_QUOTE, shell);
+	editor(shell);
+	ft_strlcat(lexer->data, "\n", ARG_MAX);
+	ft_strlcat(lexer->data, shell->editor.buffer, ARG_MAX);
+}
+
 static int	check_quoting(t_lexer *lexer, char *input, int i)
 {
-	int j;
-	int	quot;
+	int		j;
+	int		quot;
 
 	j = i;
 	quot = next_quote(&input[i + 1], input[i]);
-	if (quot == -1 && input[i] == D_QUOTE)
+	while (quot == -1)
 	{
-		add_token(lexer, ft_strsub(input, 0, ft_strlen(input)), F_DQUOTE);
-		return (ft_strlen(input));
+		append_data(lexer, g_shell);
+		if (g_shell->mode & INTERRUPT)
+			return (-1);
+		quot = next_quote(&input[i + 1], input[i]);
 	}
-	else if (quot == -1 && input[i] == S_QUOTE)
-	{
-		add_token(lexer, ft_strsub(input, 0, ft_strlen(input)), F_SQUOTE);
-		return (ft_strlen(input));
-	}
-	else
-	{
-		i += quot;
-		input[i + 1] == '\'' ? \
-			add_token(lexer, ft_strsub(&input[j + 1], 0, i), NOEXPAND) :\
-			add_token(lexer, ft_strsub(&input[j + 1], 0, i), STRING);
-		return (i + 2);
-	}
+	i += quot;
+	input[i + 1] == '\'' ? \
+		add_token(lexer, ft_strsub(&input[j + 1], 0, i), NOEXPAND) :\
+		add_token(lexer, ft_strsub(&input[j + 1], 0, i), STRING);
+	return (i + 2);
 }
 
 static int	token_exceptions(t_lexer *lexer, char *input, int i)
@@ -61,8 +63,8 @@ static int	token_exceptions(t_lexer *lexer, char *input, int i)
 
 int			tokenize_string(t_lexer *lexer, char *input)
 {
-	int i;
-	int quot;
+	int		i;
+	int		quot;
 
 	i = 0;
 	while (is_valid_char(input[i]))

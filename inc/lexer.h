@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 16:56:02 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/07 15:56:32 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/08 13:58:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,13 @@ typedef struct			s_token
 	struct s_token		*prev;
 }						t_token;
 
+# ifdef __linux__
+#  include "linux/limits.h"
+# endif
+
 typedef struct			s_lexer
 {
-	char				*data;
+	char				data[ARG_MAX];
 	int					flags;
 	int					count;
 	struct s_token		*head;
