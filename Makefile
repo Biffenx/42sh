@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/07 11:37:13 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/09 17:00:55 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,8 +67,7 @@ src = src/main.c \
 	src/parser/index.c \
 	src/parser/syntax.c \
 	src/parser/utils.c \
-	src/parser/heredoc.c \
-	src/parser/quotes.c
+	src/parser/heredoc.c
 flags = -Wall -Wextra -Werror
 
 all:

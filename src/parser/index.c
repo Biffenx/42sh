@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:24:20 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/11 20:04:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/09 17:00:28 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ int			parser(t_lexer *lexer, t_shell *shell)
 		return (PARSER_ERROR);
 	if ((r = check_syntax(lexer)) == PARSER_ERROR)
 		return (PARSER_ERROR);
-	if (lexer->flags & T_SQUOT)
-	 	r = open_quote(lexer, S_QUOTE, shell);
-	else if (lexer->flags & T_DQUOT)
-	 	r = open_quote(lexer, D_QUOTE, shell);
 	else if (lexer->flags & T_DLARR)
 	 	r = check_heredoc(lexer, shell);
 	if (lexer->count > 1 && r == PARSER_OK)
