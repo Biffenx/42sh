@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 18:49:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/09 18:38:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, int errfile, int foreground)
+void		launch_process(t_process *process, t_job *job, pid_t pgid, int infile, int outfile, int errfile, int foreground)
 {
 	pid_t	pid;
 
@@ -46,6 +46,8 @@ void		launch_process(t_process *process, pid_t pgid, int infile, int outfile, in
 		dup2(errfile, STDERR_FILENO);
 		close(errfile);
 	}
+	if (process->re_ag)
+		parse_redir_aggre_list(process->re_ag, job, &outfile);
 	execve(process->path, process->argv, hash_search(SH_ENV, g_shell)->data);
 	write(2, PROC_ERR_EXEC, ft_strlen(PROC_ERR_EXEC));
 	exit (127);

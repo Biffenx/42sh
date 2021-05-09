@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 17:41:49 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/09 18:33:56 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,30 @@
 # include <term.h>
 # include "lexer.h"
 
+typedef struct		s_re_ag
+{
+	enum {
+		REDIR = 0,
+		AGGRE = 1
+	}				e_flag;
+	union
+	{
+		struct		s_re
+		{
+			int		*heredoc;
+			char	*redir;
+			char	*file;
+		}			t_re;
+		struct		s_ag
+		{
+			char	*n;
+			char	*sign;
+			char	*word;
+		}			t_ag;
+	}				node;
+	struct s_re_ag	*next;
+}					t_re_ag;
+
 /*
 ** A process is a single process.
 */
@@ -26,6 +50,7 @@ typedef struct			s_process
 	struct s_process	*next;
 	char				**argv;
 	char				*path;
+	t_re_ag				*re_ag;
 	pid_t				pid;
 	char				completed;
 	char				stopped;
@@ -77,5 +102,14 @@ void					do_job_notification(void);
 void					mark_job_as_running(t_job *job);
 void 					continue_job(t_job *job, int foreground);
 void					free_job(t_job *job);
+
+/*
+** Redirection.
+*/
+
+t_re_ag				*create_re_ag_list(t_token **tokens);
+void				parse_redir_aggre_list(t_re_ag *l, t_job *j, int *outfile);
+void				switch_redir_node(t_re_ag *l, t_job *j, int *outfile);
+void				dup42(int in, int out, int err);
 
 #endif
