@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:57:51 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 21:59:28 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/09 12:11:08 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,30 @@
 static void	cursor(t_shell *shell)
 {
 	size_t	cursor;
+	size_t	row_len;
 
 	tputs(tgetstr("rc", NULL), 1, print_char);
 	cursor = 0;
-	while (cursor < ft_strlen(shell->editor.prompt) + shell->editor.cursor)
+	row_len = 0;
+	while (cursor < ft_strlen(shell->editor.prompt))
 	{
 		tputs(tgetstr("nd", NULL), 1, print_char);
-		cursor++;
-		if (cursor % shell->terminal.size.ws_col == 0)
-			tputs(tgetstr("do", NULL), 1, print_char);
+		cursor += 1;
+	}
+	cursor = 0;
+	row_len = ft_strlen(shell->editor.prompt);
+	while (cursor < shell->editor.cursor)
+	{
+		tputs(tgetstr("nd", NULL), 1, print_char);
+		cursor += 1;
+		row_len +=1;
+		if (row_len == shell->terminal.size.ws_col)
+			write(STDOUT_FILENO, "\n\r", 2);
+		else if (shell->editor.buffer[cursor - 1] == '\n')
+			write(STDOUT_FILENO, "\n\r", 2);
+		else
+			continue ;
+		row_len = 0;
 	}
 }
 

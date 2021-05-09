@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/08 17:11:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/09 11:38:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	tokenize(t_lexer *lexer, char *input)
 
 	i = 0;
 	ft_strcat(lexer->data, input);
-	while (lexer->data[i] && !(g_shell->mode & INTERRUPT))
+	while (lexer->data[i] && ~g_shell->mode & INTERRUPT)
 	{
 		if (ft_strchr(OPERATORS, lexer->data[i]))
 			i += tokenize_operator(lexer, &lexer->data[i]);
