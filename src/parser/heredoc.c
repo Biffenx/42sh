@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:09:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/10 13:44:43 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/10 09:20:30 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static char	*read_heredoc(char *r, char *d, t_shell *shell)
 	char	*input;
 	char	*tmp;
 
-	while ((input = reader(shell)) != NULL)
+	while ((input = reader(shell)) != NULL && ~g_shell->mode & INTERRUPT)
 	{
 		tmp = ft_strjoin(input, "\n");
-		if (!ft_strncmp(tmp, d, ft_strlen(d)))
+		if (!ft_strncmp(tmp, d, ft_strlen(d)) || g_shell->mode & ENDOFFILE)
 			return (r);
 		if (!r)
 			r = tmp;
@@ -66,7 +66,7 @@ int			check_heredoc(t_lexer *lexer, t_shell *shell)
 			}
 			else
 			{
-				print_error(HEREDOC_ERR, lexer->head->next->data);
+				~g_shell->mode & INTERRUPT ? print_error(HEREDOC_ERR, lexer->head->next->data): 0;
 				return (PARSER_ERROR);
 			}
 		}
