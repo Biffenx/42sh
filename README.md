@@ -47,7 +47,9 @@ sudo apt install libncurses5-dev
 
 ### Issues
 - [x] New opening quote in open quote.
-- [ ] Open pipe segmentation fault.
+- [ ] Trailing pipe not implemented.
 - [ ] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
 - [ ] History exclamation expanded even if inside single quotes.
+- [ ] Redirection with specified fd ie. 2> does not work.
+- [ ] Redireciton with multiple specified fd ie. 2>&1 does not work.
