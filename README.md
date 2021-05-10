@@ -51,5 +51,6 @@ sudo apt install libncurses5-dev
 - [ ] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
 - [ ] History exclamation expanded even if inside single quotes.
-- [ ] Redirection with specified fd ie. 2> does not work.
-- [ ] Redireciton with multiple specified fd ie. 2>&1 does not work.
+- [ ] Lexer does not recognize specified fd ie. 2> and 2>&1.
+	- [ ] Redirection with specified fd ie. 2> does not work.
+	- [ ] Redireciton with multiple specified fd ie. 2>&1 does not work.
