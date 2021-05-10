@@ -10,8 +10,8 @@ Time has come. Make way for the famous 42sh!
 - 21sh prerequisites
 	- [x] Full edition of command line
 	- [ ] Redirection and aggregation operators
-	- [ ] Pipe
-	- [ ] Separator
+	- [x] Pipe
+	- [x] Separator
 - Built-ins
 	- [ ] cd
 	- [ ] echo
@@ -47,7 +47,7 @@ sudo apt install libncurses5-dev
 
 ### Issues
 - [x] New opening quote in open quote.
-- [ ] Trailing pipe not implemented.
+- [x] Trailing pipe not implemented.
 - [ ] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
 - [ ] History exclamation expanded even if inside single quotes.
