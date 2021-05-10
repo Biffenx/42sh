@@ -13,7 +13,7 @@ Time has come. Make way for the famous 42sh!
 	- [x] Pipe
 	- [x] Separator
 - Built-ins
-	- [ ] cd
+	- [x] cd
 	- [ ] echo
 	- [ ] exit
 	- [ ] type
