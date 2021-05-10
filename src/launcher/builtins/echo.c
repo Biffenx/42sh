@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:06:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/05 14:18:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/10 22:05:59 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int	echo(char **argv)
+int	echo_builtin(char **argv)
 {
 	if (argv)
 		ft_putendl("echo builtin");

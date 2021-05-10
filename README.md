@@ -56,3 +56,4 @@ sudo apt install libncurses5-dev
 	- [ ] Redireciton with multiple specified fd ie. 2>&1 does not work.
 - [ ] Specific process should have own return value recorded after completion.
 - [ ] Cursor movement does not work with ctrl+key combination after commit 098687956be52f87e71d9ad68a4ce5d76ebe96ce, which fixed line edition with command including newlines.
+- [ ] Absolute path for the file where history commands are saved in.

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/10 15:53:04 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/10 22:03:57 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void		print_error(int err, char *msg)
 		ft_dprintf(STDERR_FILENO, "%s `%s'\n", STR_SYNTAX_ERR, msg);
 	else if (err == PERMISSION_ERR)
 		ft_dprintf(STDERR_FILENO, "%s %s\n", STR_PERMISSION_ERR, msg);
-	else if (err == ENOENT)
+	else if (err == NOT_FOUND_ERR)
 		ft_dprintf(STDERR_FILENO, "cd: %s: %s\n", msg, STR_NOT_FOUND_ERR);
-	else if (err == ENOTDIR)
+	else if (err == NOT_DIR_ERR)
 		ft_dprintf(STDERR_FILENO, "cd: %s: %s\n", msg, STR_NOT_DIR_ERR);
-	else if (err == EISDIR)
-		ft_dprintf(STDERR_FILENO, "%s %s\n", STR_IS_DIR, msg);
+	/* else if (err == EISDIR)
+		ft_dprintf(STDERR_FILENO, "%s %s\n", STR_IS_DIR, msg); */ // NO ERNOS ALLOWED!!!
 	else if (err == AMB_REDIR_ERR)
 		ft_dprintf(STDERR_FILENO, "%s %s\n", STR_AMB_REDIR_ERR, msg);
 	else if (err == PIPE_ERR)
