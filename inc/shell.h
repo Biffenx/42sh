@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 18:29:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/10 15:42:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # include <fcntl.h>
 
 # ifdef __linux__
-#  include "linux/limits.h"
+#  include <linux/limits.h>
+# else
+#  include <limits.h>
 # endif
-
-// MACOS LIMITS INCLUDE???
 
 # include "errors.h"
 

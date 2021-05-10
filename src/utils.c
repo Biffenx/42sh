@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 11:17:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/10 15:53:04 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ static char **init_alias(void)
 
 void		create_shell(char **env, t_shell *shell)
 {
+	size_t	i;
+
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		shell->dict[i] = NULL;
+		i += 1;
+	}
 	hash_insert(SH_ENV, init_env(env), shell);
 	hash_insert(SH_VARS, init_env(env), shell);
 	hash_insert(SH_ALIAS, init_alias(), shell);
