@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:57:05 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 11:50:18 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 08:12:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	launch_editor(char **args, int options)
 	}
 	path = find_path(args[0]);
 	if (pid == 0)
-		execve(path, args, hash_search(SH_ENV, g_shell)->data);
+		execve(path, args, g_shell->env);
 	else
 		wait(&pid);
 	free(path);

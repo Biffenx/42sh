@@ -8,7 +8,7 @@ Time has come. Make way for the famous 42sh!
 	- [x] Error monitoring without using erno, and return values of commands
 	- [x] Correct spaces and tabulations monitoring
 - 21sh prerequisites
-	- [x] Full edition of command line
+	- [ ] Full edition of command line
 	- [ ] Redirection and aggregation operators
 	- [x] Pipe
 	- [x] Separator
