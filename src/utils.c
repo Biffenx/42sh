@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 08:08:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 10:29:52 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ void		create_shell(char **env, t_shell *shell)
 		i += 1;
 	}
 	shell->env = env;
+	ft_bzero(shell->history_file, PATH_MAX);
+	ft_strlcat(shell->history_file, getenv("HOME"), PATH_MAX);
+	ft_strlcat(shell->history_file, HISTORY_FILE, PATH_MAX);
 	hash_insert(SH_ENV, init_env(env), shell);
 	hash_insert(SH_VARS, init_env(env), shell);
 	hash_insert(SH_ALIAS, init_alias(), shell);

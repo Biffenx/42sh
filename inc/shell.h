@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 08:08:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 10:24:53 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct 				s_editor
 # include "job.h"
 
 # define HISTORY_SIZE 		1000
-# define HISTORY_FILE 		".42history"
+# define HISTORY_FILE 		"/.42history"
 
 typedef struct				s_shell
 {
@@ -77,6 +77,7 @@ typedef struct				s_shell
 	t_editor				editor;
 	char					*history[HISTORY_SIZE];
 	int						history_index;
+	char					history_file[PATH_MAX];
 	t_hashmap				*dict[HASH_SIZE];
 }							t_shell;
 

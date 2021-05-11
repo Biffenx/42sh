@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 18:37:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 18:56:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 10:26:43 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void 		save(t_shell *shell)
 {
 	int		fd;
 
-	fd = open(HISTORY_FILE, O_WRONLY | O_TRUNC | O_CREAT, 0666);
+	fd = open(shell->history_file, O_WRONLY | O_TRUNC | O_CREAT, 0666);
 	if (fd == -1)
 		write(2, HIST_ERR_FILE, ft_strlen(HIST_ERR_FILE));
 	else
