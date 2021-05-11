@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 18:39:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 21:13:32 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void			launch_job(t_job *job, int foreground)
 			outfile = job->stdout;
 		if (isbuiltin(process->argv[0]))
 		{
-				g_shell->status = run_builtin(process->argv);
 				process->completed = 1;
+				process->exit = run_builtin(process->argv);
 		}
 		else
 		{

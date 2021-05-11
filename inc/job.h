@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 18:33:56 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 20:19:48 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct			s_process
 	char				completed;
 	char				stopped;
 	int					status;
+	int					exit;
 }						t_process;
 
 /* 

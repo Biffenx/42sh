@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 10:53:09 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 20:15:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	move_to(char *path, int print)
 	char	*pwd;
 	char	cwd[PATH_MAX];
 	struct stat stats;
-	
 
 	pwd = getenv("PWD");
 	if (!chdir(path))
@@ -33,7 +32,6 @@ static int	move_to(char *path, int print)
 			ft_putendl(cwd);
 		return (0);
 	}
-	
 	if (stat(path, &stats) == -1)
 		print_error(NOT_FOUND_ERR, path);
 	else if (!S_ISDIR(stats.st_mode))

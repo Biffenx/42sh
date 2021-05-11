@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 18:08:18 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 20:20:00 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static t_process	*create_process(t_token **tokens)
 	process->completed = 0;
 	process->stopped = 0;
 	process->status = 0;
+	process->exit = 0;
 	process->next = NULL;
 	return (process);
 }
