@@ -13,9 +13,9 @@ Time has come. Make way for the famous 42sh!
 	- [x] Pipe
 	- [x] Separator
 - Built-ins
-	- [x] cd
-	- [ ] echo
-	- [ ] exit
+	- [ ] cd
+	- [x] echo
+	- [x] exit
 	- [ ] type
 - Logical operators
 	- [ ] "&&"
@@ -57,3 +57,4 @@ sudo apt install libncurses5-dev
 - [ ] Specific process should have own return value recorded after completion.
 - [ ] Cursor movement does not work with ctrl+key combination after commit 098687956be52f87e71d9ad68a4ce5d76ebe96ce, which fixed line edition with command including newlines.
 - [x] Absolute path for the file where history commands are saved in.
+- [ ] Cd builtin does not align with the POSIX standard.

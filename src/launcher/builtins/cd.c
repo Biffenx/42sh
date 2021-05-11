@@ -6,12 +6,16 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/10 22:16:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 10:53:09 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 #include <sys/stat.h>
+
+/*
+** https://www.man7.org/linux/man-pages/man1/cd.1p.html
+*/
 
 static int	move_to(char *path, int print)
 {
