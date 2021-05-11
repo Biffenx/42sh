@@ -6,12 +6,11 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 10:02:53 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/11 12:44:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 13:07:47 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-#include "type.h"
 
 /*
 ** https://man7.org/linux/man-pages/man1/type.1p.html
@@ -23,14 +22,17 @@
 ** operand's pathname.
 */
 
-static void builtin(char *command)
+static int builtin(char *command)
 {
 	if (isbuiltin(command))
+	{
 		ft_printf("%s is a shell builtin\n", command);
-
+		return (0);
+	}
+	return (1);
 }
 
-static void binary(char *command)
+static int binary(char *command)
 {
 	char	*path;
 
@@ -38,10 +40,12 @@ static void binary(char *command)
 	{
 		ft_printf("%s is a binary file (%s)\n", command, path);
 		free(path);
+		return (0);
 	}
+	return (1);
 }
 
-static void alias(char *command)
+static int alias(char *command)
 {
 	t_hashmap *object;
 	size_t	i;
@@ -58,10 +62,13 @@ static void alias(char *command)
 			value = split_val(object->data[i]);
 			ft_printf("%s is aliased to `%s`", command, value);
 			free(value);
+			free(key);
+			return (0);
 		}
 		free(key);
 		i += 1;
 	}
+	return (1);
 }
 
 int	type_builtin(char **argv)
@@ -71,9 +78,8 @@ int	type_builtin(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		builtin(argv[i]);
-		binary(argv[i]);
-		alias(argv[i]);
+		if (builtin(argv[i]) && binary(argv[i]) && alias(argv[i]))
+			ft_dprintf(STDERR_FILENO, "42sh: type: %s: not found\n", argv[i]);
 		i += 1;
 	}
 	return (0);
