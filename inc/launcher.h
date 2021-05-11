@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 10:40:46 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/11 11:26:57 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 ** List of built-in shell commands.
 */
 
-# define BUILTIN_ARR	"exit", "jobs", "fc", "cd", "echo"
-# define BUILTIN_SLOTS	5
+# define BUILTIN_ARR	"exit", "jobs", "fc", "cd", "echo", "type"
+# define BUILTIN_SLOTS	6
 # define BUILTIN_LEN	5
+
+# define EXEC_OK 1
+# define EXEC_ERROR 0
 
 int			isbuiltin(char *command);
 void		launch_job(t_job *job, int foreground);
@@ -33,7 +36,8 @@ int			run_builtin(char **argv);
 int 		fc(char **argv);
 int			cd_builtin(char **argv);
 int			echo_builtin(char **argv);
-int			jobs_builtin(char **argv);
 void		exit_builtin();
+int			jobs_builtin(char **argv);
+int         type_builtin(char **args);
 
 #endif

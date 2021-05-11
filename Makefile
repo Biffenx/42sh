@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/10 22:07:05 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/11 11:20:21 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,9 @@ src = src/main.c \
 	src/launcher/builtins/fc/parse.c \
 	src/launcher/builtins/cd.c \
 	src/launcher/builtins/echo.c \
-	src/launcher/builtins/jobs.c \
 	src/launcher/builtins/exit.c \
+	src/launcher/builtins/jobs.c \
+	src/launcher/builtins/type.c \
 	src/lexer/debug.c \
 	src/lexer/index.c \
 	src/lexer/token_control.c \

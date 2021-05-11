@@ -58,3 +58,4 @@ sudo apt install libncurses5-dev
 - [ ] Cursor movement does not work with ctrl+key combination after commit 098687956be52f87e71d9ad68a4ce5d76ebe96ce, which fixed line edition with command including newlines.
 - [x] Absolute path for the file where history commands are saved in.
 - [ ] Cd builtin does not align with the POSIX standard.
+- [ ] Type builtin cannot handle alias specification because aliases are expanded in lexer.
