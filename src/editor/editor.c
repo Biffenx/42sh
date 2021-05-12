@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/12 20:05:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 15:15:38 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		editor(t_shell *shell)
 {
 	char	*line;
 
-	if (!shell->mode & INTERACTIVE)
+	if (~shell->mode & INTERACTIVE)
 	{
 		if (!get_next_line(0, &line))
 		{
