@@ -44,6 +44,24 @@ Time has come. Make way for the famous 42sh!
 ```
 sudo apt install libncurses5-dev
 ```
+#### Keybindings
+| KEY  | FUNCTION |
+| ------------- | ------------- |
+| <kbd>right</kbd> | Move cursor right. |
+| <kbd>left</kbd> | Move cursor left. |
+| <kbd>ctrl+right</kbd> | Move cursor to the beginning of a word. |
+| <kbd>ctrl+left</kbd> | Move cursor to the ending of a word. |
+| <kbd>ctrl+up</kbd> | Move cursor to the upper line. |
+| <kbd>ctrl+down</kbd> | Move cursor to the lower line. |
+| <kbd>up</kbd> | Navigate to older command in history. |
+| <kbd>down</kbd> | Navigate to newer command in history. |
+| <kbd>ctrl+r</kbd> | Reverse-i-search. |
+| <kbd>home</kbd> | Move cursor to the beginning of current command. |
+| <kbd>end</kbd> | Move cursor to the ending of current command. |
+| <kbd>ctrl+l</kbd> | Clear input buffer. |
+| <kbd>ctrl+u</kbd> | Cut left side of the command from cursor. |
+| <kbd>ctrl+k</kbd> | Cut right side of the command from cursor. |
+| <kbd>ctrl+p</kbd> | Paste internal clipboard content. |
 
 ### Issues
 - [x] New opening quote in open quote.
