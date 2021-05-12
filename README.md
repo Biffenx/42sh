@@ -1,6 +1,30 @@
 # 42sh
 Time has come. Make way for the famous 42sh!
 
+#### Required package installation (linux)
+```
+sudo apt install libncurses5-dev
+```
+
+#### Keybindings
+| KEY  | FUNCTION |
+| ------------- | ------------- |
+| <kbd>right</kbd> | Move cursor right. |
+| <kbd>left</kbd> | Move cursor left. |
+| <kbd>ctrl+right</kbd> | Move cursor to the beginning of a word. |
+| <kbd>ctrl+left</kbd> | Move cursor to the ending of a word. |
+| <kbd>ctrl+up</kbd> | Move cursor to the upper line. |
+| <kbd>ctrl+down</kbd> | Move cursor to the lower line. |
+| <kbd>up</kbd> | Navigate to older command in history. |
+| <kbd>down</kbd> | Navigate to newer command in history. |
+| <kbd>ctrl+r</kbd> | Reverse-i-search. |
+| <kbd>home</kbd> | Move cursor to the beginning of current command. |
+| <kbd>end</kbd> | Move cursor to the ending of current command. |
+| <kbd>ctrl+l</kbd> | Clear input buffer. |
+| <kbd>ctrl+u</kbd> | Cut left side of the command from cursor. |
+| <kbd>ctrl+k</kbd> | Cut right side of the command from cursor. |
+| <kbd>ctrl+p</kbd> | Paste internal clipboard content. |
+
 ### Mandatory part
 - Minishell prerequisites
 	- [x] Prompt display
@@ -8,7 +32,7 @@ Time has come. Make way for the famous 42sh!
 	- [x] Error monitoring without using erno, and return values of commands
 	- [x] Correct spaces and tabulations monitoring
 - 21sh prerequisites
-	- [ ] Full edition of command line
+	- [x] Full edition of command line
 	- [ ] Redirection and aggregation operators
 	- [x] Pipe
 	- [x] Separator
@@ -38,30 +62,7 @@ Time has come. Make way for the famous 42sh!
 - [ ] Alias management via built-ins alias and unalias.
 - [ ] A hash table and built-in hash to interact with it.
 - [ ] Contextual dynamic completion.
-- [ ] Undecided.
-
-#### Required package installation (linux)
-```
-sudo apt install libncurses5-dev
-```
-#### Keybindings
-| KEY  | FUNCTION |
-| ------------- | ------------- |
-| <kbd>right</kbd> | Move cursor right. |
-| <kbd>left</kbd> | Move cursor left. |
-| <kbd>ctrl+right</kbd> | Move cursor to the beginning of a word. |
-| <kbd>ctrl+left</kbd> | Move cursor to the ending of a word. |
-| <kbd>ctrl+up</kbd> | Move cursor to the upper line. |
-| <kbd>ctrl+down</kbd> | Move cursor to the lower line. |
-| <kbd>up</kbd> | Navigate to older command in history. |
-| <kbd>down</kbd> | Navigate to newer command in history. |
-| <kbd>ctrl+r</kbd> | Reverse-i-search. |
-| <kbd>home</kbd> | Move cursor to the beginning of current command. |
-| <kbd>end</kbd> | Move cursor to the ending of current command. |
-| <kbd>ctrl+l</kbd> | Clear input buffer. |
-| <kbd>ctrl+u</kbd> | Cut left side of the command from cursor. |
-| <kbd>ctrl+k</kbd> | Cut right side of the command from cursor. |
-| <kbd>ctrl+p</kbd> | Paste internal clipboard content. |
+- [ ] Built-in test with the required operators.
 
 ### Issues
 - [x] New opening quote in open quote.
@@ -73,7 +74,7 @@ sudo apt install libncurses5-dev
 	- [ ] Redirection with specified fd ie. 2> does not work.
 	- [ ] Redireciton with multiple specified fd ie. 2>&1 does not work.
 - [x] Specific process should have own return value recorded after completion.
-- [ ] Cursor movement does not work with ctrl+key combination after commit 098687956be52f87e71d9ad68a4ce5d76ebe96ce, which fixed line edition with command including newlines.
+- [x] Cursor movement does not work with ctrl+key combination after commit 098687956be52f87e71d9ad68a4ce5d76ebe96ce, which fixed line edition with command including newlines.
 - [x] Absolute path for the file where history commands are saved in.
 - [ ] Cd builtin does not align with the POSIX standard.
 - [x] Type builtin cannot handle alias specification because aliases are expanded in lexer. (comment: use single quotes to avoid this.)
