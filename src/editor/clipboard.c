@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 10:39:43 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/05 13:43:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 13:05:32 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int			check_clipboard_keys(int key, t_shell *shell)
 		return (cut_left(shell));
 	else if (key == CTRL_K)
 		return (cut_right(shell));
-	else if (key == CTRL_Y)
+	else if (key == CTRL_P)
 		return (paste_clipboard(shell));
 	else
 		return (0);
