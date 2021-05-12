@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 21:11:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 15:51:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ int							move_cursor_right(t_editor *editor);
 int							move_cursor_left(t_editor *editor);
 int							move_cursor_right_word(t_editor *editor);
 int							move_cursor_left_word(t_editor *editor);
-int							move_cursor_up(t_shell *shell);
-int							move_cursor_down(t_shell *shell);
+int							move_cursor_up(t_editor *editor);
+int							move_cursor_down(t_editor *editor);
 int							check_clipboard_keys(int key, t_shell *shell);
 int							handle_eof(t_shell *shell);
 int							handle_backspace(t_editor *editor);

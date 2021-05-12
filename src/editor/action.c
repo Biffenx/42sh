@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/05 10:38:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 15:53:55 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ static int	check_leap_keys(int key, t_shell *shell)
 	else if (key == CTRL_RIGHT)
 		return (move_cursor_right_word(&shell->editor));
 	else if (key == CTRL_UP)
-		return (move_cursor_up(shell));
+		return (move_cursor_up(&shell->editor));
 	else if (key == CTRL_DOWN)
-		return (move_cursor_down(shell));
+		return (move_cursor_down(&shell->editor));
 	else if (key == HOME)
 	{
 		shell->editor.cursor = 0;
