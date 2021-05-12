@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 18:33:16 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 15:18:49 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ** Termcaps.
 */
 
-# define TERM_ERR_ENV		"Specify a terminal type.\n"
-# define TERM_ERR_DB		"Could not access the termcap data base.\n"
-# define TERM_ERR_TYPE		"Terminal type is not defined.\n"
+# define TERM_ERR_ENV "Specify a terminal type.\n"
+# define TERM_ERR_DB "Could not access the termcap data base.\n"
+# define TERM_ERR_TYPE "Terminal type is not defined.\n"
 
 /*
 ** Job control.
@@ -37,40 +37,40 @@
 ** Fc builtin.
 */
 
-# define FC_ERR_PATH 		"%s: command not found\n"
-# define FC_ERR_OPT 		"fc: bad option: -%c\n"
-# define FC_ERR_EDIT 		"fc: -e: option requires an argument\n"
-# define FC_ERR_FD 			"fc: could not open fcfile\n"
-# define FC_ERR_ARG 		"fc: too many arguments\n"
-# define FC_ERR_EXEC 		"fc: history events can't be executed backwards, aborted\n"
-# define FC_ERR_EVENT 		"fc: event not found: %s\n"
-# define FC_ERR_REPL 		"fc: replace argument invalid\n"
+# define FC_ERR_PATH "%s: command not found\n"
+# define FC_ERR_OPT "fc: bad option: -%c\n"
+# define FC_ERR_EDIT "fc: -e: option requires an argument\n"
+# define FC_ERR_FD "fc: could not open fcfile\n"
+# define FC_ERR_ARG "fc: too many arguments\n"
+# define FC_ERR_EXEC "fc: history events can't be executed backwards, aborted\n"
+# define FC_ERR_EVENT "fc: event not found: %s\n"
+# define FC_ERR_REPL "fc: replace argument invalid\n"
 
 /*
 ** Core history.
 */
 
-# define HIST_ERR_FILE		"Could not open history file.\n"
+# define HIST_ERR_FILE "Could not open history file.\n"
 
 /*
 ** General errors.
 */
 
-# define STR_MALLOC_ERR		"42sh: malloc error."
-# define STR_FORK_ERR 		"42sh: failed to create child process."
-# define STR_EXECVE_ERR		"42sh: execve error."
-# define STR_SYNTAX_ERR		"42sh: syntax error near unexpected token"
-# define STR_PERMISSION_ERR	"42sh: permission denied:"
-# define STR_NOT_FOUND_ERR	"42sh: No such file or directory"
-# define STR_NOT_DIR_ERR	"42sh: Not a directory"
-# define STR_IS_DIR			"42sh: is a directory:"
-# define STR_PIPE_ERR		"42sh: pipe error"
-# define STR_DUP_ERR		"42sh: dup error."
-# define STR_REDIR_ERR		"42sh: redirection error."
-# define STR_AMB_REDIR_ERR	"42sh: ambiguous redirection:"
-# define STR_EOF_ERR		"42sh: unexpected EOF while looking for matching"
-# define STR_HERE_ERR		"42sh: warning: here-document delimited by end-of-file"
-# define STR_BAD_FD_ERR		"42sh: Bad file descriptor:"
+# define STR_MALLOC_ERR "42sh: malloc error."
+# define STR_FORK_ERR "42sh: failed to create child process."
+# define STR_EXECVE_ERR "42sh: execve error."
+# define STR_SYNTAX_ERR "42sh: syntax error near unexpected token"
+# define STR_PERMISSION_ERR "42sh: permission denied:"
+# define STR_NOT_FOUND_ERR "42sh: No such file or directory"
+# define STR_NOT_DIR_ERR "42sh: Not a directory"
+# define STR_IS_DIR "42sh: is a directory:"
+# define STR_PIPE_ERR "42sh: pipe error"
+# define STR_DUP_ERR "42sh: dup error."
+# define STR_REDIR_ERR "42sh: redirection error."
+# define STR_AMB_REDIR_ERR "42sh: ambiguous redirection:"
+# define STR_EOF_ERR "42sh: unexpected EOF while looking for matching"
+# define STR_HERE_ERR "42sh: warning: here-document delimited by end-of-file"
+# define STR_BAD_FD_ERR "42sh: Bad file descriptor:"
 
 /*
 ** General error numbers.
