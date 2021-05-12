@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:17:19 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 20:06:15 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 08:54:46 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,14 @@ int		move_cursor_left_word(t_editor *editor)
 
 int		move_cursor_up(t_shell *shell)
 {
+	if (!shell)
+		exit (1);
 	return (1);
 }
 
 int		move_cursor_down(t_shell *shell)
 {
+	if (!shell)
+		exit (1);
 	return (1);
 }
