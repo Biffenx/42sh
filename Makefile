@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/11 11:20:21 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/12 09:51:09 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ src = src/main.c \
 	src/save.c \
 	src/signals.c \
 	src/utils.c \
+	src/utils2.c \
+	src/utils3.c \
 	src/editor/action.c \
 	src/editor/browse_history.c \
 	src/editor/clipboard.c \
@@ -53,11 +55,13 @@ src = src/main.c \
 	src/launcher/builtins/fc/list.c \
 	src/launcher/builtins/fc/file.c \
 	src/launcher/builtins/fc/parse.c \
+	src/launcher/builtins/alias.c \
 	src/launcher/builtins/cd.c \
 	src/launcher/builtins/echo.c \
 	src/launcher/builtins/exit.c \
 	src/launcher/builtins/jobs.c \
 	src/launcher/builtins/type.c \
+	src/launcher/builtins/unalias.c \
 	src/lexer/debug.c \
 	src/lexer/index.c \
 	src/lexer/token_control.c \

@@ -6,17 +6,11 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 10:29:52 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/12 10:09:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-#include <errno.h>
-
-int		print_char(int c)
-{
-	return (write(0, &c, 1));
-}
 
 void		exit_error(int err, char *msg)
 {
