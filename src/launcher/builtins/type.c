@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 10:02:53 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/12 08:50:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 12:38:49 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,13 @@ static int binary(char *command)
 
 static int alias(char *command)
 {
-	t_hashmap *object;
-	size_t	i;
-	char	*key;
-	char	*value;
+	char *value;
 
-	object = hash_search(SH_ALIAS, g_shell);
-	i = 0;
-	while (object->data[i])
+	value = hash_get(g_shell->alias, command);
+	if (value)
 	{
-		key = split_key(object->data[i]);
-		if (ft_strequ(key, command))
-		{
-			value = split_val(object->data[i]);
-			ft_printf("%s is aliased to `%s`\n", command, value);
-			free(value);
-			free(key);
-			return (0);
-		}
-		free(key);
-		i += 1;
+		ft_printf("%s is aliased to `%s`\n", command, value);
+		return (0);
 	}
 	return (1);
 }
