@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/12 08:39:23 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 15:20:31 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		*helper(char *var, t_shell *shell)
 {
-	if (!ft_strcmp(var, "${?}"))
+	if (!ft_strcmp(var, "$?"))
 		return (ft_itoa(shell->exit));
 	else if (getenv(var + 1))
 		return (ft_strdup(getenv(var + 1)));
