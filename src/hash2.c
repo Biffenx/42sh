@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash.h                                             :+:      :+:    :+:   */
+/*   hash2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 11:11:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 12:46:20 by vkuokka          ###   ########.fr       */
+/*   Created: 2021/05/14 12:43:16 by vkuokka           #+#    #+#             */
+/*   Updated: 2021/05/14 12:56:36 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASH_H
-# define HASH_H
+#include "shell.h"
 
-#include "hashmap.h"
-
-typedef struct s_hash
+void	hash_display(t_hash *map)
 {
-	char	*key;
-	char	*value;
-}	t_hash;
+	int	i;
 
-int		hash_put(t_hash *map, char *key, char *value);
-char	*hash_get(t_hash *map, char *key);
-void	hash_delete(t_hash *map, char *key);
-void	hash_purge(t_hash *map);
-void	hash_display(t_hash *map);
-
-#endif
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		if (map[i].key)
+			ft_printf("alias %s=%s\n", map[i].key, map[i].value);
+		i += 1;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:49:22 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/14 12:35:04 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 14:51:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,12 @@ void			tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell)
 	char		*value;
 	t_lexer		lexer_als;
 
+	ft_bzero(lexer_als.data, ARG_MAX);
+	lexer_als.flags = 0;
+	lexer_als.count = 0;
 	lexer_als.head = NULL;
 	lexer_als.first = NULL;
 	lexer_als.last = NULL;
-	lexer_als.count = 0;
-	lexer_als.flags = 0;
 	value = hash_get(shell->alias, (*token)->data);
 	if (value)
 	{
