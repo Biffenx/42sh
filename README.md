@@ -78,7 +78,8 @@ sudo apt install libncurses5-dev
 - [x] Absolute path for the file where history commands are saved in.
 - [ ] Cd builtin does not align with the POSIX standard.
 - [x] Type builtin cannot handle alias specification because aliases are expanded in lexer. (comment: use single quotes to avoid this.)
-- [ ] Shady stuff going on with the alias and unalias control including hashmap functions. Segfaults.
+- [x] Shady stuff going on with the alias and unalias control including hashmap functions. Segfaults.
+- [ ] Two or more consecutive expandable aliases cause segmentation fault.
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.'
