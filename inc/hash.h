@@ -6,14 +6,14 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:11:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 12:46:20 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 15:07:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HASH_H
 # define HASH_H
 
-#include "hashmap.h"
+# define HASH_SIZE 300
 
 typedef struct s_hash
 {

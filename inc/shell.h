@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 11:12:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 15:08:21 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include "keyboard.h"
-# include "hashmap.h"
 # include <term.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -81,7 +80,6 @@ typedef struct				s_shell
 	char					*history[HISTORY_SIZE];
 	int						history_index;
 	char					history_file[PATH_MAX];
-	t_hashmap				*dict[HASH_SIZE];
 }							t_shell;
 
 # include "history.h"
@@ -91,16 +89,6 @@ typedef struct				s_shell
 
 extern						t_shell *g_shell;
 extern						int		g_debug;
-
-void						hash_insert(int key, char **data, t_shell *shell);
-t_hashmap					*hash_search(int key, t_shell *shell);
-
-int							array_display(int hashkey);
-int							array_find(int hashkey, char *var);
-void						array_set(int hashkey, char *key, char *val);
-void						array_delete(int hashkey, int pos);
-char						*array_get(int hashkey, char *var);
-char						**array_realloc(char **arr, size_t size);
 
 /*
 ** Line edition prototypes.
