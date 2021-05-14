@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:49:22 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/07 11:13:38 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 12:35:04 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,18 @@ static void		converge_lexers(t_lexer *lexer_old, t_lexer *lexer_new, \
 
 void			tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell)
 {
-	int			i;
-	char		*key;
-	char		*val;
-	t_hashmap		*als;
+	char		*value;
 	t_lexer		lexer_als;
 
-	i = 0;
 	lexer_als.head = NULL;
 	lexer_als.first = NULL;
 	lexer_als.last = NULL;
 	lexer_als.count = 0;
 	lexer_als.flags = 0;
-	als = hash_search(SH_ALIAS, shell);
-	while (als->data[i])
+	value = hash_get(shell->alias, (*token)->data);
+	if (value)
 	{
-		key = split_key(als->data[i]);
-		if (!ft_strcmp(key, (*token)->data))
-		{
-			val = split_val(als->data[i]);
-			tokenize(&lexer_als, val);
-			converge_lexers(lexer, &lexer_als, token);
-			free(val);
-		}
-		free(key);
-		i++;
+		tokenize(&lexer_als, value);
+		converge_lexers(lexer, &lexer_als, token);
 	}
 }

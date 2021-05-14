@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/14 11:51:51 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/14 12:33:24 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,10 @@ noflags:
 	@echo Skipped libft creation and compiled with no flags. Launching 42sh ...
 	@gcc $(inc) $(src) $(lib) -ltermcap -o $(name)
 	./42sh
+debug:
+	@echo Skipped libft creation. Launching 42sh debug mode...
+	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name)
+	./42sh --debug
 clean:
 	make clean -C libft
 fclean:

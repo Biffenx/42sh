@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:06:24 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 12:18:29 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 12:31:27 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int		hash_put(t_hash *map, char *key, char *value)
 	int	i;
 
 	i = hash_index(key);
+	if (g_debug)
+		ft_printf("key: %s\nvalue: %s\nindex:%i\n", key, value, i);
 	while (i < HASH_SIZE && map[i].key)
 	{
 		i += 1;
@@ -56,6 +58,8 @@ char	*hash_get(t_hash *map, char *key)
 	int	i;
 
 	i = hash_index(key);
+	if (g_debug)
+		ft_printf("key: %s\nindex:%i\n", key, i);
 	while (i < HASH_SIZE && !ft_strequ(map[i].key, key))
 	{
 		i += 1;
