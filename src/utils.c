@@ -6,11 +6,16 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 15:08:44 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 21:06:04 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
+
+int		print_char(int c)
+{
+	return (write(0, &c, 1));
+}
 
 void		exit_error(int err, char *msg)
 {
@@ -50,6 +55,8 @@ void		print_error(int err, char *msg)
 static void internal_variables(t_hash *map, char **env)
 {
 	int i;
+	char	*key;
+	char	*value;
 
 	i = 0;
 	while (i < HASH_SIZE)
@@ -61,8 +68,11 @@ static void internal_variables(t_hash *map, char **env)
 	i = 0;
 	while (env[i])
 	{
-		*ft_strchr(env[i], '=') = '\0';
-		hash_put(map, env[i], ft_strchr(env[i], '\0') + 1);
+		key = env[i];
+		value = ft_strchr(env[i], '=');
+		*value = '\0';
+		value += 1;
+		hash_put(map, key, value);
 		*ft_strchr(env[i], '\0') = '=';
 		i += 1;
 	}
