@@ -45,13 +45,13 @@ sudo apt install libncurses5-dev
 	- [ ] "&&"
 	- [ ] "||"
 - Monitoring of internal shell variables
-	- [ ] Internal variable creation depending on syntax: name=value
+	- [x] Internal variable creation depending on syntax: name=value
 	- [ ] Internal variable exportation to the enviroment via built-in export
 	- [ ] Possibility to list shell internal variables via built-in set
 	- [ ] Internal and enviroment variables revocation via built-in unset
 	- [ ] Enviroment variable creation for unique command
-	- [ ] Simple expansion of parameters depending on syntax ${}
-	- [ ] Exit code access of previous command via expansion ${?}
+	- [ ] Simple expansion of parameters depending on syntax ${} (syntax is $EXPANSION)
+	- [ ] Exit code access of previous command via expansion ${?} (syntax is $?)
 	- [ ] Job control monitoring with built-ins jobs, fg, bg and the & operator
 	- [ ] Correct monitoring of all signals
 	- [ ] Each built-in must have the enounced options by POSIX standard execept for explicit case ad set or unset

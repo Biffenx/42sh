@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/14 15:20:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 17:21:05 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 static char		*helper(char *var, t_shell *shell)
 {
+	char	*value;
+
 	if (!ft_strcmp(var, "$?"))
 		return (ft_itoa(shell->exit));
-	else if (getenv(var + 1))
-		return (ft_strdup(getenv(var + 1)));
+	else if ((value = hash_get(g_shell->vars, var + 1)))
+		return (ft_strdup(value));
 	else
 		return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 09:49:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 17:16:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int run_builtin(char **argv)
 		exit_builtin();
 	else if (ft_strequ(argv[0], "jobs"))
 		return (jobs_builtin(argv));
+	else if(ft_strequ(argv[0], "set"))
+		return (set_builtin(argv));
 	else if (ft_strequ(argv[0], "type"))
 		return (type_builtin(argv));
 	else if (ft_strequ(argv[0], "unalias"))
