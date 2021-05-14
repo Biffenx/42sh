@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 15:53:55 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 12:43:00 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,14 @@ void		action(int key, t_shell *shell)
 		tputs(tgetstr("cl", NULL), 1, print_char);
 		tputs(tgetstr("sc", NULL), 1, print_char);
 	}
+	// else if (key == CTRL_DOWN)
+	// {
+	// 	exit (1);
+	// }
+	// else if (key == CTRL_UP)
+	// {
+	// 	exit (1);
+	// }
 	/* else if (key == TAB)
 			autocomplete(shell); */
 	else if (check_arrow_keys(key, shell))

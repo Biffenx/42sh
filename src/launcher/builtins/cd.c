@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 20:15:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 15:22:07 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ static int	move_to(char *path, int print)
 	char	*pwd;
 	char	cwd[PATH_MAX];
 	struct stat stats;
+	char *buf = NULL;
 
+	ft_printf("%s ", path);
+	readlink(path, buf, PATH_MAX);
+	ft_printf("%s\n", buf);
 	pwd = getenv("PWD");
+	// if (stat(path, &stats) != -1)
+	// 	ft_printf("%s\n", S_ISLNK(stats.st_mode));
 	if (!chdir(path))
 	{
 		setenv("OLDPWD", pwd, 1);
@@ -48,15 +54,20 @@ static int	move_to(char *path, int print)
 int	cd_builtin(char **argv)
 {
 
-	if (argv[1] && argv[2])
+	if (argv[1] && argv[2] && ft_strequ(argv[1], "-"))
 	{
-		write(2, "42sh: cd: too many arguments", 29);
+		write(2, "42sh: cd: too many arguments\n", 30);
 		return (1);
 	}	
 	if (!argv[1])
 		return (move_to(getenv("HOME"), 0));
-	else if (ft_strequ(argv[1], "-"))
-		return (move_to(getenv("OLDPWD"), 1));
+	else if (ft_strchr(&argv[1][0], '-'))
+	{		
+		if ((ft_strequ(argv[1], "-L") && argv[2]))
+			return (move_to(argv[2], 0));
+		else
+			return (move_to(getenv("OLDPWD"), 1));
+	}
 	else if (ft_strequ(argv[1], "--"))
 		return (move_to(getenv("HOME"), 0));
 	else

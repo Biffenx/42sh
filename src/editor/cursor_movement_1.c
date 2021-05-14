@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cursor_movement_1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:17:19 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 18:50:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 12:43:37 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		move_cursor_up(t_editor *editor)
 {
 	int	i;
 	int	diff;
-
+	exit(1);
 	i = editor->cursor;
 	diff = 0;
 	find_newline(editor, &i, &diff);
