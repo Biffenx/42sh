@@ -46,8 +46,8 @@ sudo apt install libncurses5-dev
 	- [ ] "||"
 - Monitoring of internal shell variables
 	- [x] Internal variable creation depending on syntax: name=value
-	- [ ] Internal variable exportation to the enviroment via built-in export
-	- [ ] Possibility to list shell internal variables via built-in set
+	- [x] Internal variable exportation to the enviroment via built-in export
+	- [x] Possibility to list shell internal variables via built-in set
 	- [ ] Internal and enviroment variables revocation via built-in unset
 	- [ ] Enviroment variable creation for unique command
 	- [ ] Simple expansion of parameters depending on syntax ${} (syntax is $EXPANSION)

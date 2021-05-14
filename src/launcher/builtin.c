@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 17:16:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 18:00:54 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int run_builtin(char **argv)
 		return (echo_builtin(argv));
 	else if (ft_strequ(argv[0], "exit"))
 		exit_builtin();
+	else if (ft_strequ(argv[0], "export"))
+		return (export_builtin(argv));
 	else if (ft_strequ(argv[0], "jobs"))
 		return (jobs_builtin(argv));
 	else if(ft_strequ(argv[0], "set"))
