@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 10:09:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 12:19:03 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,32 @@ static char **init_alias(void)
 	return (r);
 }
 
+static void internal_variables(t_hash *map, char **env)
+{
+	int i;
+
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		map[i].key = NULL;
+		map[i].value = NULL;
+		i += 1;
+	}
+	i = 0;
+	while (env[i])
+	{
+		*ft_strchr(env[i], '=') = '\0';
+		hash_put(map, env[i], ft_strchr(env[i], '\0') + 1);
+		*ft_strchr(env[i], '\0') = '=';
+		i += 1;
+	}
+}
+
+static void	internal_alias(t_hash *map)
+{
+	hash_put(map, "greet", "echo Hello World!");
+}
+
 void		create_shell(char **env, t_shell *shell)
 {
 	size_t	i;
@@ -91,6 +117,8 @@ void		create_shell(char **env, t_shell *shell)
 		i += 1;
 	}
 	shell->env = env;
+	internal_variables(shell->vars, env);
+	internal_alias(shell->alias);
 	ft_bzero(shell->history_file, PATH_MAX);
 	ft_strlcat(shell->history_file, getenv("HOME"), PATH_MAX);
 	ft_strlcat(shell->history_file, HISTORY_FILE, PATH_MAX);

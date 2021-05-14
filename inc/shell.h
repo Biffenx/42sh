@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 15:51:41 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/14 11:12:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct 				s_editor
 }							t_editor;
 
 # include "job.h"
+# include "hash.h"
 
 # define HISTORY_SIZE 		1000
 # define HISTORY_FILE 		"/.42history"
@@ -72,6 +73,8 @@ typedef struct				s_shell
 	char					mode;
 	pid_t					pgid;
 	char					**env;
+	t_hash                  vars[HASH_SIZE];
+	t_hash					alias[HASH_SIZE];
 	t_job					*jobs;
 	t_terminal				terminal;
 	t_editor				editor;
