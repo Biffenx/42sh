@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:06:24 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:59:27 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 10:43:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	hash_index(char *key)
 		i += 1;
 	}
 	code %= ft_strlen(key);
-	return (code);
+	return (code * 2);
 }
 
 /*
@@ -43,6 +43,8 @@ int		hash_put(t_hash *map, char *key, char *value)
 
 	i = hash_index(key);
 	hash_delete(map, key);
+	if (g_debug)
+	 ft_printf("key: %s\nvalue: %s\nindex: %i\n\n", key, value, i);
 	while (i < HASH_SIZE && map[i].key)
 	{
 		i += 1;

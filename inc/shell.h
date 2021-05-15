@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 15:08:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 11:09:30 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct				s_shell
 	char					**env;
 	t_hash                  vars[HASH_SIZE];
 	t_hash					alias[HASH_SIZE];
+	t_hash					table[HASH_SIZE];
 	t_job					*jobs;
 	t_terminal				terminal;
 	t_editor				editor;

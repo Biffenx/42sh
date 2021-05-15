@@ -6,12 +6,18 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 15:18:49 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 11:43:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
+
+/*
+** Hash builtin.
+*/
+
+# define HASH_SYNTAX "42sh: hash: syntax: hash [function] [key]=value\n"
 
 /*
 ** Termcaps.
