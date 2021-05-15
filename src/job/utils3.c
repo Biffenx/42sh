@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:58:32 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 11:43:33 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 15:38:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void 			do_job_notification(void)
 				g_shell->jobs = jnext;
 			free_job(job);
 		}
-		else if (job_is_stopped(job) && !job->notified) {
+		else if (job_is_stopped(job) && !job->notified)
+		{
 			format_job_info(job, "stopped");
 			job->notified = 1;
 			jlast = job;

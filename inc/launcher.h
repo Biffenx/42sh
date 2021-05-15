@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:25:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 15:25:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int			alias_builtin(char **args);
 int			cd_builtin(char **argv);
 int			echo_builtin(char **argv);
 void		exit_builtin();
-int			 export_builtin(char **argv);
+int			export_builtin(char **argv);
+int			hash_builtin(char **argv);
 int			jobs_builtin(char **argv);
 int			set_builtin(char **argv);
 int         type_builtin(char **args);
