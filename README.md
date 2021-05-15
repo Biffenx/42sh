@@ -48,18 +48,18 @@ sudo apt install libncurses5-dev
 	- [x] Internal variable creation depending on syntax: name=value
 	- [x] Internal variable exportation to the enviroment via built-in export
 	- [x] Possibility to list shell internal variables via built-in set
-	- [ ] Internal and enviroment variables revocation via built-in unset
+	- [x] Internal and enviroment variables revocation via built-in unset
 	- [ ] Enviroment variable creation for unique command
 	- [ ] Simple expansion of parameters depending on syntax ${} (syntax is $EXPANSION)
-	- [ ] Exit code access of previous command via expansion ${?} (syntax is $?)
+	- [x] Exit code access of previous command via expansion ${?} (syntax is $?)
 	- [ ] Job control monitoring with built-ins jobs, fg, bg and the & operator
-	- [ ] Correct monitoring of all signals
+	- [x] Correct monitoring of all signals
 	- [ ] Each built-in must have the enounced options by POSIX standard execept for explicit case ad set or unset
 
 ### Modular Part Features
 - [ ] Inhibitors ” (double quote), ’ (simple quote) and \\.
 - [ ] Complete management of the history.
-- [ ] Alias management via built-ins alias and unalias.
+- [x] Alias management via built-ins alias and unalias.
 - [ ] A hash table and built-in hash to interact with it.
 - [ ] Contextual dynamic completion.
 - [ ] Built-in test with the required operators.
@@ -81,6 +81,7 @@ sudo apt install libncurses5-dev
 - [x] Shady stuff going on with the alias and unalias control including hashmap functions. Segfaults.
 - [ ] Two or more consecutive expandable aliases cause segmentation fault.
 - [x] Export builtin can only modify existing enviroment variables. It cannot create new ones.
+- [ ] $ expansion segmentation fault if there is no value.
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
