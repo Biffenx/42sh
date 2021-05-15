@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 15:41:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 16:11:22 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,18 @@ void wait_for_job(t_job *job)
 {
 	int status;
 	pid_t pid;
+	t_process *process;
 
 	status = 0;
 	pid = 0;
-	pid = waitpid(WAIT_ANY, &status, WUNTRACED);
-	while (!mark_process_status(pid, status) && !job_is_stopped(job) && !job_is_completed(job))
-		pid = waitpid(WAIT_ANY, &status, WUNTRACED);
+	process = job->first_process;
+	while (process)
+	{
+		if (process->pid)
+		{
+			pid = waitpid(process->pid, &status, WUNTRACED);
+			mark_process_status(pid, status);
+		}
+		process = process->next;
+	}
 }

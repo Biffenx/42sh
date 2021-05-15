@@ -83,7 +83,7 @@ sudo apt install libncurses5-dev
 - [x] Export builtin can only modify existing enviroment variables. It cannot create new ones.
 - [ ] $ expansion segmentation fault if there is no value.
 - [ ] Invalid pointer being freed sometimes when alias expansion is done.
-- [ ] Shell "freezes" if job is stopped.
+- [x] Shell "freezes" if job is stopped.
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
