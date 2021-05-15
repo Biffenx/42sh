@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:06:24 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:35:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:59:27 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	hash_index(char *key)
 
 /*
 ** Add key and value pair into hashmap. On success returns the index of added pair
-** and on failure prints out error message and returns HASH_SIZE.
+** and on failure returns -1.
 */
 
 int		hash_put(t_hash *map, char *key, char *value)
@@ -48,7 +48,9 @@ int		hash_put(t_hash *map, char *key, char *value)
 		i += 1;
 	}
 	if (i == HASH_SIZE)
-		ft_dprintf(STDERR_FILENO, "42sh: Hash full, please remove or purge entries\n");
+	{
+		return (-1);
+	}
 	else
 	{
 		map[i].key = ft_strdup(key);

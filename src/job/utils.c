@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:58:14 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 13:26:33 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:52:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int				job_is_completed(t_job *job)
 	{
 		if (!process->completed)
 			return (0);
+		g_shell->exit = process->exit;
 		process = process->next;
 	}
-	return 1;
+	return (1);
 }

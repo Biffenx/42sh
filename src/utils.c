@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 21:06:04 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:47:53 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ static void	internal_alias(t_hash *map)
 
 void		create_shell(char **env, t_shell *shell)
 {
+	shell->exit = 0;
 	shell->env = env;
 	internal_variables(shell->vars, env);
 	internal_alias(shell->alias);

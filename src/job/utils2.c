@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 21:16:51 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:50:56 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int				mark_process_status(pid_t pid, int status)
 					{
 						process->completed = 1;
 						process->exit = WEXITSTATUS(status);
-						g_shell->exit = process->exit;
 						if (WIFSIGNALED(status) && g_debug)
 							ft_dprintf(STDERR_FILENO, "%d: Terminated by signal %d.\n", \
 									(int)pid, WTERMSIG(process->status));
