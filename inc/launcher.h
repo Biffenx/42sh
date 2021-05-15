@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 17:59:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:25:22 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 ** List of built-in shell commands.
 */
 
-# define BUILTIN_ARR	"exit", "jobs", "fc", "cd", "echo", "type", "alias", "unalias", "set", "export"
-# define BUILTIN_SLOTS	10
+# define BUILTIN_ARR	"exit", "jobs", "fc", "cd", "echo", "type", "alias", "unalias", "set", "export", "unset"
+# define BUILTIN_SLOTS	11
 # define BUILTIN_LEN	8
 
 # define EXEC_OK 1
@@ -43,5 +43,6 @@ int			jobs_builtin(char **argv);
 int			set_builtin(char **argv);
 int         type_builtin(char **args);
 int			unalias_builtin(char **argv);
+int			unset_builtin(char **argv);
 
 #endif

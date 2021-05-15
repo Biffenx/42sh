@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 18:00:54 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:26:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int run_builtin(char **argv)
 		return (type_builtin(argv));
 	else if (ft_strequ(argv[0], "unalias"))
 		return (unalias_builtin(argv));
+	else if (ft_strequ(argv[0], "unset"))
+		return (unset_builtin(argv));
 	return (1);
 }
