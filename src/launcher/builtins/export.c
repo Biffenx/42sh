@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:37:49 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 18:09:32 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 08:59:30 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int export_builtin(char **argv)
 			export_variable(argv[i], print);
 		i += 1;
 	}
+	g_shell->env = __environ;
 	return (0);
 }
