@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/15 09:26:38 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/15 09:35:44 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ src = src/main.c \
 	src/fetch.c \
 	src/globl.c \
 	src/hash.c \
-	src/hash2.c \
 	src/preprocess.c \
 	src/reset.c \
 	src/save.c \

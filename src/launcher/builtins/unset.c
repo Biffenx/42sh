@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 20:52:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:24:30 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:40:48 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	unset_builtin(char **argv)
 	while (argv[i])
 	{
 		err -= unsetenv(argv[i]);
-		hash_delete(g_shell->vars, argv[i]);
+		err -= hash_delete(g_shell->vars, argv[i]);
 		i += 1;
 	}
 	g_shell->env = __environ;

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:01:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 17:16:23 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:40:25 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,26 @@ static void	add_variable(char *data)
 		hash_put(g_shell->vars, key, value);	
 }
 
+static void	print_map(t_hash *map)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		if (map[i].key && map[i].value)
+			ft_printf("%s=%s\n", map[i].key, map[i].value);
+		i += 1;
+	}
+}
+
 int	set_builtin(char **argv)
 {
 	int	i;
 
 	i = 1;
 	if (!argv[i])
-		hash_display(g_shell->vars);
+		print_map(g_shell->vars);
 	while (argv[i])
 	{
 		if (ft_strchr(argv[i], '='))

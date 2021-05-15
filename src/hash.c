@@ -6,14 +6,14 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:06:24 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 14:20:03 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:35:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
 /*
-** Hash functions for shell internal variable and alias implemetation.
+** Calculate hash index value.
 */
 
 static int	hash_index(char *key)
@@ -31,6 +31,11 @@ static int	hash_index(char *key)
 	code %= ft_strlen(key);
 	return (code);
 }
+
+/*
+** Add key and value pair into hashmap. On success returns the index of added pair
+** and on failure prints out error message and returns HASH_SIZE.
+*/
 
 int		hash_put(t_hash *map, char *key, char *value)
 {
@@ -52,6 +57,10 @@ int		hash_put(t_hash *map, char *key, char *value)
 	return (i);
 }
 
+/*
+** Find a value of the key. On success returns the value and on failure returns NULL.
+*/
+
 char	*hash_get(t_hash *map, char *key)
 {
 	int	i;
@@ -68,7 +77,12 @@ char	*hash_get(t_hash *map, char *key)
 	return (map[i].value);
 }
 
-void	hash_delete(t_hash *map, char *key)
+/*
+** Delete key and value pair from hashmap. On success returns 0
+** and on failure returns 1.
+*/
+
+int		hash_delete(t_hash *map, char *key)
 {
 	int	i;
 
@@ -79,11 +93,16 @@ void	hash_delete(t_hash *map, char *key)
 	}
 	if (i == HASH_SIZE)
 	{
-		return ;
+		return (1);
 	}
 	ft_strdel(&map[i].key);
 	ft_strdel(&map[i].value);
+	return (0);
 }
+
+/*
+** Delete all of the key and value pairs from hashmap.
+*/
 
 void	hash_purge(t_hash *map)
 {

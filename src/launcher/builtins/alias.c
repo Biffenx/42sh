@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 09:16:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 14:54:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/15 09:38:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,26 @@ static void	add_alias(char *data)
 	}
 }
 
+static void	print_map(t_hash *map)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		if (map[i].key && map[i].value)
+			ft_printf("alias %s='%s'\n", map[i].key, map[i].value);
+		i += 1;
+	}
+}
+
 int	alias_builtin(char **argv)
 {
 	int	i;
 
 	i = 1;
 	if (!argv[i])
-		hash_display(g_shell->alias);
+		print_map(g_shell->alias);
 	while (argv[i])
 	{
 		if (ft_strchr(argv[i], '='))
