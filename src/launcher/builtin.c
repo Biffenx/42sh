@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 11:44:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/16 21:11:24 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int run_builtin(char **argv)
 		return (jobs_builtin(argv));
 	else if(ft_strequ(argv[0], "set"))
 		return (set_builtin(argv));
+	else if (ft_strequ(argv[0], "test"))
+		return (test_builtin(argv));
 	else if (ft_strequ(argv[0], "type"))
 		return (type_builtin(argv));
 	else if (ft_strequ(argv[0], "unalias"))

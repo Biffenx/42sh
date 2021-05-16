@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unset.c                                            :+:      :+:    :+:   */
+/*   flag_binary_sym.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 20:52:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/16 22:09:16 by jochumwilen      ###   ########.fr       */
+/*   Created: 2021/05/16 21:48:05 by jochumwilen       #+#    #+#             */
+/*   Updated: 2021/05/16 21:48:21 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shell.h"
+#include "test.h"
 
-/*
-** https://www.man7.org/linux/man-pages/man1/unset.1p.html
-*/
-
-int	unset_builtin(char **argv)
+int	flag_sym_eq_test(char *left, char *right, int *result)
 {
-	int	i;
-	int	err;
+	if (ft_strequ(left, right))
+		*result = 0;
+	else
+		*result = 1;
+	return (0);
+}
 
-	i = 1;
-	err = 0;
-	while (argv[i])
-	{
-		err += unsetenv(argv[i]);
-		err += hash_delete(g_shell->vars, argv[i]);
-		i += 1;
-	}
-	//g_shell->env = __environ;
-	return (err);
+int	flag_sym_noteq_test(char *left, char *right, int *result)
+{
+	if (!ft_strequ(left, right))
+		*result = 0;
+	else
+		*result = 1;
+	return (0);
 }
