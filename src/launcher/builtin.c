@@ -6,7 +6,7 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/16 21:11:24 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 23:40:47 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ int run_builtin(char **argv)
 		return (fc(argv));
 	else if (ft_strequ(argv[0], "alias"))
 		return (alias_builtin(argv));
+	else if (ft_strequ(argv[0], "bg"))
+		return (bg_builtin(argv));
 	else if (ft_strequ(argv[0], "cd"))
-		return (cd_builtin(argv));
+		return (cd_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "echo"))
 		return (echo_builtin(argv));
 	else if (ft_strequ(argv[0], "exit"))
 		exit_builtin();
 	else if (ft_strequ(argv[0], "export"))
 		return (export_builtin(argv));
+	else if (ft_strequ(argv[0], "fg"))
+		return (fg_builtin(argv));
 	else if (ft_strequ(argv[0], "hash"))
 		return (hash_builtin(argv));
 	else if (ft_strequ(argv[0], "jobs"))

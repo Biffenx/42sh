@@ -6,7 +6,11 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:37:49 by vkuokka           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/05/16 22:09:08 by jochumwilen      ###   ########.fr       */
+=======
+/*   Updated: 2021/05/17 13:21:12 by vkuokka          ###   ########.fr       */
+>>>>>>> d73f5dc90cce85ebe28b30c0c981dfd7f907912d
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +29,10 @@ static void	export_variable(char *key, int print)
 		return ;
 	if (!setenv(key, value, 1) && print)
 		ft_printf("export %s=%s\n", key, value);
+<<<<<<< HEAD
 
+=======
+>>>>>>> d73f5dc90cce85ebe28b30c0c981dfd7f907912d
 }
 
 static void	export_argument(char *data, int print)
@@ -63,6 +70,5 @@ int export_builtin(char **argv)
 			export_variable(argv[i], print);
 		i += 1;
 	}
-	//g_shell->env = __environ;
 	return (0);
 }

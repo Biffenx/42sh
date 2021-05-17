@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   jobs.c                                             :+:      :+:    :+:   */
+/*   fg.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/06 16:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 18:55:47 by vkuokka          ###   ########.fr       */
+/*   Created: 2021/05/17 07:36:50 by vkuokka           #+#    #+#             */
+/*   Updated: 2021/05/17 18:54:24 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shell.h"
+# include "shell.h"
 
 /*
-** https://www.man7.org/linux/man-pages/man1/jobs.1p.html
+** https://www.man7.org/linux/man-pages/man1/fg.1p.html
 */
 
-int jobs_builtin(char **argv)
+int	fg_builtin(char **argv)
 {
 	if (!argv)
 		return (0);

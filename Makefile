@@ -6,7 +6,7 @@
 #    By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/16 21:52:27 by jochumwilen      ###   ########.fr        #
+#    Updated: 2021/05/17 23:39:56 by jochumwilen      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ src = src/main.c \
 	src/editor/keypress.c \
 	src/editor/parse.c \
 	src/editor/print.c \
+	src/job/create_utils.c \
 	src/job/create.c \
 	src/job/find_path.c \
 	src/job/free_job.c \
@@ -64,10 +65,12 @@ src = src/main.c \
 	src/launcher/builtins/test/get_options.c\
 	src/launcher/builtins/test/util.c\
 	src/launcher/builtins/alias.c \
+	src/launcher/builtins/bg.c \
 	src/launcher/builtins/cd.c \
 	src/launcher/builtins/echo.c \
 	src/launcher/builtins/exit.c \
 	src/launcher/builtins/export.c \
+	src/launcher/builtins/fg.c \
 	src/launcher/builtins/hash.c \
 	src/launcher/builtins/jobs.c \
 	src/launcher/builtins/set.c \
