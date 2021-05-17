@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 08:03:43 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 09:37:43 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,25 @@ static int	parse_options(char **argv, int *i)
 	return (options);
 }
 
-static char	*state(t_job *job)
+static char	determine_current(t_job *job, char *current)
+{
+	if (job_is_stopped(job))
+	{
+		if (*current == '+')
+		{
+			*current = '-';
+			return ('+');
+		}
+		else if (*current == '-')
+		{
+			*current = ' ';
+			return ('-');
+		}
+	}
+	return (' ');
+}
+
+static char	*determine_state(t_job *job)
 {
 	if (job_is_completed(job))
 		return ("Done");
@@ -51,16 +69,18 @@ static char	*state(t_job *job)
 static void	list_all(int options)
 {
 	t_job	*job;
+	char	current;
 
 	job = g_shell->jobs;
+	current = '+';
 	while (job)
 	{
 		if (options & 1 << 0)
-			ft_printf("[%i] %i %s %s\n", job->id, job->pgid, state(job), job->command);
+			ft_printf("[%i]%c %i %s %s\n", job->id, determine_current(job, &current), job->pgid, determine_state(job), job->command);
 		else if (options & 1 << 1)
 			ft_printf("%i\n", job->pgid);
 		else
-			ft_printf("[%i] %s %s\n", job->id, state(job), job->command);
+			ft_printf("[%i]%c %s %s\n", job->id, determine_current(job, &current), determine_state(job), job->command);
 		job = job->next;
 	}
 }
@@ -68,7 +88,9 @@ static void	list_all(int options)
 static void	list_selected(int options, char **argv, int *i)
 {
 	t_job	*job;
+	char	current;
 
+	current = '+';
 	while (argv[*i])
 	{
 		job = g_shell->jobs;
@@ -77,11 +99,11 @@ static void	list_selected(int options, char **argv, int *i)
 			if (job->id == ft_atoi(argv[*i]))
 			{
 				if (options & 1 << 0)
-					ft_printf("[%i] %i %s %s\n", job->id, job->pgid, state(job), job->command);
+					ft_printf("[%i]%c %i %s %s\n", job->id, determine_current(job, &current), job->pgid, determine_state(job), job->command);
 				else if (options & 1 << 1)
 					ft_printf("%i\n", job->pgid);
 				else
-					ft_printf("[%i] %s %s\n", job->id, state(job), job->command);
+					ft_printf("[%i]%c %s %s\n", job->id, determine_current(job, &current), determine_state(job), job->command);
 			}
 			job = job->next;
 		}
