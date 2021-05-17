@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:37:49 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 09:59:30 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 13:21:12 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void	export_variable(char *key, int print)
 		return ;
 	if (!setenv(key, value, 1) && print)
 		ft_printf("export %s=%s\n", key, value);
-
 }
 
 static void	export_argument(char *data, int print)
@@ -63,6 +62,5 @@ int export_builtin(char **argv)
 			export_variable(argv[i], print);
 		i += 1;
 	}
-	g_shell->env = environ;
 	return (0);
 }

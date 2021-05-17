@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:47:53 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 13:19:04 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		print_error(int err, char *msg)
 		ft_dprintf(STDERR_FILENO, "%s %s\n", STR_BAD_FD_ERR, msg);
 }
 
-static void internal_variables(t_hash *map, char **env)
+static void internal_variables(t_hash *map)
 {
 	int i;
 	char	*key;
@@ -66,14 +66,14 @@ static void internal_variables(t_hash *map, char **env)
 		i += 1;
 	}
 	i = 0;
-	while (env[i])
+	while (environ[i])
 	{
-		key = env[i];
-		value = ft_strchr(env[i], '=');
+		key = environ[i];
+		value = ft_strchr(environ[i], '=');
 		*value = '\0';
 		value += 1;
 		hash_put(map, key, value);
-		*ft_strchr(env[i], '\0') = '=';
+		*ft_strchr(environ[i], '\0') = '=';
 		i += 1;
 	}
 }
@@ -83,11 +83,10 @@ static void	internal_alias(t_hash *map)
 	hash_put(map, "greet", "echo Hello World!");
 }
 
-void		create_shell(char **env, t_shell *shell)
+void		create_shell(t_shell *shell)
 {
 	shell->exit = 0;
-	shell->env = env;
-	internal_variables(shell->vars, env);
+	internal_variables(shell->vars);
 	internal_alias(shell->alias);
 	ft_bzero(shell->history_file, PATH_MAX);
 	ft_strlcat(shell->history_file, getenv("HOME"), PATH_MAX);

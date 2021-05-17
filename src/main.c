@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 18:35:46 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 13:18:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ static void	terminal(t_terminal *terminal)
 		terminal->raw.c_lflag &= ~(ICANON | ECHO);
 }
 
-static void	shell(char **env)
+static void	shell(void)
 {
 	t_shell	shell;
 
 	shell.mode = isatty(STDIN_FILENO);
-	create_shell(env, &shell);
+	create_shell(&shell);
 	create_pgroup(&shell);
 	if (shell.mode & INTERACTIVE)
 	{
@@ -98,6 +98,6 @@ int		main(int argc, char **argv, char **env)
 		g_debug = 1;
 	termcaps();
 	tputs(tgetstr("cl", NULL), 1, &print_char);
-	shell(env);
+	shell();
 	return (0);
 }

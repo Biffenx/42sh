@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 10:01:53 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 13:19:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,14 @@
 
 # ifdef __linux__
 #  include <linux/limits.h>
-# else
-#  include <limits.h>
-# endif
-
-# ifdef __APPLE__
-#  include <crt_externs.h>
-#  define environ (*_NSGetEnviron ())
-# else
-#  ifndef environ
 extern char **environ;
-#    endif
+# else
+#  ifdef __APPLE__
+#   include <limits.h>
+#   include <crt_externs.h>
+#   define environ (*_NSGetEnviron ())
 #  endif
-
+# endif
 
 # include "errors.h"
 
@@ -81,7 +76,6 @@ typedef struct				s_shell
 	int						exit;
 	char					mode;
 	pid_t					pgid;
-	char					**env;
 	t_hash                  vars[HASH_SIZE];
 	t_hash					alias[HASH_SIZE];
 	t_hash					table[HASH_SIZE];
@@ -124,7 +118,7 @@ int							handle_backspace(t_editor *editor);
 void						exit_error(int err, char *msg);
 void						preprocess(char *input, t_shell *shell);
 void						print_error(int err, char *msg);
-void						create_shell(char **env, t_shell *shell);
+void						create_shell(t_shell *shell);
 void						signals(void);
 
 #endif
