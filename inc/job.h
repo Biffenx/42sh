@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 20:19:48 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 08:27:29 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct			s_process
 
 typedef struct			s_job
 {
+	int					id;
 	struct s_job		*next;
 	int					launched;
 	int					foreground;
@@ -80,7 +81,8 @@ typedef struct			s_job
 /*
 ** Job creation.
 */
-
+int						determine_id(t_job *first);
+char					*join_tokens(t_token *tokens);
 t_job					*create_job(t_token **tokens);
 void					job_debug(t_job *job);
 char					**tokens_to_array(t_token **tokens);

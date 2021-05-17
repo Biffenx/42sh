@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/15 11:44:50 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/17 08:23:39 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ src = src/main.c \
 	src/editor/keypress.c \
 	src/editor/parse.c \
 	src/editor/print.c \
+	src/job/create_utils.c \
 	src/job/create.c \
 	src/job/find_path.c \
 	src/job/free_job.c \

@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 20:20:00 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 08:28:42 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,10 @@ t_job				*create_job(t_token **tokens)
 	job = (t_job *)malloc(sizeof(t_job));
 	if (!job)
 		exit(1);
+	job->id = determine_id(g_shell->jobs);
 	job->foreground = check_bg(*tokens);
 	job->launched = 0;
-	job->command = ft_strdup((*tokens)->data);
+	job->command = join_tokens(*tokens);
 	job->first_process = list_process(tokens); 
 	job->pgid = 0;
 	job->notified = 0;
