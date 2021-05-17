@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 20:52:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 09:59:57 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 13:15:24 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int	unset_builtin(char **argv)
 		err += hash_delete(g_shell->vars, argv[i]);
 		i += 1;
 	}
-	g_shell->env = environ;
 	return (err);
 }
