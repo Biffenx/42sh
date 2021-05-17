@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 18:36:50 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 19:09:33 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int run_builtin(char **argv)
 	else if (ft_strequ(argv[0], "bg"))
 		return (bg_builtin(argv));
 	else if (ft_strequ(argv[0], "cd"))
-		return (cd_builtin(argv));
+		return (cd_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "echo"))
 		return (echo_builtin(argv));
 	else if (ft_strequ(argv[0], "exit"))
