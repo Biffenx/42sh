@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 11:09:30 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 10:01:53 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@
 # else
 #  include <limits.h>
 # endif
+
+# ifdef __APPLE__
+#  include <crt_externs.h>
+#  define environ (*_NSGetEnviron ())
+# else
+#  ifndef environ
+extern char **environ;
+#    endif
+#  endif
+
 
 # include "errors.h"
 
