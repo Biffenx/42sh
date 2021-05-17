@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 11:44:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 18:36:50 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int run_builtin(char **argv)
 		return (fc(argv));
 	else if (ft_strequ(argv[0], "alias"))
 		return (alias_builtin(argv));
+	else if (ft_strequ(argv[0], "bg"))
+		return (bg_builtin(argv));
 	else if (ft_strequ(argv[0], "cd"))
 		return (cd_builtin(argv));
 	else if (ft_strequ(argv[0], "echo"))
@@ -26,6 +28,8 @@ int run_builtin(char **argv)
 		exit_builtin();
 	else if (ft_strequ(argv[0], "export"))
 		return (export_builtin(argv));
+	else if (ft_strequ(argv[0], "fg"))
+		return (fg_builtin(argv));
 	else if (ft_strequ(argv[0], "hash"))
 		return (hash_builtin(argv));
 	else if (ft_strequ(argv[0], "jobs"))

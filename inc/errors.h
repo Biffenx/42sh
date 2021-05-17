@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 11:43:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/17 18:46:47 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 */
 
 # define SHELL_ERR_PGRP "Couldn't put the shell in its own process group.\n"
+# define JOB_ERR_NOTFOUND "42sh: %s: %s: no such job\n"
+# define JOB_ERR_ARGNUM "42sh: %s: too many arguments\n"
 
 /*
 ** Process.
