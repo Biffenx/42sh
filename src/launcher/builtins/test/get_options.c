@@ -6,7 +6,7 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:33:48 by jwilen            #+#    #+#             */
-/*   Updated: 2021/05/16 22:03:00 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 23:36:46 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,59 +44,6 @@ int	check_errors(char **argv, int argc)
 	}
 	return (ret);
 }
-
-/*
-**	( EXPRESSION )
-**		EXPRESSION is true
-**	! EXPRESSION
-**		EXPRESSION is false
-**	-z STRING
-**		the length of STRING is zero
-**	STRING1 = STRING2
-**		the strings are equal
-**	STRING1 != STRING2
-**		the strings are not equal
-**	INTEGER1 -eq INTEGER2
-**		INTEGER1 is equal to INTEGER2
-**	INTEGER1 -ge INTEGER2
-**		INTEGER1 is greater than or equal to INTEGER2
-**	INTEGER1 -gt INTEGER2
-**		INTEGER1 is greater than INTEGER2
-**	INTEGER1 -le INTEGER2
-**		INTEGER1 is less than or equal to INTEGER2
-**	INTEGER1 -lt INTEGER2
-**		INTEGER1 is less than INTEGER2
-**	INTEGER1 -ne INTEGER2
-**		INTEGER1 is not equal to INTEGER2
-**	-b FILE
-**		FILE exists and is block special
-**	-c FILE
-**		FILE exists and is character special
-**	-d FILE
-**		FILE exists and is a directory
-**	-e FILE
-**		FILE exists
-**	-f FILE
-**		FILE exists and is a regular file
-**	-g FILE
-**		FILE exists and is set-group-ID
-**	-L FILE
-**		FILE exists and is a symbolic link (same as -h)
-**	-p FILE
-**		FILE exists and is a named pipe
-**	-r FILE
-**		FILE exists and read permission is granted
-**	-s FILE
-**		FILE exists and has a size greater than zero
-**	-S FILE
-**		FILE exists and is a socket
-**	-u FILE
-**		FILE exists and its set-user-ID bit is set
-**	-w FILE
-**		FILE exists and write permission is granted
-**	-x FILE
-**		FILE exists and execute (or search) permission is granted
-*/
 
 int	get_binary_option(char *argv)
 {
