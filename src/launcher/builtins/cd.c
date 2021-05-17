@@ -6,7 +6,7 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 23:05:20 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 23:17:10 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,17 @@ static char	**parse_options(char **argv, int *options)
 		while (argv[i][j])
 		{
 			if (argv[i][j] == 'L')
+			{
+				if (*options != 0)
+					*options = 0;
 				*options |= 1 << 0;
+			}
 			else if (argv[i][j] == 'P')
+			{
+				if (*options != 0)
+					*options = 1;
 				*options |= 1 << 1;
+			}
 			j += 1;
 		}
 		i += 1;
@@ -121,6 +129,7 @@ int	cd_builtin(char **argv)
 	char	path[PATH_MAX];
 
 	argv = parse_options(argv, &options);
+	ft_printf("%d\n", options);
 	if (argv[0] && argv[1])
 		ft_dprintf(STDERR_FILENO, STR_ARG_ERR, "cd");
 	if (!argv[0])
