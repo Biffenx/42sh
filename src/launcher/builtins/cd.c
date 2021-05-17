@@ -6,7 +6,7 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/16 18:49:41 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/17 00:10:41 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ static int		move_to_flag_p(char *path)
 	char		*pwd;
 	char		buf[PATH_MAX];
 	ssize_t		len;
-	char		*tmp;
+	char		tmp[PATH_MAX];
 
 	len = -1;
 	pwd = getenv("PWD");
 	if (!ft_strequ(pwd, "/"))
-		tmp = ft_strjoin(pwd, "/");
-	tmp = ft_strjoin(pwd, path);
+		ft_strcpy(tmp, ft_strcat(pwd, "/"));
+	ft_strcpy(tmp, ft_strcat(pwd, path));
 	len = readlink(tmp, buf, sizeof(buf) - 1);
 	if (len != -1)
 	{
@@ -84,7 +84,7 @@ static int		move_to_flag_p(char *path)
 	if (!chdir(path))
 	{
 		if (!ft_strnequ(path, "/", 1))
-			path = ft_strjoin("/", path);
+			path = ft_strcat("/", path);
 		setenv("OLDPWD", pwd, 1);
 		setenv("PWD", path, 1);
 	}
@@ -100,26 +100,23 @@ static int		move_to(char *path, int print)
 	char		*pwd;
 	struct stat stats;
 	char		abspath[PATH_MAX];
-	char		*tmp;
+	char		tmp[PATH_MAX];
 
 	pwd = getenv("PWD");
 	lstat(path, &stats);
 	getcwd(abspath, PATH_MAX);
-	tmp = ft_strrchr(abspath, '/');
+	ft_strcpy(tmp, ft_strrchr(abspath, '/'));
 	if (!chdir(path))
 	{
+		setenv("OLDPWD", abspath, 1);
 		if (S_ISLNK(stats.st_mode))
 		{
-			setenv("OLDPWD", abspath, 1);
 			if (!ft_strequ(abspath, "/"))
-				tmp = ft_strcat(abspath, "/");
+				ft_strcpy(tmp,ft_strcat(abspath, "/"));
 			setenv("PWD", ft_strcat(tmp, path), 1);
 		}
 		else
-		{
-			setenv("OLDPWD", abspath, 1);
 			setenv("PWD", getcwd(tmp, PATH_MAX), 1);
-		}
 		if (print)
 			ft_putendl(pwd);
 		return (0);
