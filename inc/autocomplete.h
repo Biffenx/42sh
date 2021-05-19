@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keypress.c                                         :+:      :+:    :+:   */
+/*   autocomplete.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 19:05:08 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/18 11:53:10 by jochumwilen      ###   ########.fr       */
+/*   Created: 2021/05/18 11:58:41 by jochumwilen       #+#    #+#             */
+/*   Updated: 2021/05/18 20:11:02 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shell.h"
+#ifndef AUTOCOMPLETE_H
+# define AUTOCOMPLETE_H
 
-int			keypress(void)
+# define FILENAME_MAX_SIZE 255
+
+typedef struct s_autocomp
 {
-	char	buffer[KEY_SIZE + 1];
-	ssize_t	bytes;
-	size_t	i;
-	int		key;
+	char				command[FILENAME_MAX_SIZE *2 + 1];
+	struct s_autocomp	*next;
+}						t_autocomp;
 
-	bytes = read(STDIN_FILENO, buffer, KEY_SIZE);
-	buffer[bytes] = '\0';
-	i = -1;
-	key = 0;
-	while (buffer[++i])
-		key += buffer[i];
-	return (key);
-}
+
+int	filename_character_allowed(char c);
+
+#endif

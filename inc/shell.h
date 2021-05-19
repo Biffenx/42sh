@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 13:19:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/18 17:07:59 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ extern char **environ;
 # endif
 
 # include "errors.h"
+# include "autocomplete.h"
 
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
@@ -82,6 +83,8 @@ typedef struct				s_shell
 	t_job					*jobs;
 	t_terminal				terminal;
 	t_editor				editor;
+	t_autocomp				*autocomp;
+	t_autocomp				*autocomp_tail;
 	char					*history[HISTORY_SIZE];
 	int						history_index;
 	char					history_file[PATH_MAX];
@@ -121,4 +124,6 @@ void						print_error(int err, char *msg);
 void						create_shell(t_shell *shell);
 void						signals(void);
 
+void	autocomplete(t_shell *shell);
+void	get_autocomplete_commands(t_shell *shell);
 #endif
