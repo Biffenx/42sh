@@ -82,6 +82,7 @@ sudo apt install libncurses5-dev
 - [ ] Two or more consecutive expandable aliases cause segmentation fault.
 - [x] Export builtin can only modify existing enviroment variables. It cannot create new ones.
 - [ ] $ expansion segmentation fault if there is no value.
+- [ ] ~ expansion segmentation fault if there is no value in HOME.
 - [ ] $ expansion wont work if the expandable value is joined with slash ie. $HOME/Documents.
 - [ ] Invalid pointer being freed sometimes when alias expansion is done.
 - [x] Shell "freezes" if job is stopped.
