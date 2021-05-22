@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 23:40:47 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/22 13:13:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int run_builtin(char **argv)
 	else if (ft_strequ(argv[0], "hash"))
 		return (hash_builtin(argv));
 	else if (ft_strequ(argv[0], "jobs"))
-		return (jobs_builtin(argv));
+		return (jobs_builtin(argv + 1));
 	else if(ft_strequ(argv[0], "set"))
 		return (set_builtin(argv));
 	else if (ft_strequ(argv[0], "test"))

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+         #
+#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/17 23:39:56 by jochumwilen      ###   ########.fr        #
+#    Updated: 2021/05/22 13:29:08 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ src = src/main.c \
 	src/launcher/builtins/export.c \
 	src/launcher/builtins/fg.c \
 	src/launcher/builtins/hash.c \
+	src/launcher/builtins/jobs_utils.c \
 	src/launcher/builtins/jobs.c \
 	src/launcher/builtins/set.c \
 	src/launcher/builtins/test.c \
