@@ -6,13 +6,12 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:01:14 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/05/22 16:06:12 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/22 16:25:28 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 #include "autocomplete.h"
-
 #include <dirent.h>
 
 int	filename_character_allowed(char c)
