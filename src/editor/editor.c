@@ -6,7 +6,7 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/19 11:05:51 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/20 13:06:28 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	input(t_shell *shell)
 	while (1)
 	{
 		print(shell);
+		write(1, "X",1);
 		key = keypress();
 		action(key, shell);
 		if (shell->mode & ENDOFFILE || shell->mode & INTERRUPT || key == ENTER)
