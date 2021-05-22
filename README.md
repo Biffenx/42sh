@@ -88,6 +88,7 @@ sudo apt install libncurses5-dev
 - [ ] Set signals to default when bringing job to the foreground.
 - [ ] Decide when and where shell updates current and previous jobs.
 - [ ] Shady stuff going on when signal is sent to a process via kill. Try fix signals.
- 
+- [ ] Check line editing when going up or down a line once again.
+
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
