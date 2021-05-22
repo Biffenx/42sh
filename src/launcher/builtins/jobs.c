@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 16:08:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/22 20:23:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int jobs_builtin(char **argv)
 {
 	int	options;
 
-	parse_options(argv, &options);
+	argv = parse_options(argv, &options);
 	if (!*argv)
 		return (print_all(options));
 	else
