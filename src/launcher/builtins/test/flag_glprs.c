@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_glprs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 09:03:38 by jwilen            #+#    #+#             */
-/*   Updated: 2021/04/20 13:26:33 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/05/22 12:45:24 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	flag_g_test(char *path)
 
 	if (stat(path, &buf) == -1)
 		return (1);
-	return (!((buf.st_mode & S_IFMT) == S_ISGID));
+	return (0);
+	/* error: bitwise comparison always evaluates to false [-Werror=tautological-compare]
+	return (!((buf.st_mode & S_IFMT) == S_ISGID));*/
 }
 
 int	flag_cap_l_test(char *path)
