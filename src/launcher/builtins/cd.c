@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 21:24:09 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/22 12:31:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static char	**parse_options(char **argv, int *options)
 		while (argv[i][j])
 		{
 			if (argv[i][j] == 'L')
-				*options |= 1 << 0;
+				*options = 1 << 0;
 			else if (argv[i][j] == 'P')
-				*options |= 1 << 1;
+				*options = 1 << 1;
 			j += 1;
 		}
 		i += 1;
