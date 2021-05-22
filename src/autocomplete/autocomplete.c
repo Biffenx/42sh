@@ -6,7 +6,7 @@
 /*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:01:14 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/05/19 22:32:37 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/22 16:06:12 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,12 @@ void	get_dir_commands_ext(struct dirent	*p_dirent, char *path,
 	if (match_with_input_after_slash(path, p_dirent->d_name) && !ft_strequ
 		(p_dirent->d_name, ".") && !ft_strequ(p_dirent->d_name, ".."))
 	{
-	write(1, "W", 1);
 		tmp = commands;
 		commands = (char **)ft_memalloc(sizeof(char *) * (size + 1));
 		if (tmp)
 			ft_memcpy(commands, tmp, size * sizeof(char *));
-		write(1, "1", 1);
 		commands[size++ - 1] = join_path_and_filename(path, p_dirent);
 	}
-	write(1, "2", 1);
 }
 
 int	check_command_valid_dir(char *command)
@@ -179,7 +176,6 @@ char	**get_dir_commands(char *path)
 		if (!p_dirent)
 			break ;
 		get_dir_commands_ext(p_dirent, path, commands, size);
-		write(1, "CK", 2);
 	}
 	closedir(p_dir);
 	return (commands);
@@ -194,9 +190,6 @@ int	loop_autocomplete(char *part_command, t_shell *shell)
 	cur = shell->autocomp;
 	while (cur)
 	{
-		//ft_printf("cur->command: %s\n", cur->command);
-		// ft_printf("part_command: %s\n", part_command);
-		// ft_printf("len part_command: %d\n", ft_strlen(part_command));
 		if (ft_strnequ(cur->command, part_command, ft_strlen(part_command)))
 			i++;
 		cur = cur->next;
@@ -287,17 +280,9 @@ void	autocomplete(t_shell *shell)
 		free(matching_commands);
 		partial_command = get_partial_command(shell->editor.buffer);
 		if (partial_command[0] == '\0')
-		{
-			write(1, "JO", 2);
 			matching_commands = get_dir_commands(".");
-			ft_printf("mc1: %s\n", matching_commands);
-		}
 		else if (check_command_valid_dir(partial_command))
-		{
-			write(1, "CK", 1);
 			matching_commands = get_dir_commands(partial_command);
-			ft_printf("mc2: %s\n", matching_commands);
-		}
 		else
 		{
 			matching_commands = get_matching_commands(partial_command, shell);
