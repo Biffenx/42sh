@@ -50,7 +50,7 @@ sudo apt install libncurses5-dev
 	- [x] Possibility to list shell internal variables via built-in set
 	- [x] Internal and enviroment variables revocation via built-in unset
 	- [x] Enviroment variable creation for unique command
-	- [ ] Simple expansion of parameters depending on syntax ${} (syntax is $EXPANSION)
+	- [x] Simple expansion of parameters depending on syntax ${} (syntax is $EXPANSION)
 	- [x] Exit code access of previous command via expansion ${?} (syntax is $?)
 	- [ ] Job control monitoring with built-ins jobs, fg, bg and the & operator
 	- [x] Correct monitoring of all signals
@@ -76,14 +76,14 @@ sudo apt install libncurses5-dev
 - [x] Specific process should have own return value recorded after completion.
 - [x] Cursor movement does not work with ctrl+key combination after commit 098687956be52f87e71d9ad68a4ce5d76ebe96ce, which fixed line edition with command including newlines.
 - [x] Absolute path for the file where history commands are saved in.
-- [ ] Cd builtin does not align with the POSIX standard.
+- [x] Cd builtin does not align with the POSIX standard.
 - [x] Type builtin cannot handle alias specification because aliases are expanded in lexer. (comment: use single quotes to avoid this.)
 - [x] Shady stuff going on with the alias and unalias control including hashmap functions. Segfaults.
 - [ ] Two or more consecutive expandable aliases cause segmentation fault.
 - [x] Export builtin can only modify existing enviroment variables. It cannot create new ones.
-- [ ] $ expansion segmentation fault if there is no value.
-- [ ] ~ expansion segmentation fault if there is no value in HOME.
-- [ ] $ expansion wont work if the expandable value is joined with slash ie. $HOME/Documents.
+- [x] $ expansion segmentation fault if there is no value.
+- [x] ~ expansion segmentation fault if there is no value in HOME.
+- [x] $ expansion wont work if the expandable value is joined with slash ie. $HOME/Documents.
 - [ ] Invalid pointer being freed sometimes when alias expansion is done.
 - [x] Shell "freezes" if job is stopped.
 - [ ] Set signals to default when bringing job to the foreground.
@@ -93,3 +93,4 @@ sudo apt install libncurses5-dev
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
+- Dollar sign should be put into single quotes if user wants to write the character into std_out, otherwise parser will erase it when expanding dollars.
