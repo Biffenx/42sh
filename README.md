@@ -86,9 +86,10 @@ sudo apt install libncurses5-dev
 - [x] $ expansion wont work if the expandable value is joined with slash ie. $HOME/Documents.
 - [ ] Invalid pointer being freed sometimes when alias expansion is done.
 - [x] Shell "freezes" if job is stopped.
-- [ ] Set signals to default when bringing job to the foreground.
+- [x] Set signals to default when bringing job to the foreground.
 - [ ] Decide when and where shell updates current and previous jobs.
 - [ ] Shady stuff going on when signal is sent to a process via kill. Try fix signals.
+	- There is no way for the programs to know about sent signals if they are in background or stopped.
 - [ ] Improve line edition (up and down)
 - [ ] Odd files being created to directory when history file fills up to the limit.
 
