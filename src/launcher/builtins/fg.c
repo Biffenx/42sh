@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 07:36:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/24 15:34:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/24 15:51:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int	raise_current(void)
 	job = g_shell->current;
 	if (job)
 	{
+		g_shell->previous = g_shell->current;
+		g_shell->current = job;
 		ft_putendl(job->command);
 		continue_job(job, 1);
 		return (0);
@@ -42,6 +44,8 @@ static int	raise_job(char *s)
 	{
 		if (job->id == job_id)
 		{
+			g_shell->previous = g_shell->current;
+			g_shell->current = job;
 			ft_putendl(job->command);
 			continue_job(job, 1);
 			return (0);

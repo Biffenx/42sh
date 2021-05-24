@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 08:28:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/24 15:57:15 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,7 @@ t_job				*create_job(t_token **tokens)
 	job->stdout = STDOUT_FILENO;
 	job->stderr = STDERR_FILENO;
 	job->next = NULL;
+	if (!g_shell->current)
+		g_shell->current = job;
 	return (job);
 }
