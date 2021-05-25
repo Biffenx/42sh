@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:58:32 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/25 20:49:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/25 21:35:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void 			do_job_notification(void)
 	}
 	if (!g_shell->current)
 		find_current();
+	update_status();
 }
 
 void 			mark_job_as_running(t_job *job)
