@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:38:38 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/24 18:43:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/25 20:50:56 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void		free_process(t_process *process)
 
 void			free_job(t_job *job)
 {
+	if (g_shell->current == job)
+		g_shell->current = NULL;
 	free(job->command);
 	free_process(job->first_process);
 	free(job);

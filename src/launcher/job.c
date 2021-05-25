@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/12 15:16:33 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/25 16:09:58 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void			launch_job(t_job *job, int foreground)
 	int			outfile;
 
 	job->launched = 1;
+	if (!g_shell->current)
+		g_shell->current = job;
 	infile = job->stdin;
 	process = job->first_process;
 	while (process)

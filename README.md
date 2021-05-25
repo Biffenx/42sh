@@ -52,7 +52,7 @@ sudo apt install libncurses5-dev
 	- [x] Enviroment variable creation for unique command
 	- [x] Simple expansion of parameters depending on syntax ${} (syntax is $EXPANSION)
 	- [x] Exit code access of previous command via expansion ${?} (syntax is $?)
-	- [ ] Job control monitoring with built-ins jobs, fg, bg and the & operator
+	- [x] Job control monitoring with built-ins jobs, fg, bg and the & operator
 	- [x] Correct monitoring of all signals
 	- [ ] Each built-in must have the enounced options by POSIX standard execept for explicit case ad set or unset
 
@@ -87,7 +87,7 @@ sudo apt install libncurses5-dev
 - [ ] Invalid pointer being freed sometimes when alias expansion is done.
 - [x] Shell "freezes" if job is stopped.
 - [x] Set signals to default when bringing job to the foreground.
-- [ ] Decide when and where shell updates current and previous jobs.
+- [x] Decide when and where shell updates current and previous jobs (current handling is supported).
 - [ ] Shady stuff going on when signal is sent to a process via kill. Try fix signals.
 	- There is no way for the programs to know about sent signals if they are in background or stopped.
 - [ ] Improve line edition (up and down)
