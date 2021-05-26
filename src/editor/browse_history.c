@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:09:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/26 17:53:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/26 18:04:59 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	find_match(t_shell *shell, char *str)
 	if (!str[0])
 		return (1);
 	i = 0;
-	while (i < HISTORY_SIZE)
+	while (i < HISTORY_SIZE && shell->history[i])
 	{
 		if (ft_strstr(shell->history[i], str))
 		{
