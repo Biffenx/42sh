@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:09:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/03/12 13:02:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/26 17:53:47 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int	find_match(t_shell *shell, char *str)
 	{
 		if (ft_strstr(shell->history[i], str))
 		{
-			reset(NULL, shell);
+			reset(PROMPT_NORMAL, shell);
 			ft_strcat(shell->editor.buffer, shell->history[i]);
 			shell->editor.cursor = ft_strlen(shell->editor.buffer);
 			return (1);
 		}
-		i++;
+		i += 1;
 	}
 	return (0);
 }

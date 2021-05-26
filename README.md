@@ -92,7 +92,7 @@ sudo apt install libncurses5-dev
 	- There is no way for the programs to know about sent signals if they are in background or stopped.
 - [ ] Improve line edition (up and down)
 - [ ] Odd files being created to directory when history file fills up to the limit.
-- [ ] Reverse-i-search segfault.
+- [x] Reverse-i-search segfault.
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
