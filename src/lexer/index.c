@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/10 20:23:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 11:15:01 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	check_trailing(t_lexer *lexer)
 void	tokenize(t_lexer *lexer, char *input)
 {
 	int	i;
+	t_lexer	*current;
 
 	i = 0;
 	ft_strlcat(lexer->data, input, ARG_MAX);
@@ -61,6 +62,10 @@ void	tokenize(t_lexer *lexer, char *input)
 		else
 			i++;
 	}
+	current = lexer;
+
+		ft_printf("J: %s\n", current->data);
+
 	check_trailing(lexer);
 	lexer->first = lexer->head;
 }

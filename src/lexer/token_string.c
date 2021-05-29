@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:07:32 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/08 17:13:17 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 11:24:13 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	token_exceptions(t_lexer *lexer, char *input, int i)
 		add_token(lexer, ft_strsub(input, 0, i), FILENAME);
 	else
 		add_token(lexer, ft_strsub(input, 0, i), STRING);
-	return (i);	
+	return (i);
 }
 /*
 ** Make a string, filename, dash or heredoc token

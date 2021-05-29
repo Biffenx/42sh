@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 08:28:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 07:56:30 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_job				*create_job(t_token **tokens)
 	job->foreground = check_bg(*tokens);
 	job->launched = 0;
 	job->command = join_tokens(*tokens);
-	job->first_process = list_process(tokens); 
+	job->first_process = list_process(tokens);
 	job->pgid = 0;
 	job->notified = 0;
 	job->stdin = STDIN_FILENO;

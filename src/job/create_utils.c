@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 08:12:46 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 08:38:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 08:02:39 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	*join_tokens(t_token *tokens)
 	while (token)
 	{
 		length += ft_strlen(token->data);
+		ft_printf("token: %s %d \n", token->data, length);
+		write(1, "X", 1);
 		if (token->next)
 			length += 1;
 		token = token->next;

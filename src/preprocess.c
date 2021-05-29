@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preprocess.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 17:18:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 11:18:04 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,23 @@ static void		loader(t_lexer *lexer)
 {
 	t_token		*tokens;
 	t_job		*job;
+	t_token		*current;
 
 	tokens = lexer->head;
+	current = tokens;
+	while (current)
+	{
+		ft_printf("data: %s\n", current->data);
+		current = current->next;
+	}
 	job = create_job(&tokens);
+	// while (current)
+	// {
+	// 	ft_printf("id: %d\n", job->id);
+	// 	ft_printf("command: %s\n", job->command);
+	// 	current = current->next;
+
+	// }
 	append_job(&g_shell->jobs, job);
 	while (tokens)
 		append_job(&g_shell->jobs, create_job(&tokens));
@@ -62,6 +76,7 @@ void			preprocess(char *input, t_shell *shell)
 	lexer.head = NULL;
 	lexer.first = NULL;
 	lexer.last = NULL;
+	ft_printf("K: %s\n", lexer.data);
 	tokenize(&lexer, input);
 	if (lexer.flags & DEBUG_LEXER)
 		lexer_debug(lexer);
