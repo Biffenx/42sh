@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_alias.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:49:22 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/14 14:51:45 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 15:55:21 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,13 @@ void			tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell)
 	lexer_als.head = NULL;
 	lexer_als.first = NULL;
 	lexer_als.last = NULL;
+	if (shell->alias_index != 0)
+		return;
 	value = hash_get(shell->alias, (*token)->data);
 	if (value)
 	{
 		tokenize(&lexer_als, value);
 		converge_lexers(lexer, &lexer_als, token);
+		shell->alias_index = 1;
 	}
 }
