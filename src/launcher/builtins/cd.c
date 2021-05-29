@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 23:05:20 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/05/29 14:44:01 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static char	**parse_options(char **argv, int *options)
 		while (argv[i][j])
 		{
 			if (argv[i][j] == 'L')
-				*options |= 1 << 0;
+				*options = 1 << 0;
 			else if (argv[i][j] == 'P')
-				*options |= 1 << 1;
+				*options = 1 << 1;
 			j += 1;
 		}
 		i += 1;

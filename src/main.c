@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 13:18:10 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/22 13:34:06 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ static void	create_pgroup(t_shell *shell)
 		tcsetpgrp(STDIN_FILENO, shell->pgid);
 	}
 	shell->jobs = NULL;
+	shell->current = NULL;
+	shell->previous = NULL;
 }
 
 static void	terminal(t_terminal *terminal)
