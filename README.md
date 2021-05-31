@@ -80,7 +80,7 @@ sudo apt install libncurses5-dev
 - [x] Cd builtin does not align with the POSIX standard.
 - [x] Type builtin cannot handle alias specification because aliases are expanded in lexer. (comment: use single quotes to avoid this.)
 - [x] Shady stuff going on with the alias and unalias control including hashmap functions. Segfaults.
-- [ ] Two or more consecutive expandable aliases cause segmentation fault.
+- [x] Two or more consecutive expandable aliases cause segmentation fault.
 - [x] Export builtin can only modify existing enviroment variables. It cannot create new ones.
 - [x] $ expansion segmentation fault if there is no value.
 - [x] ~ expansion segmentation fault if there is no value in HOME.
