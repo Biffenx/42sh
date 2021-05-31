@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
+#    By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/24 15:27:42 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/18 17:02:58 by jochumwilen      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ src = src/main.c \
 	src/signals.c \
 	src/utils.c \
 	src/utils2.c \
+	src/autocomplete/autocomplete.c \
+	src/autocomplete/get_autocomplete_commands.c \
 	src/editor/action.c \
 	src/editor/browse_history.c \
 	src/editor/clipboard.c \
