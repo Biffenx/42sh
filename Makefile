@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/17 18:39:01 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/05/24 15:27:42 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,12 +49,22 @@ src = src/main.c \
 	src/launcher/isbuiltin.c \
 	src/launcher/job.c \
 	src/launcher/process.c \
+	src/launcher/utils.c \
 	src/launcher/builtins/fc/execute.c \
 	src/launcher/builtins/fc/fc_debug.c \
 	src/launcher/builtins/fc/fc.c \
 	src/launcher/builtins/fc/list.c \
 	src/launcher/builtins/fc/file.c \
 	src/launcher/builtins/fc/parse.c \
+	src/launcher/builtins/test/check_values.c \
+	src/launcher/builtins/test/flag_bcdef.c\
+	src/launcher/builtins/test/flag_binary_sym.c \
+	src/launcher/builtins/test/flag_binary_util.c \
+	src/launcher/builtins/test/flag_binary.c \
+	src/launcher/builtins/test/flag_glprs.c\
+	src/launcher/builtins/test/flag_suwxz.c\
+	src/launcher/builtins/test/get_options.c\
+	src/launcher/builtins/test/util.c\
 	src/launcher/builtins/alias.c \
 	src/launcher/builtins/bg.c \
 	src/launcher/builtins/cd.c \
@@ -63,8 +73,10 @@ src = src/main.c \
 	src/launcher/builtins/export.c \
 	src/launcher/builtins/fg.c \
 	src/launcher/builtins/hash.c \
+	src/launcher/builtins/jobs_utils.c \
 	src/launcher/builtins/jobs.c \
 	src/launcher/builtins/set.c \
+	src/launcher/builtins/test.c \
 	src/launcher/builtins/type.c \
 	src/launcher/builtins/unalias.c \
 	src/launcher/builtins/unset.c \
@@ -89,7 +101,7 @@ flags = -Wall -Wextra -Werror
 all:
 	-@git clone https://github.com/vkuokka/42-libft.git libft
 	@make -C libft
-	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name) 
+	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name)
 simple:
 	@echo Skipped libft creation. Launching 42sh ...
 	@gcc $(flags) $(inc) $(src) $(lib) -ltermcap -o $(name)

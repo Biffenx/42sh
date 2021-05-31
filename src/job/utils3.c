@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:58:32 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 15:38:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/25 21:35:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,23 @@ void			format_job_info(t_job *job, const char *status)
 {
 	if (g_debug)
 		ft_dprintf(STDERR_FILENO, "%ld (%s): %s\n", (long)job->pgid, status, job->command);
+}
+
+static void		find_current(void)
+{
+	t_job	*job;
+
+	job = g_shell->jobs;
+	while (job)
+	{
+		if (job_is_stopped(job))
+		{
+			g_shell->current = job;
+			return ;
+		}
+		job = job->next;
+	}
+	g_shell->current = g_shell->jobs;
 }
 
 void 			do_job_notification(void)
@@ -48,6 +65,9 @@ void 			do_job_notification(void)
 			jlast = job;
 		job = jnext;
 	}
+	if (!g_shell->current)
+		find_current();
+	update_status();
 }
 
 void 			mark_job_as_running(t_job *job)
