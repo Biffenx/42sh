@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 13:19:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/22 13:34:25 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ typedef struct				s_shell
 	t_hash					alias[HASH_SIZE];
 	t_hash					table[HASH_SIZE];
 	t_job					*jobs;
+	t_job					*current;
+	t_job					*previous;
 	t_terminal				terminal;
 	t_editor				editor;
 	char					*history[HISTORY_SIZE];

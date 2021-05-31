@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 20:15:40 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/12 20:37:54 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 22:54:07 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ size_t		parse(t_shell *shell, size_t i, char *tmp)
 {
 	if (tmp[i + 1] == '!')
 	{
-		add(shell->history[0], shell);
+		add(shell->history[ft_arrlen(shell->history, HISTORY_SIZE) - 1], shell);
 		return (2);
 	}
 	else if (ft_isdigit(tmp[i + 1]))

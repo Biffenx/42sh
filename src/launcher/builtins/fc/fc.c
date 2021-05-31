@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 11:35:36 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/22 16:56:54 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static void	verify_arguments(char **argv, int *options)
 {
 	if (argv[0] && argv[1] && argv[2])
 	{
-		ft_putstr_fd(FC_ERR_ARG, STDERR_FILENO);
+		ft_dprintf(STDERR_FILENO, STR_ARG_ERR, "fc");
 		*options |= 1 << 5;
 	}
 }
