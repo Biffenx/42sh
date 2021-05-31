@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:29:51 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 20:20:42 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/25 16:09:05 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static int	raise_current(void)
 	job = g_shell->current;
 	if (job)
 	{
+		g_shell->current = job;
 		ft_putendl(job->command);
-		mark_job_as_running(job);
-		put_job_in_background(job, 1);
+		continue_job(job, 0);
 		return (0);
 	}
 	ft_dprintf(STDERR_FILENO, JOB_ERR_NOTFOUND, "bg", "current");
@@ -43,9 +43,9 @@ static int	raise_job(char *s)
 	{
 		if (job->id == job_id)
 		{
+			g_shell->current = job;
 			ft_putendl(job->command);
-			mark_job_as_running(job);
-			put_job_in_background(job, 1);
+			continue_job(job, 0);
 			return (0);
 		}
 		job = job->next;

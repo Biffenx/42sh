@@ -27,6 +27,8 @@ static char	**parse_options(char **argv, int *options)
 	while (argv[i] && argv[i][0] == '-')
 	{
 		j = 1;
+		if (!argv[i][j])
+			return (argv + i);
 		while (argv[i][j])
 		{
 			if (argv[i][j] == 'L')

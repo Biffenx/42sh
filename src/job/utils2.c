@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 16:11:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/25 21:33:57 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int				mark_process_status(pid_t pid, int status)
 				{
 					process->status = status;
 					if (WIFSTOPPED(status))
+					{
 						process->stopped = 1;
+						g_shell->current = job;
+					}
 					else
 					{
 						process->completed = 1;
@@ -81,8 +84,7 @@ void			update_status(void)
 	status = 0;
 	pid = 0;
 	pid = waitpid(WAIT_ANY, &status, WUNTRACED | WNOHANG);
-	while (!mark_process_status(pid, status))
-		pid = waitpid(WAIT_ANY, &status, WUNTRACED | WNOHANG);
+	mark_process_status(pid, status);
 }
 
 void wait_for_job(t_job *job)
