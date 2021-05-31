@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 13:34:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/29 15:11:57 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct				s_shell
 	pid_t					pgid;
 	t_hash                  vars[HASH_SIZE];
 	t_hash					alias[HASH_SIZE];
+	int						alias_index;
 	t_hash					table[HASH_SIZE];
 	t_job					*jobs;
 	t_job					*current;
