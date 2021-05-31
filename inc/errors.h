@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 19:30:53 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/05/22 16:50:19 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@
 # define FC_ERR_OPT "fc: bad option: -%c\n"
 # define FC_ERR_EDIT "fc: -e: option requires an argument\n"
 # define FC_ERR_FD "fc: could not open fcfile\n"
-# define FC_ERR_ARG "fc: too many arguments\n"
 # define FC_ERR_EXEC "fc: history events can't be executed backwards, aborted\n"
 # define FC_ERR_EVENT "fc: event not found: %s\n"
 # define FC_ERR_REPL "fc: replace argument invalid\n"

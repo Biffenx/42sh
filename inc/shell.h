@@ -79,8 +79,11 @@ typedef struct				s_shell
 	pid_t					pgid;
 	t_hash                  vars[HASH_SIZE];
 	t_hash					alias[HASH_SIZE];
+	int						alias_index; // IMO the alias expansion controlling should be the lexers job.
 	t_hash					table[HASH_SIZE];
 	t_job					*jobs;
+	t_job					*current;
+	t_job					*previous;
 	t_terminal				terminal;
 	t_editor				editor;
 	t_autocomp				*autocomp;

@@ -53,6 +53,8 @@ static void	create_pgroup(t_shell *shell)
 		tcsetpgrp(STDIN_FILENO, shell->pgid);
 	}
 	shell->jobs = NULL;
+	shell->current = NULL;
+	shell->previous = NULL;
 }
 
 static void	terminal(t_terminal *terminal)

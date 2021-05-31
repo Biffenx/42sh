@@ -51,12 +51,22 @@ src = src/main.c \
 	src/launcher/isbuiltin.c \
 	src/launcher/job.c \
 	src/launcher/process.c \
+	src/launcher/utils.c \
 	src/launcher/builtins/fc/execute.c \
 	src/launcher/builtins/fc/fc_debug.c \
 	src/launcher/builtins/fc/fc.c \
 	src/launcher/builtins/fc/list.c \
 	src/launcher/builtins/fc/file.c \
 	src/launcher/builtins/fc/parse.c \
+	src/launcher/builtins/test/check_values.c \
+	src/launcher/builtins/test/flag_bcdef.c\
+	src/launcher/builtins/test/flag_binary_sym.c \
+	src/launcher/builtins/test/flag_binary_util.c \
+	src/launcher/builtins/test/flag_binary.c \
+	src/launcher/builtins/test/flag_glprs.c\
+	src/launcher/builtins/test/flag_suwxz.c\
+	src/launcher/builtins/test/get_options.c\
+	src/launcher/builtins/test/util.c\
 	src/launcher/builtins/alias.c \
 	src/launcher/builtins/bg.c \
 	src/launcher/builtins/cd.c \
@@ -65,8 +75,10 @@ src = src/main.c \
 	src/launcher/builtins/export.c \
 	src/launcher/builtins/fg.c \
 	src/launcher/builtins/hash.c \
+	src/launcher/builtins/jobs_utils.c \
 	src/launcher/builtins/jobs.c \
 	src/launcher/builtins/set.c \
+	src/launcher/builtins/test.c \
 	src/launcher/builtins/type.c \
 	src/launcher/builtins/unalias.c \
 	src/launcher/builtins/unset.c \
