@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/29 14:47:53 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/06/01 18:01:14 by jochumwilen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ static int	move_to(char *path, int print)
 	pwd = getenv("PWD");
 	if (!chdir(path))
 	{
-		setenv("OLDPWD", pwd, 1);
-		setenv("PWD", path, 1);
 		if (print)
 			ft_putendl(path);
+		setenv("OLDPWD", pwd, 1);
+		setenv("PWD", path, 1);
 		return (0);
 	}
 	if (stat(path, &stats) == -1)
