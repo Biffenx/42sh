@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/06/29 19:13:50 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/06/29 20:18:47 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,12 @@ void		action(int key, t_shell *shell)
 	{
 			autocomplete(shell);
 	}
-	else if (check_arrow_keys(key, shell))
-		;
-	else if (check_clipboard_keys(key, shell))
-		;
-	else if (check_delete_keys(key, shell))
-		;
-	else if (check_leap_keys(key, shell))
-		;
+	else
+	{
+		check_arrow_keys(key, shell);
+		check_clipboard_keys(key, shell);
+		check_delete_keys(key, shell);
+		check_leap_keys(key, shell);
+	}
 	shell->prev_key_pressed = key;
 }
