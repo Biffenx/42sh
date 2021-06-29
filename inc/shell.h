@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/18 17:07:59 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/06/02 16:59:12 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct				s_shell
 	char					*history[HISTORY_SIZE];
 	int						history_index;
 	char					history_file[PATH_MAX];
+	int						prev_key_pressed;
 }							t_shell;
 
 # include "history.h"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 13:19:04 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/06/29 19:13:11 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,6 @@ void		create_shell(t_shell *shell)
 	ft_bzero(shell->history_file, PATH_MAX);
 	ft_strlcat(shell->history_file, getenv("HOME"), PATH_MAX);
 	ft_strlcat(shell->history_file, HISTORY_FILE, PATH_MAX);
+	shell->prev_key_pressed = -1;
+	shell->autocomp = NULL;
 }

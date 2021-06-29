@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/19 11:06:09 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/06/29 19:13:50 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,15 @@ void		action(int key, t_shell *shell)
 	}
 	else if (key == TAB)
 	{
-			get_autocomplete_commands(shell);
 			autocomplete(shell);
 	}
 	else if (check_arrow_keys(key, shell))
-		return ;
+		;
 	else if (check_clipboard_keys(key, shell))
-		return ;
+		;
 	else if (check_delete_keys(key, shell))
-		return ;
+		;
 	else if (check_leap_keys(key, shell))
-		return ;
+		;
+	shell->prev_key_pressed = key;
 }

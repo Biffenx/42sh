@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/19 07:44:50 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/06/29 19:04:08 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static void	shell(void)
 	g_shell = &shell;
 	while (42)
 	{
+		get_autocomplete_commands(&shell);
 		reset(PROMPT_NORMAL, &shell);
 		editor(&shell);
 		if (shell.mode & ENDOFFILE)
