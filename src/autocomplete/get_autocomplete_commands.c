@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_autocomplete_commands.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:30 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/05/19 10:57:09 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/06/03 22:15:20 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include "autocomplete.h"
 
 #include <dirent.h>
-
-
 
 void	copy_and_escape_characters(char *dst, char *src)
 {
@@ -100,17 +98,14 @@ void	free_autocomp_commands(t_shell *shell)
 	t_autocomp	*cur;
 	t_autocomp	*tmp;
 
+	cur = shell->autocomp;
 	shell->autocomp = NULL;
 	shell->autocomp_tail = NULL;
-	cur = shell->autocomp;
-	if (cur)
+	while (cur)
 	{
-		while (cur)
-		{
-			tmp = cur;
-			cur = tmp->next;
-			free(tmp);
-		}
+		tmp = cur;
+		cur = tmp->next;
+		free(tmp);
 	}
 }
 
