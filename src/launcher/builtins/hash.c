@@ -6,11 +6,15 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 11:49:53 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/04 10:59:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
+
+/*
+** https://www.man7.org/linux/man-pages/man1/hash.1p.html
+*/
 
 static void print_table(t_hash *table)
 {
@@ -32,6 +36,8 @@ static int parse_and_put(t_hash *table, char *data)
 
 	key = data;
 	data = ft_strchr(data, '=');
+	if (!data)
+		return (1);
 	*data = '\0';
 	value = data + 1;
 	if (*key && hash_put(table, key, value) > -1)
@@ -41,7 +47,9 @@ static int parse_and_put(t_hash *table, char *data)
 
 static int	command_set_1(char **argv)
 {
-	if (ft_strequ(argv[1], "purge"))
+	if (ft_strequ(argv[1], "help"))
+		ft_putstr(HASH_HELP);
+	else if (ft_strequ(argv[1], "purge"))
 		hash_purge(g_shell->table);
 	else if (ft_strequ(argv[1], "display"))
 		print_table(g_shell->table);

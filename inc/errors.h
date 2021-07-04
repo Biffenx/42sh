@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 16:50:19 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/04 10:44:31 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 */
 
 # define HASH_SYNTAX "42sh: hash: syntax: hash [function] [key]=value\n"
+# define HASH_HELP "42sh: hash: functions: get, put, delete, purge, display\n"
 
 /*
 ** Termcaps.
