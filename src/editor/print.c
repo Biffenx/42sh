@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:57:51 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 12:11:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:26:01 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	cursor(t_shell *shell)
 	{
 		tputs(tgetstr("nd", NULL), 1, print_char);
 		cursor += 1;
-		row_len +=1;
+		row_len += 1;
 		if (row_len == shell->terminal.size.ws_col)
 			write(STDOUT_FILENO, "\n\r", 2);
 		else if (shell->editor.buffer[cursor - 1] == '\n')
@@ -42,7 +42,7 @@ static void	cursor(t_shell *shell)
 	}
 }
 
-void		print(t_shell *shell)
+void	print(t_shell *shell)
 {
 	tputs(tgetstr("rc", NULL), 1, print_char);
 	tputs(tgetstr("cd", NULL), 1, print_char);

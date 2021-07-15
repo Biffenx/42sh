@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:05:08 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/18 11:53:10 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/07/15 16:27:59 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int			keypress(void)
+int	keypress(void)
 {
 	char	buffer[KEY_SIZE + 1];
 	ssize_t	bytes;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   browse_history.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:09:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/26 18:04:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:32:49 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	find_match(t_shell *shell, char *str)
 	return (0);
 }
 
-void		search_history(t_shell *shell)
+void	search_history(t_shell *shell)
 {
 	char	str[ARG_MAX];
 	int		key;
@@ -59,7 +59,8 @@ void		search_history(t_shell *shell)
 			break ;
 	}
 }
-int			browse_up(t_shell *shell)
+
+int	browse_up(t_shell *shell)
 {
 	if (shell->history_index > 0)
 	{
@@ -67,14 +68,15 @@ int			browse_up(t_shell *shell)
 		{
 			shell->history_index--;
 			ft_bzero(shell->editor.buffer, ARG_MAX);
-			ft_strcat(shell->editor.buffer, shell->history[shell->history_index]);
-			shell->editor.cursor= ft_strlen(shell->editor.buffer);
+			ft_strcat(shell->editor.buffer,
+				shell->history[shell->history_index]);
+			shell->editor.cursor = ft_strlen(shell->editor.buffer);
 		}
 	}
 	return (1);
 }
 
-int			browse_down(t_shell *shell)
+int	browse_down(t_shell *shell)
 {
 	if (shell->history_index < HISTORY_SIZE - 1)
 	{
@@ -82,7 +84,8 @@ int			browse_down(t_shell *shell)
 		{
 			shell->history_index++;
 			ft_bzero(shell->editor.buffer, ARG_MAX);
-			ft_strcat(shell->editor.buffer, shell->history[shell->history_index]);
+			ft_strcat(shell->editor.buffer,
+				shell->history[shell->history_index]);
 			shell->editor.cursor = ft_strlen(shell->editor.buffer);
 		}
 	}

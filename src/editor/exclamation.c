@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exclamation.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/12 20:37:48 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:28:46 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void		init(size_t *i, char *tmp, t_shell *shell)
+static void	init(size_t *i, char *tmp, t_shell *shell)
 {
 	i[0] = 0;
 	i[1] = 0;
@@ -21,7 +21,7 @@ static void		init(size_t *i, char *tmp, t_shell *shell)
 	reset(PROMPT_NORMAL, shell);
 }
 
-int				exclamation(t_shell *shell)
+int	exclamation(t_shell *shell)
 {
 	size_t		i[2];
 	char		tmp[ARG_MAX];
@@ -30,6 +30,7 @@ int				exclamation(t_shell *shell)
 	init(i, tmp, shell);
 	parsed = 0;
 	while (tmp[i[0]])
+	{
 		if (tmp[i[0]] == '!' && ft_isprint(tmp[i[0] + 1]))
 		{
 			i[0] += parse(shell, i[0], tmp);
@@ -42,6 +43,7 @@ int				exclamation(t_shell *shell)
 			i[0]++;
 			i[1]++;
 		}
+	}
 	shell->editor.cursor = ft_strlen(shell->editor.buffer);
 	return (parsed);
 }

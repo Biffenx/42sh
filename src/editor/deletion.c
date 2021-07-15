@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   deletion.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:28:57 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/01/07 21:59:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:29:13 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int			handle_eof(t_shell *shell)
+int	handle_eof(t_shell *shell)
 {
 	size_t	len;
 
@@ -29,7 +29,7 @@ int			handle_eof(t_shell *shell)
 	return (1);
 }
 
-int			handle_backspace(t_editor *editor)
+int	handle_backspace(t_editor *editor)
 {
 	size_t	len;
 

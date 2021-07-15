@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 20:15:40 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/29 22:54:07 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:27:50 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void		add(char *entry, t_shell *shell)
+static void	add(char *entry, t_shell *shell)
 {
 	if (!entry || ft_strlen(entry) >= ARG_MAX - ft_strlen(shell->editor.buffer))
 		return ;
@@ -58,11 +58,11 @@ static size_t	tail(t_shell *shell, size_t start, char *tmp)
 	}
 	i = num - 1;
 	if (i >= HISTORY_SIZE)
-		{
-			i = HISTORY_SIZE - 1;
-			while (!shell->history[i] && i >= 0)
-				i--;
-		}
+	{
+		i = HISTORY_SIZE - 1;
+		while (!shell->history[i] && i >= 0)
+			i--;
+	}
 	add(shell->history[i], shell);
 	return (ft_count_digits_only(num, 10) + 2);
 }
@@ -87,7 +87,7 @@ static size_t	word(t_shell *shell, size_t start, char *tmp)
 	return (length + 1);
 }
 
-size_t		parse(t_shell *shell, size_t i, char *tmp)
+size_t	parse(t_shell *shell, size_t i, char *tmp)
 {
 	if (tmp[i + 1] == '!')
 	{
