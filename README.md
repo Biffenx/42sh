@@ -61,8 +61,8 @@ sudo apt install libncurses5-dev
 - [ ] Complete management of the history.
 - [x] Alias management via built-ins alias and unalias.
 - [x] A hash table and built-in hash to interact with it.
-- [ ] Contextual dynamic completion.
-- [ ] Built-in test with the required operators.
+- [x] Contextual dynamic completion.
+- [x] Built-in test with the required operators.
 
 ### Issues
 - [x] New opening quote in open quote.
