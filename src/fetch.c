@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fetch.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:05:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 10:26:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 19:17:11 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	entries(int fd, t_shell *shell)
 	}
 }
 
-void		fetch(t_shell *shell)
+void	fetch(t_shell *shell)
 {
 	int		i;
 	int		fd;

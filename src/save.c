@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 18:37:10 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/11 10:26:43 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 19:19:45 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	entries(int fd, t_shell *shell)
 	}
 }
 
-void 		save(t_shell *shell)
+void 	save(t_shell *shell)
 {
 	int		fd;
 

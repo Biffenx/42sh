@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   add_entry.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:16:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/07 15:51:51 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 19:16:55 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void		add_entry(char *cmd, t_shell *shell)
+void	add_entry(char *cmd, t_shell *shell)
 {
 	int		i;
 	char	*entry;

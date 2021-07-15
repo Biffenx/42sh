@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   autocomplete.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:01:14 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/06/03 22:34:41 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/07/15 19:24:51 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*join_path_and_filename(char *path, struct dirent *p_dirent)
 		tmp = ft_strjoinfree(tmp, ft_strdup("/"));
 	}
 	tmp = ft_strjoinfree(tmp,
-	ft_strdup_and_escape_characters(p_dirent->d_name));
+			ft_strdup_and_escape_characters(p_dirent->d_name));
 	if (p_dirent->d_type == DT_DIR)
 		tmp = ft_strjoinfree(tmp, ft_strdup("/"));
 	return (tmp);
@@ -178,13 +178,14 @@ char	**get_dir_commands(char *path)
 	size = 1;
 	while ((p_dirent = readdir(p_dir)))
 	{
-		if (match_with_input_after_slash(path, p_dirent->d_name) &&
-		!ft_strequ(p_dirent->d_name, ".") && !ft_strequ(p_dirent->d_name, ".."))
+		if (match_with_input_after_slash(path, p_dirent->d_name)
+			&& !ft_strequ(p_dirent->d_name, ".")
+			&& !ft_strequ(p_dirent->d_name, ".."))
 		{
 			tmp = commands;
-			commands = (char**)ft_memalloc(sizeof(char*) * (size + 1));
+			commands = (char **)ft_memalloc(sizeof(char *) * (size + 1));
 			if (tmp)
-				ft_memcpy(commands, tmp, size * sizeof(char*));
+				ft_memcpy(commands, tmp, size * sizeof(char *));
 			commands[size++ - 1] = join_path_and_filename(path, p_dirent);
 		}
 	}
@@ -208,7 +209,6 @@ int	loop_autocomplete(char *part_command, t_shell *shell)
 	return (i);
 }
 
-
 char	**get_matching_commands(char *part_command, t_shell *shell)
 {
 	char		**matching_commands;
@@ -225,7 +225,7 @@ char	**get_matching_commands(char *part_command, t_shell *shell)
 	}
 	if (!i)
 		return (NULL);
-	if (!(matching_commands = ft_memalloc(sizeof(char*) * (i + 1))))
+	if (!(matching_commands = ft_memalloc(sizeof(char *) * (i + 1))))
 		exit(1);
 	i = 0;
 	cur = shell->autocomp;
@@ -262,8 +262,8 @@ int	find_start_of_command_index(char *str, int end_index)
 	return (end_index);
 }
 
-void	complete_command(t_shell *shell , char previous_pressed_key,
-char **matching_commands)
+void	complete_command(t_shell *shell, char previous_pressed_key,
+		char **matching_commands)
 {
 	char		*final_string;
 	int			i;

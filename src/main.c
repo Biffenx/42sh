@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/06/29 19:04:08 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/07/15 19:19:16 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	create_pgroup(t_shell *shell)
 		{
 			write(2, SHELL_ERR_PGRP, ft_strlen(SHELL_ERR_PGRP));
 			exit(1);
-        }
+		}
 		tcsetpgrp(STDIN_FILENO, shell->pgid);
 	}
 	shell->jobs = NULL;
@@ -59,10 +59,10 @@ static void	create_pgroup(t_shell *shell)
 
 static void	terminal(t_terminal *terminal)
 {
-		if (tcgetattr(STDIN_FILENO, &terminal->original) == -1)
-			exit(1);
-		terminal->raw = terminal->original;
-		terminal->raw.c_lflag &= ~(ICANON | ECHO);
+	if (tcgetattr(STDIN_FILENO, &terminal->original) == -1)
+		exit(1);
+	terminal->raw = terminal->original;
+	terminal->raw.c_lflag &= ~(ICANON | ECHO);
 }
 
 static void	shell(void)
@@ -93,7 +93,7 @@ static void	shell(void)
 	save(&shell);
 }
 
-int		main(int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **env)
 {
 	if (!argc || !argv || !env)
 		return (1);

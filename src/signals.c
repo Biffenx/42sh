@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:01:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/08 18:35:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 19:19:55 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	signal_interrupt(int signum)
 	}
 }
 
-void		signals(void)
+void	signals(void)
 {
 	signal(SIGWINCH, signal_resize);
 	signal(SIGINT, signal_interrupt);
