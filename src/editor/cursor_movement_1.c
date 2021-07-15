@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:17:19 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/24 15:19:40 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 14:22:26 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		move_cursor_left_word(t_editor *editor)
 	return (1);
 }
 
-/*static int	find_newline(t_editor *editor, int *i, int *diff)
+static int	find_newline(t_editor *editor, int *i, int *diff)
 {
 	if (editor->buffer[*i] == '\n')
 	{
@@ -47,14 +47,11 @@ int		move_cursor_left_word(t_editor *editor)
 		*diff += 1;
 	}
 	return (1);
-}*/
+}
 
 int		move_cursor_up(t_editor *editor)
 {
-	if (editor)
-		return (0);
-	return (1);
-	/*int	i;
+	int	i;
 	int	diff;
 
 	i = editor->cursor;
@@ -72,15 +69,12 @@ int		move_cursor_up(t_editor *editor)
 		move_cursor_right(editor);
 		diff -= 1;
 	}
-	return (1);*/
+	return (1);
 }
 
 int		move_cursor_down(t_editor *editor)
 {
-	if (editor)
-		return (0);
-	return (1);
-	/*int	i;
+	int	i;
 	int	diff;
 
 	i = editor->cursor;
@@ -98,5 +92,5 @@ int		move_cursor_down(t_editor *editor)
 		move_cursor_right(editor);
 		diff -= 1;
 	}
-	return (1);*/
+	return (1);
 }
