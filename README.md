@@ -42,8 +42,8 @@ sudo apt install libncurses5-dev
 	- [x] exit
 	- [x] type
 - Logical operators
-	- [ ] "&&"
-	- [ ] "||"
+	- [x] "&&"
+	- [x] "||"
 - Monitoring of internal shell variables
 	- [x] Internal variable creation depending on syntax: name=value
 	- [x] Internal variable exportation to the enviroment via built-in export
@@ -96,6 +96,7 @@ sudo apt install libncurses5-dev
 - [x] Reverse-i-search segfault.
 - [ ] segfault with command "alias=hello'"
 - [ ] hash builtin POSIX standard?
+- [ ] segfault when file is redireced as input.
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.

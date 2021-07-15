@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 09:47:06 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 11:33:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static int		wait_for_process(t_process *process)
 		pid = waitpid(process->pid, &status, WUNTRACED);
 		mark_process_status(pid, status);
 	}
-	ft_printf("process exit %i\n", process->exit);
 	if (process->condition == 1 && process->exit == 0)
 		return (0);
 	else if (process->condition == 2 && process->exit != 0)
