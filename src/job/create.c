@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/24 19:29:17 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 08:28:22 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static t_process	*create_process(t_token **tokens)
 	if (!process)
 		exit(1);
 	process->argv = tokens_to_array(tokens);
+	process->condition = resolve_condition(tokens);
 	process->path = find_path(process->argv[0]);
 	process->re_ag = create_re_ag_list(tokens);
 	process->pid = 0;

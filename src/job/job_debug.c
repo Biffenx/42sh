@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:06:06 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/06 13:11:18 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 08:36:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void			process_debug(t_process *first)
 			ft_printf("[%d] %s\n", i, process->argv[i]);
 			i += 1;
 		}
+		ft_printf("condition no. %i\n", process->condition);
 		process = process->next;
 	}
 }

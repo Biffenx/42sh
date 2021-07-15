@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 08:12:46 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 08:38:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 08:35:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,15 @@ char	*join_tokens(t_token *tokens)
 		token = token->next;
 	}
 	return (command);
+}
+
+char		resolve_condition(t_token **token)
+{
+	if (!token || !*token)
+		return (0);
+	if ((*token)->type == 1)
+		return (1);
+	else if ((*token)->type == 2)
+		return (2);
+	return (0);
 }
