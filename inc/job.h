@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 08:36:15 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 14:59:06 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <term.h>
 # include "lexer.h"
 
-typedef struct		s_re_ag
+typedef struct s_re_ag
 {
 	enum {
 		REDIR = 0,
@@ -37,7 +37,7 @@ typedef struct		s_re_ag
 			char	*sign;
 			char	*word;
 		}			t_ag;
-	}				node;
+	} node;
 	struct s_re_ag	*next;
 }					t_re_ag;
 
@@ -45,7 +45,7 @@ typedef struct		s_re_ag
 ** A process is a single process.
 */
 
-typedef struct			s_process
+typedef struct s_process
 {
 	struct s_process	*next;
 	char				**argv;
@@ -57,27 +57,27 @@ typedef struct			s_process
 	char				stopped;
 	int					status;
 	int					exit;
-}						t_process;
+}	t_process;
 
 /* 
 ** A job is a pipeline of processes.
 */
 
-typedef struct			s_job
+typedef struct s_job
 {
 	int					id;
 	struct s_job		*next;
 	int					launched;
 	int					foreground;
 	char				*command;
-	t_process 			*first_process;
+	t_process			*first_process;
 	pid_t				pgid;
 	char				notified;
 	struct termios		tmodes;
 	int					stdin;
 	int					stdout;
 	int					stderr;
-}						t_job;
+}	t_job;
 
 /*
 ** Job creation.
@@ -105,16 +105,17 @@ void					wait_for_job(t_job *job);
 void					format_job_info(t_job *job, const char *status);
 void					do_job_notification(void);
 void					mark_job_as_running(t_job *job);
-void 					continue_job(t_job *job, int foreground);
+void					continue_job(t_job *job, int foreground);
 void					free_job(t_job *job);
 
 /*
 ** Redirection.
 */
 
-t_re_ag				*create_re_ag_list(t_token **tokens);
-void				parse_redir_aggre_list(t_re_ag *l, t_job *j, int *outfile);
-void				switch_redir_node(t_re_ag *l, t_job *j, int *outfile);
-void				dup42(int in, int out, int err);
+t_re_ag					*create_re_ag_list(t_token **tokens);
+void					parse_redir_aggre_list(t_re_ag *l, t_job *j, \
+						int *outfile);
+void					switch_redir_node(t_re_ag *l, t_job *j, int *outfile);
+void					dup42(int in, int out, int err);
 
 #endif

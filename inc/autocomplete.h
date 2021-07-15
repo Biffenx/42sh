@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   autocomplete.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 11:58:41 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/05/18 20:11:02 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/07/15 14:53:58 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 typedef struct s_autocomp
 {
-	char				command[FILENAME_MAX_SIZE *2 + 1];
+	char				command[FILENAME_MAX_SIZE * 2 + 1];
 	struct s_autocomp	*next;
 }						t_autocomp;
-
 
 int	filename_character_allowed(char c);
 
