@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fg.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 07:36:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/25 16:08:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:27:47 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "shell.h"
+#include "shell.h"
 
 /*
 ** https://www.man7.org/linux/man-pages/man1/fg.1p.html
@@ -18,7 +18,7 @@
 
 static int	raise_current(void)
 {
-	t_job *job;
+	t_job	*job;
 
 	job = g_shell->current;
 	if (job)
@@ -34,8 +34,8 @@ static int	raise_current(void)
 
 static int	raise_job(char *s)
 {
-	int	job_id;
-	t_job *job;
+	int		job_id;
+	t_job	*job;
 
 	job_id = ft_atoi(s);
 	job = g_shell->jobs;

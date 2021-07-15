@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   job.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 11:33:51 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:34:11 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static int		wait_for_process(t_process *process)
+static int	wait_for_process(t_process *process)
 {
 	int			status;
 	pid_t		pid;
@@ -33,7 +33,7 @@ static int		wait_for_process(t_process *process)
 	return (0);
 }
 
-static int		resolve_launch(t_process *prev)
+static int	resolve_launch(t_process *prev)
 {
 	if (!prev)
 		return (0);
@@ -42,7 +42,8 @@ static int		resolve_launch(t_process *prev)
 	else
 		return (0);
 }
-void			launch_job(t_job *job, int foreground)
+
+void	launch_job(t_job *job, int foreground)
 {
 	t_process	*process;
 	t_process	*prev;
@@ -73,14 +74,15 @@ void			launch_job(t_job *job, int foreground)
 		{
 			if (isbuiltin(process->argv[0]))
 			{
-					process->completed = 1;
-					process->exit = run_builtin(process->argv);
+				process->completed = 1;
+				process->exit = run_builtin(process->argv);
 			}
 			else
 			{
 				pid = fork();
 				if (pid == 0)
-					launch_process(process, job, job->pgid, infile, outfile, job->stderr, foreground);
+					launch_process(process, job, job->pgid,
+						infile, outfile, job->stderr, foreground);
 				else if (pid < 0)
 					exit(1);
 				else

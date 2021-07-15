@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   jobs.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 20:23:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:26:46 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static char	**parse_options(char **argv, int *options)
 {
-	int i;
+	int	i;
 	int	j;
 
 	*options = 0;
@@ -41,8 +41,8 @@ static char	**parse_options(char **argv, int *options)
 
 static int	loop_jobs(int options, char *s)
 {
-	t_job *job;
-	int	job_id;
+	t_job	*job;
+	int		job_id;
 
 	job = g_shell->jobs;
 	job_id = ft_atoi(s);
@@ -53,9 +53,11 @@ static int	loop_jobs(int options, char *s)
 			if (options & 1 << 0)
 				ft_printf("%d\n", job->pgid);
 			else if (options & 1 << 1)
-				ft_printf("[%i]%c %d %s %s\n", job->id, current(job), job->pgid, state(job), job->command);
+				ft_printf("[%i]%c %d %s %s\n", job->id,
+					current(job), job->pgid, state(job), job->command);
 			else
-				ft_printf("[%i]%c %s %s\n", job->id, current(job), state(job), job->command);
+				ft_printf("[%i]%c %s %s\n", job->id,
+					current(job), state(job), job->command);
 			return (0);
 		}
 		job = job->next;
@@ -89,15 +91,17 @@ static int	print_all(int options)
 		if (options & 1 << 0)
 			ft_printf("%d\n", job->pgid);
 		else if (options & 1 << 1)
-			ft_printf("[%i]%c %d %s %s\n", job->id, current(job), job->pgid, state(job), job->command);
+			ft_printf("[%i]%c %d %s %s\n", job->id,
+				current(job), job->pgid, state(job), job->command);
 		else
-			ft_printf("[%i]%c %s %s\n", job->id, current(job), state(job), job->command);
+			ft_printf("[%i]%c %s %s\n", job->id,
+				current(job), state(job), job->command);
 		job = job->next;
 	}
 	return (0);
 }
 
-int jobs_builtin(char **argv)
+int	jobs_builtin(char **argv)
 {
 	int	options;
 

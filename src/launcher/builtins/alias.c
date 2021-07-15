@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 09:16:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/28 12:31:40 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/15 18:30:49 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ static void	add_alias(char *data)
 	data = ft_strchr(data, '=');
 	*data = '\0';
 	value = data + 1;
-	if (value[0] == '\'' && value[ft_strlen(value)-1] == '\'')
+	if (value[0] == '\'' && value[ft_strlen(value) - 1] == '\'')
 	{
-		ft_memmove(value, value + 1, ft_strlen(value)-2);
-		value[ft_strlen(value) -2] = '\0';
+		ft_memmove(value, value + 1, ft_strlen(value) - 2);
+		value[ft_strlen(value) - 2] = '\0';
 	}
 	if (*key)
 		hash_put(g_shell->alias, key, value);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fc.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 16:56:54 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:20:31 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 **		Re-execute the command without invoking an editor.
 */
 
-static void parse_editor(char **editor, char ***argv, int *options)
+static void	parse_editor(char **editor, char ***argv, int *options)
 {
 	if (!**argv)
 	{
@@ -53,7 +53,7 @@ static void parse_editor(char **editor, char ***argv, int *options)
 	}
 }
 
-static int parse_options(char ***argv, char **editor)
+static int	parse_options(char ***argv, char **editor)
 {
 	int		options;
 	size_t	i;
@@ -94,7 +94,7 @@ static void	verify_arguments(char **argv, int *options)
 	}
 }
 
-int 		fc(char **argv)
+int	fc(char **argv)
 {
 	int		options;
 	char	*editor;

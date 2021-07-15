@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 13:49:53 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:33:52 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int run_builtin(char **argv)
+int	run_builtin(char **argv)
 {
 	if (ft_strequ(argv[0], "fc"))
 		return (fc(argv));
@@ -34,7 +34,7 @@ int run_builtin(char **argv)
 		return (hash_builtin(argv));
 	else if (ft_strequ(argv[0], "jobs"))
 		return (jobs_builtin(argv + 1));
-	else if(ft_strequ(argv[0], "set"))
+	else if (ft_strequ(argv[0], "set"))
 		return (set_builtin(argv));
 	else if (ft_strequ(argv[0], "test"))
 		return (test_builtin(argv));

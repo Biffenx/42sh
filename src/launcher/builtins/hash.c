@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/04 10:59:41 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:27:12 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** https://www.man7.org/linux/man-pages/man1/hash.1p.html
 */
 
-static void print_table(t_hash *table)
+static void	print_table(t_hash *table)
 {
 	size_t	i;
 
@@ -29,7 +29,7 @@ static void print_table(t_hash *table)
 	}
 }
 
-static int parse_and_put(t_hash *table, char *data)
+static int	parse_and_put(t_hash *table, char *data)
 {
 	char	*value;
 	char	*key;
