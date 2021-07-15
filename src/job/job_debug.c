@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   job_debug.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:06:06 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 08:36:40 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:45:57 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void			process_debug(t_process *first)
+void	process_debug(t_process *first)
 {
 	t_process	*process;
 	size_t		i;
@@ -31,7 +31,7 @@ void			process_debug(t_process *first)
 	}
 }
 
-void		job_debug(t_job *job)
+void	job_debug(t_job *job)
 {
 	size_t	i;
 

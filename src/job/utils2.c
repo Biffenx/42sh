@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:14:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/25 21:33:57 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:44:11 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void			put_job_in_foreground(t_job *job, int cont)
+void	put_job_in_foreground(t_job *job, int cont)
 {
 	tcsetpgrp(STDIN_FILENO, job->pgid);
 	if (cont)
@@ -27,18 +27,18 @@ void			put_job_in_foreground(t_job *job, int cont)
 	tcsetattr(STDIN_FILENO, TCSADRAIN, &g_shell->terminal.original);
 }
 
-void			put_job_in_background(t_job *job, int cont)
+void	put_job_in_background(t_job *job, int cont)
 {
 	if (cont)
 		if (kill(-job->pgid, SIGCONT) < 0)
 			exit(1);
 }
 
-int				mark_process_status(pid_t pid, int status)
+int	mark_process_status(pid_t pid, int status)
 {
 	t_job		*job;
 	t_process	*process;
-	
+
 	job = g_shell->jobs;
 	if (pid > 0)
 	{
@@ -60,23 +60,23 @@ int				mark_process_status(pid_t pid, int status)
 						process->completed = 1;
 						process->exit = WEXITSTATUS(status);
 						if (WIFSIGNALED(status) && g_debug)
-							ft_dprintf(STDERR_FILENO, "%d: Terminated by signal %d.\n", \
-									(int)pid, WTERMSIG(process->status));
+							ft_dprintf(STDERR_FILENO, "%d: Terminated by signal \
+							%d.\n", (int)pid, WTERMSIG(process->status));
 					}
-					return 0;
+					return (0);
 				}
 				process = process->next;
 			}
 			job = job->next;
 		}
 		ft_dprintf(STDERR_FILENO, "No child process %d.\n", pid);
-		return -1;
+		return (-1);
 	}
 	else
-		return -1;
+		return (-1);
 }
 
-void			update_status(void)
+void	update_status(void)
 {
 	int			status;
 	pid_t		pid;
@@ -87,11 +87,11 @@ void			update_status(void)
 	mark_process_status(pid, status);
 }
 
-void wait_for_job(t_job *job)
+void	wait_for_job(t_job *job)
 {
-	int status;
-	pid_t pid;
-	t_process *process;
+	int			status;
+	pid_t		pid;
+	t_process	*process;
 
 	status = 0;
 	pid = 0;

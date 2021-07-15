@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:58:14 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:52:40 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:44:46 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-t_job			*find_job (pid_t pgid)
+t_job	*find_job (pid_t pgid)
 {
 	t_job		*job;
 
@@ -23,10 +23,10 @@ t_job			*find_job (pid_t pgid)
 			return (job);
 		job = job->next;
 	}
-	return NULL;
+	return (NULL);
 }
 
-int				job_is_stopped (t_job *job)
+int	job_is_stopped (t_job *job)
 {
 	t_process	*process;
 
@@ -40,7 +40,7 @@ int				job_is_stopped (t_job *job)
 	return (0);
 }
 
-int				job_is_completed(t_job *job)
+int	job_is_completed(t_job *job)
 {
 	t_process	*process;
 

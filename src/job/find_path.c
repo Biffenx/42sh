@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_path.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 11:17:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 15:06:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:50:14 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Returns path to a executable binary file if found, else NULL is returned.
 */
 
-char		*find_path(char *command)
+char	*find_path(char *command)
 {
 	char	**paths;
 	char	*path;
