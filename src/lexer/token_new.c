@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 20:10:05 by srouhe            #+#    #+#             */
-/*   Updated: 2020/04/18 13:05:32 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/15 18:38:46 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_token	*new_token(char *data, int flag)
 ** Add new token to lexer, maintain connection both ways
 */
 
-void			add_token(t_lexer *lexer, char *data, int flag)
+void	add_token(t_lexer *lexer, char *data, int flag)
 {
 	t_token	*token;
 	t_token	*tmp;

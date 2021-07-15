@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/10 20:23:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:40:42 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,18 @@ void	tokenize(t_lexer *lexer, char *input)
 
 	i = 0;
 	ft_strlcat(lexer->data, input, ARG_MAX);
-	while (lexer->data[i] && ~g_shell->mode & INTERRUPT)
+	while (lexer->data[i] && ~ g_shell->mode & INTERRUPT)
 	{
 		if (ft_strchr(OPERATORS, lexer->data[i]))
 			i += tokenize_operator(lexer, &lexer->data[i]);
-		else if (!ft_strncmp(OPT_LEXER, &lexer->data[i], ft_strlen(OPT_LEXER) - 1))
+		else if (!ft_strncmp(OPT_LEXER, &lexer->data[i],
+				ft_strlen(OPT_LEXER) - 1))
 		{
 			lexer->flags |= DEBUG_LEXER;
 			i += ft_strlen(OPT_LEXER);
 		}
-		else if (!ft_strncmp(OPT_JOBS, &lexer->data[i], ft_strlen(OPT_JOBS) - 1))
+		else if (!ft_strncmp(OPT_JOBS, &lexer->data[i],
+				ft_strlen(OPT_JOBS) - 1))
 		{
 			lexer->flags |= DEBUG_JOBS;
 			i += ft_strlen(OPT_JOBS);

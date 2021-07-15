@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_control.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:04:06 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/07 16:02:44 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:39:11 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	create_token(t_lexer *lexer, char *input, char *operator, int i)
 ** Loop through OPERATOR_ARR and create a new token with the correct operator.
 */
 
-int			tokenize_operator(t_lexer *lexer, char *input)
+int	tokenize_operator(t_lexer *lexer, char *input)
 {
 	int			i;
 	static char	operator[OP_SLOTS][OP_LEN] = {OPERATOR_ARR};

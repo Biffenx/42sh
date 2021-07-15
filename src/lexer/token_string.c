@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:07:32 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/08 17:13:17 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:40:18 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,23 @@ static int	check_quoting(t_lexer *lexer, char *input, int i)
 
 static int	token_exceptions(t_lexer *lexer, char *input, int i)
 {
-	if (lexer->last && lexer->last->type & MASK_REDIR && !ft_strncmp(input, "-", 1))
+	if (lexer->last && lexer->last->type & MASK_REDIR
+		&& !ft_strncmp(input, "-", 1))
 		add_token(lexer, ft_strsub(input, 0, i), DASH);
 	else if (lexer->last && lexer->last->type & T_DLARR)
 		add_token(lexer, ft_strsub(input, 0, i), HEREDOC);
-	else if (lexer->last && lexer->last->type & MASK_REDIR && !(lexer->last->type & T_DLARR))
+	else if (lexer->last && lexer->last->type & MASK_REDIR
+		&& !(lexer->last->type & T_DLARR))
 		add_token(lexer, ft_strsub(input, 0, i), FILENAME);
 	else
 		add_token(lexer, ft_strsub(input, 0, i), STRING);
-	return (i);	
+	return (i);
 }
 /*
 ** Make a string, filename, dash or heredoc token
 */
 
-int			tokenize_string(t_lexer *lexer, char *input)
+int	tokenize_string(t_lexer *lexer, char *input)
 {
 	int		i;
 	int		quot;
@@ -69,7 +71,8 @@ int			tokenize_string(t_lexer *lexer, char *input)
 	i = 0;
 	while (is_valid_char(input[i]))
 	{
-		if (input[i] == '=' && (input[i + 1] == D_QUOTE || input[i + 1] == S_QUOTE))
+		if (input[i] == '=' && (input[i + 1] == D_QUOTE
+				|| input[i + 1] == S_QUOTE))
 		{
 			quot = next_quote(&input[i + 2], input[i + 1]);
 			i += quot + 2;
