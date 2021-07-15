@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 21:12:44 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/11 20:05:15 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:47:04 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 **	And check if the current token is the last in the deck
 */
 
-static int		check_stack(int prev, int curr, t_token *next)
+static int	check_stack(int prev, int curr, t_token *next)
 {
 	if (!prev && curr & MASK_OP)
 		return (PARSER_ERROR);
-	else if ((prev & MASK_REDIR || prev & MASK_OP) &&
-			(curr & MASK_REDIR || curr & MASK_OP))
+	else if ((prev & MASK_REDIR || prev & MASK_OP)
+		&& (curr & MASK_REDIR || curr & MASK_OP))
 		return (PARSER_ERROR);
 	else if ((curr & MASK_REDIR || curr & T_DLARR) && next == NULL)
 		return (PARSER_ERROR);
@@ -37,11 +37,11 @@ static int		check_stack(int prev, int curr, t_token *next)
 **	Check the syntax
 */
 
-int				check_syntax(t_lexer *lexer)
+int	check_syntax(t_lexer *lexer)
 {
-	int			top;
-	int			stack[4096]; // dynamic allocation based on token count? hifistelyy
-	t_token 	*token;
+	int		top;
+	int		stack[4096];
+	t_token	*token;
 
 	top = 0;
 	stack[top] = 0;
