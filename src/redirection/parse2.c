@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 18:35:00 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:57:21 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	set_heredoc_fd(int *in, int *heredoc)
 ** Setting programs outfile fd to opened file fd.
 */
 
-static void set_outfile_redirection_fd(int *outfile, char *file, char *redir)
+static void	set_outfile_redirection_fd(int *outfile, char *file, char *redir)
 {
 	if (*outfile != STDOUT_FILENO)
 		close(*outfile);
@@ -56,7 +56,7 @@ static void	set_infile_redirection_fd(int *in, char *file)
 ** Switch for redirection node
 */
 
-void		switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
+void	switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
 {
 	int		*heredoc;
 	char	*file;
