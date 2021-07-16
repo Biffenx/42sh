@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 20:54:42 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/06/01 18:01:14 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/07/15 18:29:55 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 static char	**parse_options(char **argv, int *options)
 {
-	int i;
+	int	i;
 	int	j;
 
 	*options = 0;
@@ -42,7 +42,7 @@ static char	**parse_options(char **argv, int *options)
 	return (argv + i);
 }
 
-static void ascent_path(char *path)
+static void	ascent_path(char *path)
 {
 	size_t	i;
 
@@ -57,9 +57,9 @@ static void ascent_path(char *path)
 
 static void	descent_path(char *path, char *data)
 {
-		if (path[ft_strlen(path) - 1] != '/')
-			ft_strlcat(path, "/", PATH_MAX);
-		ft_strlcat(path, data, PATH_MAX);
+	if (path[ft_strlen(path) - 1] != '/')
+		ft_strlcat(path, "/", PATH_MAX);
+	ft_strlcat(path, data, PATH_MAX);
 }
 
 static char	*parse_path(int options, char *path, char *data)
@@ -92,8 +92,8 @@ static char	*parse_path(int options, char *path, char *data)
 
 static int	move_to(char *path, int print)
 {
-	char	*pwd;
-	struct stat stats;
+	char		*pwd;
+	struct stat	stats;
 
 	pwd = getenv("PWD");
 	if (!chdir(path))
@@ -119,7 +119,7 @@ static int	move_to(char *path, int print)
 
 int	cd_builtin(char **argv)
 {
-	int options;
+	int		options;
 	char	path[PATH_MAX];
 
 	argv = parse_options(argv, &options);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:01:52 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/15 09:40:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:25:09 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	add_variable(char *data)
 	*data = '\0';
 	value = data + 1;
 	if (*key)
-		hash_put(g_shell->vars, key, value);	
+		hash_put(g_shell->vars, key, value);
 }
 
 static void	print_map(t_hash *map)
@@ -53,7 +53,7 @@ int	set_builtin(char **argv)
 	{
 		if (ft_strchr(argv[i], '='))
 			add_variable(argv[i]);
-		i += 1;	
+		i += 1;
 	}
 	return (0);
 }

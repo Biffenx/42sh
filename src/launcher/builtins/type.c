@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/22 10:02:53 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/14 12:38:49 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:22:58 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 ** into shell.
 */
 
-static int builtin(char *command)
+static int	builtin(char *command)
 {
 	if (isbuiltin(command))
 	{
@@ -39,7 +39,7 @@ static int builtin(char *command)
 	return (1);
 }
 
-static int binary(char *command)
+static int	binary(char *command)
 {
 	char	*path;
 
@@ -52,9 +52,9 @@ static int binary(char *command)
 	return (1);
 }
 
-static int alias(char *command)
+static int	alias(char *command)
 {
-	char *value;
+	char	*value;
 
 	value = hash_get(g_shell->alias, command);
 	if (value)
@@ -65,7 +65,7 @@ static int alias(char *command)
 	return (1);
 }
 
-static int keyword(char *command)
+static int	keyword(char *command)
 {
 	if (!command)
 		return (0);
@@ -74,12 +74,13 @@ static int keyword(char *command)
 
 int	type_builtin(char **argv)
 {
-	size_t    i;
+	size_t	i;
 
 	i = 1;
 	while (argv[i])
 	{
-		if (builtin(argv[i]) && binary(argv[i]) && alias(argv[i]) && keyword(argv[i]))
+		if (builtin(argv[i]) && binary(argv[i])
+			&& alias(argv[i]) && keyword(argv[i]))
 			ft_dprintf(STDERR_FILENO, "42sh: type: %s: not found\n", argv[i]);
 		i += 1;
 	}

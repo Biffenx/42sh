@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 19:25:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/24 09:35:59 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:18:14 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	list_from(char *argv, int options)
 
 static void	list_to(char *from, char *to, int options)
 {
-	int 	i;
+	int		i;
 	int		j;
 	int		histsize;
 
@@ -84,22 +84,26 @@ static void	list_to(char *from, char *to, int options)
 	i = parse_index(i, histsize);
 	j = parse_index(j, histsize);
 	if (i <= j)
+	{
 		while (i <= j)
 		{
 			options & 1 << 2 ? ft_putendl(g_shell->history[i])
 			: ft_printf("%-10d%s\n", i, g_shell->history[i]);
 			i += 1;
 		}
+	}
 	else if (i >= j)
+	{
 		while (i >= j)
 		{
 			options & 1 << 2 ? ft_putendl(g_shell->history[i])
 			: ft_printf("%-10d%s\n", i, g_shell->history[i]);
 			i -= 1;
 		}
+	}
 }
 
-void		list(char **argv, char options)
+void	list(char **argv, char options)
 {
 	if (!*argv)
 		list_latest(options);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:28:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/25 11:22:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:16:47 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int		parse_index(int nbr, int histsize)
+int	parse_index(int nbr, int histsize)
 {
 	histsize -= 1; // BLOCKS CURRENT COMMAND
 	nbr < 0 ? nbr = histsize + nbr : 0;
@@ -21,7 +21,7 @@ int		parse_index(int nbr, int histsize)
 	return (nbr);
 }
 
-int		find_index(char *str, int *options)
+int	find_index(char *str, int *options)
 {
 	int	i;
 

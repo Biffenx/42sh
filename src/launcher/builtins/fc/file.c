@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 20:28:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/04/25 10:41:55 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:19:42 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	write_entry(char *argv, int fd, int options)
 
 static void	write_between(char *from, char *to, int fd, int options)
 {
-	int 	i;
+	int		i;
 	int		j;
 	int		histsize;
 
@@ -39,20 +39,24 @@ static void	write_between(char *from, char *to, int fd, int options)
 	i = parse_index(i, histsize);
 	j = parse_index(j, histsize);
 	if (i <= j)
+	{
 		while (i <= j)
 		{
 			ft_putendl_fd(g_shell->history[j], fd);
 			j -= 1;
 		}
+	}
 	else if (i >= j)
+	{
 		while (i >= j)
 		{
 			ft_putendl_fd(g_shell->history[j], fd);
 			j += 1;
 		}
+	}
 }
 
-void		create_file(char **argv, int options)
+void	create_file(char **argv, int options)
 {
 	int		fd;
 

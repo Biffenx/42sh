@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:37:49 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/29 14:47:48 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/15 18:28:02 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	export_argument(char *data, int print)
 		ft_printf("export %s=%s\n", key, value);
 }
 
-int export_builtin(char **argv)
+int	export_builtin(char **argv)
 {
 	int	i;
 	int	print;

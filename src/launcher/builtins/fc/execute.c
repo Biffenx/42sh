@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:57:05 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/17 13:14:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:20:51 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	execute_file(int options)
 	close(fd);
 }
 
-void		execute_fc(char *editor, int options)
+void	execute_fc(char *editor, int options)
 {
 	char	*args[3];
 
