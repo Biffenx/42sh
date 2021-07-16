@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cursor_movement_1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 11:17:19 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 14:22:26 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:29:38 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int		move_cursor_right_word(t_editor *editor)
+int	move_cursor_right_word(t_editor *editor)
 {
 	while (editor->buffer[editor->cursor] \
 	&& ft_isspace(editor->buffer[editor->cursor]))
@@ -23,7 +23,7 @@ int		move_cursor_right_word(t_editor *editor)
 	return (1);
 }
 
-int		move_cursor_left_word(t_editor *editor)
+int	move_cursor_left_word(t_editor *editor)
 {
 	while (editor->cursor > 0 && \
 	ft_isspace(editor->buffer[editor->cursor - 1]))
@@ -49,7 +49,7 @@ static int	find_newline(t_editor *editor, int *i, int *diff)
 	return (1);
 }
 
-int		move_cursor_up(t_editor *editor)
+int	move_cursor_up(t_editor *editor)
 {
 	int	i;
 	int	diff;
@@ -72,7 +72,7 @@ int		move_cursor_up(t_editor *editor)
 	return (1);
 }
 
-int		move_cursor_down(t_editor *editor)
+int	move_cursor_down(t_editor *editor)
 {
 	int	i;
 	int	diff;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   editor.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/22 16:08:14 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/07/15 16:29:00 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	loop(t_shell *shell)
 	}
 }
 
-void		editor(t_shell *shell)
+void	editor(t_shell *shell)
 {
 	char	*line;
 

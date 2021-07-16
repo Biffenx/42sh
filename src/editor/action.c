@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:40:34 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/06/29 20:18:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:33:24 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	check_leap_keys(int key, t_shell *shell)
 	return (0);
 }
 
-void		action(int key, t_shell *shell)
+void	action(int key, t_shell *shell)
 {
 	if (ft_isprint(key))
 		add_char(&shell->editor, (char)key);
@@ -82,7 +82,7 @@ void		action(int key, t_shell *shell)
 	}
 	else if (key == TAB)
 	{
-			autocomplete(shell);
+		autocomplete(shell);
 	}
 	else
 	{
