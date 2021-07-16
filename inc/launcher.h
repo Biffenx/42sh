@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:14:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 13:42:36 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/16 10:44:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@
 int			isbuiltin(char *command);
 void		launch_job(t_job *job, int foreground);
 void		launch_process(t_process *process, t_job *job, pid_t pgid, int infile, int outfile, int errfile, int foreground);
-int			run_builtin(char **argv);
+int			run_builtin(char **argv, t_process *process, t_job *job, int infile, int outfile, int errfile);
 void		set_signals_default(void);
+void		set_file_descriptors(t_process *process, t_job *job, int infile, int outfile, int errfile);
+void		reset_file_descriptors(int in, int out, int err);
 
 /*
 ** Builtin command protoypes.

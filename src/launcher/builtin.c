@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:33:52 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/16 10:44:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int	run_builtin(char **argv)
+static int choose_builtin(char **argv)
 {
 	if (ft_strequ(argv[0], "fc"))
 		return (fc(argv));
@@ -45,4 +45,20 @@ int	run_builtin(char **argv)
 	else if (ft_strequ(argv[0], "unset"))
 		return (unset_builtin(argv));
 	return (1);
+}
+
+int	run_builtin(char **argv, t_process *process, t_job *job, int infile, int outfile, int errfile)
+{
+	int in;
+	int out;
+	int err;
+	int exit;
+
+	in = dup(STDIN_FILENO);
+	out = dup(STDOUT_FILENO);
+	err = dup (STDERR_FILENO);
+	set_file_descriptors(process, job, infile, outfile, errfile);
+	exit = choose_builtin(argv);
+	reset_file_descriptors(in, out, err);
+	return (exit);
 }

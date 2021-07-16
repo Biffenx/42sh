@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:09:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:31:52 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/16 10:35:33 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,7 @@ void	launch_process(t_process *process, t_job *job,
 			tcsetpgrp(STDIN_FILENO, pgid);
 		set_signals_default();
 	}
-	if (infile != STDIN_FILENO)
-	{
-		dup2(infile, STDIN_FILENO);
-		close(infile);
-	}
-	if (outfile != STDOUT_FILENO)
-	{
-		dup2(outfile, STDOUT_FILENO);
-		close(outfile);
-	}
-	if (errfile != STDERR_FILENO)
-	{
-		dup2(errfile, STDERR_FILENO);
-		close(errfile);
-	}
-	if (process->re_ag)
-		parse_redir_aggre_list(process->re_ag, job, &outfile);
+	set_file_descriptors(process, job, infile, outfile, errfile);
 	execve(process->path, process->argv, environ);
 	write(2, PROC_ERR_EXEC, ft_strlen(PROC_ERR_EXEC));
 	exit(127);

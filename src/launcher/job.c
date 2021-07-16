@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   job.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:22:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:34:11 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/16 10:45:32 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	launch_job(t_job *job, int foreground)
 			if (isbuiltin(process->argv[0]))
 			{
 				process->completed = 1;
-				process->exit = run_builtin(process->argv);
+				process->exit = run_builtin(process->argv, process, job, infile, outfile, job->stderr);
 			}
 			else
 			{
