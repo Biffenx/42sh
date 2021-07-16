@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:58:32 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/25 21:35:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:39:01 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-void			format_job_info(t_job *job, const char *status)
+void	format_job_info(t_job *job, const char *status)
 {
 	if (g_debug)
-		ft_dprintf(STDERR_FILENO, "%ld (%s): %s\n", (long)job->pgid, status, job->command);
+		ft_dprintf(STDERR_FILENO, "%ld (%s): %s\n",
+			(long)job->pgid, status, job->command);
 }
 
-static void		find_current(void)
+static void	find_current(void)
 {
 	t_job	*job;
 
@@ -35,11 +36,11 @@ static void		find_current(void)
 	g_shell->current = g_shell->jobs;
 }
 
-void 			do_job_notification(void)
+void 	do_job_notification(void)
 {
-	t_job 		*job;
-	t_job 		*jlast;
-	t_job 		*jnext;
+	t_job	*job;
+	t_job	*jlast;
+	t_job	*jnext;
 
 	jlast = NULL;
 	job = g_shell->jobs;
@@ -70,7 +71,7 @@ void 			do_job_notification(void)
 	update_status();
 }
 
-void 			mark_job_as_running(t_job *job)
+void 	mark_job_as_running(t_job *job)
 {
 	t_process	*process;
 
@@ -83,7 +84,7 @@ void 			mark_job_as_running(t_job *job)
 	job->notified = 0;
 }
 
-void			continue_job(t_job *job, int foreground)
+void	continue_job(t_job *job, int foreground)
 {
 	mark_job_as_running(job);
 	if (foreground)

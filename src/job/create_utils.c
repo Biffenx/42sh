@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 08:12:46 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 08:35:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:50:52 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	determine_id(t_job *first)
 {
-	t_job *job;
+	t_job	*job;
 
 	job = first;
 	if (job)
@@ -31,7 +31,7 @@ int	determine_id(t_job *first)
 
 char	*join_tokens(t_token *tokens)
 {
-	t_token *token;
+	t_token	*token;
 	size_t	length;
 	char	*command;
 
@@ -56,7 +56,7 @@ char	*join_tokens(t_token *tokens)
 	return (command);
 }
 
-char		resolve_condition(t_token **token)
+char	resolve_condition(t_token **token)
 {
 	if (!token || !*token)
 		return (0);

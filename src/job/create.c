@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 08:28:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 16:51:44 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void			append_process(t_process **head, t_process *new)
+static void	append_process(t_process **head, t_process *new)
 {
 	t_process		*tmp;
 
@@ -58,19 +58,19 @@ static t_process	*list_process(t_token **tokens)
 		process = create_process(tokens);
 		append_process(&head, process);
 		if (*tokens == NULL)
-			break;
+			break ;
 		else if ((*tokens)->type & MASK_OP && !((*tokens)->type & T_SCOL))
 			(*tokens) = (*tokens)->next;
 		else if ((*tokens)->type & T_SCOL)
 		{
 			(*tokens) = (*tokens)->next;
-			break;
+			break ;
 		}
 	}
 	return (head);
 }
 
-static int			check_bg(t_token *tokens)
+static int	check_bg(t_token *tokens)
 {
 	t_token			*tmp;
 
@@ -84,7 +84,7 @@ static int			check_bg(t_token *tokens)
 	return (1);
 }
 
-t_job				*create_job(t_token **tokens)
+t_job	*create_job(t_token **tokens)
 {
 	t_job			*job;
 
@@ -95,7 +95,7 @@ t_job				*create_job(t_token **tokens)
 	job->foreground = check_bg(*tokens);
 	job->launched = 0;
 	job->command = join_tokens(*tokens);
-	job->first_process = list_process(tokens); 
+	job->first_process = list_process(tokens);
 	job->pgid = 0;
 	job->notified = 0;
 	job->stdin = STDIN_FILENO;
