@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 11:34:01 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/11 20:05:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:45:22 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Remove last token
 */
 
-int			remove_last_token(t_lexer *lexer)
+int	remove_last_token(t_lexer *lexer)
 {
 	t_token	*token;
 
@@ -35,7 +35,7 @@ int			remove_last_token(t_lexer *lexer)
 ** Jump to next operator
 */
 
-int			next_operator(t_token *token, int type)
+int	next_operator(t_token *token, int type)
 {
 	t_token	*tmp;
 
@@ -49,7 +49,7 @@ int			next_operator(t_token *token, int type)
 	return (0);
 }
 
-char		*parse_quotes(char *s)
+char	*parse_quotes(char *s)
 {
 	char	quote[2];
 	char	*helper;
@@ -70,10 +70,10 @@ char		*parse_quotes(char *s)
 ** Remove quoting from input in case of squote or dquote
 */
 
-void		remove_quotes(t_token *token, int wquote)
+void	remove_quotes(t_token *token, int wquote)
 {
 	char	*clean;
-	t_token *tmp;
+	t_token	*tmp;
 
 	clean = NULL;
 	tmp = token;
@@ -87,18 +87,18 @@ void		remove_quotes(t_token *token, int wquote)
 	tmp->data = clean;
 }
 
-char        *split_val(const char *s)
+char	*split_val(const char *s)
 {
-    int     i;
-    char    *cpy;
+	int		i;
+	char	*cpy;
 
-    cpy = ft_strdup(s);
-    i = ft_lfind(cpy, '=') + 1;
-    cpy += i;
-    return (parse_quotes(cpy));
+	cpy = ft_strdup(s);
+	i = ft_lfind(cpy, '=') + 1;
+	cpy += i;
+	return (parse_quotes(cpy));
 }
 
-char        *split_key(const char *s)
+char	*split_key(const char *s)
 {
-    return (ft_strsub(s, 0, ft_lfind(s, '=')));
+	return (ft_strsub(s, 0, ft_lfind(s, '=')));
 }

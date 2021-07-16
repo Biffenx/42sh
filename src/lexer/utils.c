@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 09:45:18 by srouhe            #+#    #+#             */
-/*   Updated: 2021/01/12 21:26:23 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:37:04 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	lexer_del(t_lexer *lexer)
 **	Checks if c is printable, excluding space and not an operator
 */
 
-int		is_valid_char(char c)
+int	is_valid_char(char c)
 {
 	return ((c <= 126 && c > 32) && !ft_strchr(OPERATORS, c) ? 1 : 0);
 }
@@ -45,7 +45,7 @@ int		is_valid_char(char c)
 **	Returns -1 if matching quote is not found
 */
 
-int		next_quote(char *input, int q)
+int	next_quote(char *input, int q)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ int		next_quote(char *input, int q)
 **	Checks if string contains only numeric characters
 */
 
-int		str_isnumeric(char *str)
+int	str_isnumeric(char *str)
 {
 	int	i;
 

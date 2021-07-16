@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:24:20 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/09 17:00:28 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:48:03 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 **	6 - expand $ ~
 */
 
-int			parser(t_lexer *lexer, t_shell *shell)
+int	parser(t_lexer *lexer, t_shell *shell)
 {
 	int		r;
 
@@ -47,7 +47,7 @@ int			parser(t_lexer *lexer, t_shell *shell)
 	if ((r = check_syntax(lexer)) == PARSER_ERROR)
 		return (PARSER_ERROR);
 	else if (lexer->flags & T_DLARR)
-	 	r = check_heredoc(lexer, shell);
+		r = check_heredoc(lexer, shell);
 	if (lexer->count > 1 && r == PARSER_OK)
 	{
 		if (lexer->last->type & T_SCOL)

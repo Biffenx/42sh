@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/05/23 11:44:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 18:54:47 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static char		*check_value(char *key, t_shell *shell)
+static char	*check_value(char *key, t_shell *shell)
 {
 	char	*value;
 
@@ -24,10 +24,10 @@ static char		*check_value(char *key, t_shell *shell)
 		return (value);
 }
 
-static void		parse_exit(char **data, t_shell *shell)
+static void	parse_exit(char **data, t_shell *shell)
 {
-	char *tmp;
-	char *tmp2;
+	char	*tmp;
+	char	*tmp2;
 
 	tmp = *data;
 	tmp2 = ft_itoa(shell->exit);
@@ -36,7 +36,7 @@ static void		parse_exit(char **data, t_shell *shell)
 	ft_strdel(&tmp2);
 }
 
-static void		parse_dollar(char **data, t_shell *shell)
+static void	parse_dollar(char **data, t_shell *shell)
 {
 	int			i;
 	char		*tmp;
@@ -46,12 +46,13 @@ static void		parse_dollar(char **data, t_shell *shell)
 	parse_exit(data, shell);
 	i = 1;
 	tmp = *data;
-	while((tmp = ft_strchr(tmp, '$')))
+	while ((tmp = ft_strchr(tmp, '$')))
 	{
 		*tmp = '\0';
 		while (ft_isalpha(tmp[i]))
 			i += 1;
-		tmp2 = ft_strjoin(*data, check_value(ft_strsub(tmp + 1, 0, i - 1), shell));
+		tmp2 = ft_strjoin(*data,
+				check_value(ft_strsub(tmp + 1, 0, i - 1), shell));
 		new = ft_strjoin(tmp2, tmp + i);
 		ft_strdel(&tmp2);
 		ft_strdel(data);
@@ -60,7 +61,7 @@ static void		parse_dollar(char **data, t_shell *shell)
 	}
 }
 
-static void		parse_tilde(char **data, t_shell *shell)
+static void	parse_tilde(char **data, t_shell *shell)
 {
 	char		*tmp;
 	char		*value;
@@ -80,9 +81,9 @@ static void		parse_tilde(char **data, t_shell *shell)
 ** Expand aliases, $ and ~ characters in tokens and heredocs
 */
 
-void			expand_tokens(t_lexer *lexer, t_shell *shell)
+void	expand_tokens(t_lexer *lexer, t_shell *shell)
 {
-	t_token 	*token;
+	t_token	*token;
 
 	token = lexer->head;
 	while (token)
