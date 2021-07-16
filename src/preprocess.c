@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   preprocess.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 17:18:35 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 19:19:37 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static void		append_job(t_job **head, t_job *new)
+static void	append_job(t_job **head, t_job *new)
 {
 	t_job		*tmp;
 
@@ -27,7 +27,7 @@ static void		append_job(t_job **head, t_job *new)
 		*head = new;
 }
 
-static void		launcher(t_job *job)
+static void	launcher(t_job *job)
 {
 	while (job && !job->launched)
 	{
@@ -37,7 +37,7 @@ static void		launcher(t_job *job)
 	do_job_notification();
 }
 
-static void		loader(t_lexer *lexer)
+static void	loader(t_lexer *lexer)
 {
 	t_token		*tokens;
 	t_job		*job;
@@ -52,7 +52,7 @@ static void		loader(t_lexer *lexer)
 	launcher(job);
 }
 
-void			preprocess(char *input, t_shell *shell)
+void	preprocess(char *input, t_shell *shell)
 {
 	t_lexer		lexer;
 

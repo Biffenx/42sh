@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:06:24 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/23 11:25:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/15 19:18:19 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ static int	hash_index(char *key)
 }
 
 /*
-** Add key and value pair into hashmap. On success returns the index of added pair
+** Add key and value pair into hashmap. On success
+** returns the index of added pair
 ** and on failure returns -1.
 */
 
-int		hash_put(t_hash *map, char *key, char *value)
+int	hash_put(t_hash *map, char *key, char *value)
 {
 	int	i;
 
@@ -46,7 +47,7 @@ int		hash_put(t_hash *map, char *key, char *value)
 	i = hash_index(key);
 	hash_delete(map, key);
 	if (g_debug)
-	 ft_printf("key: %s\nvalue: %s\nindex: %i\n\n", key, value, i);
+		ft_printf("key: %s\nvalue: %s\nindex: %i\n\n", key, value, i);
 	while (i < HASH_SIZE && map[i].key)
 	{
 		i += 1;
@@ -64,7 +65,8 @@ int		hash_put(t_hash *map, char *key, char *value)
 }
 
 /*
-** Find a value of the key. On success returns the value and on failure returns NULL.
+** Find a value of the key. On success returns
+** the value and on failure returns NULL.
 */
 
 char	*hash_get(t_hash *map, char *key)
@@ -90,7 +92,7 @@ char	*hash_get(t_hash *map, char *key)
 ** and on failure returns 1.
 */
 
-int		hash_delete(t_hash *map, char *key)
+int	hash_delete(t_hash *map, char *key)
 {
 	int	i;
 

@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/06/29 19:13:11 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/07/15 19:21:07 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int		print_char(int c)
+int	print_char(int c)
 {
 	return (write(0, &c, 1));
 }
 
-void		exit_error(int err, char *msg)
+void	exit_error(int err, char *msg)
 {
 	err == MALLOC_ERROR ? ft_putendl_fd(msg, STDERR_FILENO) : PASS;
 	err == FORK_ERR ? ft_putendl_fd(msg, STDERR_FILENO) : PASS;
@@ -28,7 +28,7 @@ void		exit_error(int err, char *msg)
 	exit(err);
 }
 
-void		print_error(int err, char *msg)
+void	print_error(int err, char *msg)
 {
 	if (err == SYNTAX_ERR)
 		ft_dprintf(STDERR_FILENO, "%s `%s'\n", STR_SYNTAX_ERR, msg);
@@ -52,9 +52,9 @@ void		print_error(int err, char *msg)
 		ft_dprintf(STDERR_FILENO, "%s %s\n", STR_BAD_FD_ERR, msg);
 }
 
-static void internal_variables(t_hash *map)
+static void	internal_variables(t_hash *map)
 {
-	int i;
+	int		i;
 	char	*key;
 	char	*value;
 
@@ -83,7 +83,7 @@ static void	internal_alias(t_hash *map)
 	hash_put(map, "greet", "echo Hello World!");
 }
 
-void		create_shell(t_shell *shell)
+void	create_shell(t_shell *shell)
 {
 	shell->exit = 0;
 	internal_variables(shell->vars);

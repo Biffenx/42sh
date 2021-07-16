@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:01:14 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/07/15 16:21:04 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/15 19:24:51 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,7 +263,7 @@ int	find_start_of_command_index(char *str, int end_index)
 }
 
 void	complete_command(t_shell *shell, char previous_pressed_key,
-char **matching_commands)
+		char **matching_commands)
 {
 	char		*final_string;
 	int			i;
