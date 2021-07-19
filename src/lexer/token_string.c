@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:07:32 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:40:18 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/19 19:44:24 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,22 @@ static int	check_quoting(t_lexer *lexer, char *input, int i)
 
 static int	token_exceptions(t_lexer *lexer, char *input, int i)
 {
+	char *s;
+
+	s = ft_strsub(input, 0, i);
 	if (lexer->last && lexer->last->type & MASK_REDIR
 		&& !ft_strncmp(input, "-", 1))
 		add_token(lexer, ft_strsub(input, 0, i), DASH);
 	else if (lexer->last && lexer->last->type & T_DLARR)
 		add_token(lexer, ft_strsub(input, 0, i), HEREDOC);
+	else if (lexer->last && lexer->last->type & MASK_AG && str_isnumeric(s))
+		add_token(lexer, ft_strsub(input, 0, i), IO_NUMBER);
 	else if (lexer->last && lexer->last->type & MASK_REDIR
 		&& !(lexer->last->type & T_DLARR))
 		add_token(lexer, ft_strsub(input, 0, i), FILENAME);
 	else
 		add_token(lexer, ft_strsub(input, 0, i), STRING);
+	free(s);
 	return (i);
 }
 /*
