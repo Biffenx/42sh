@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_control.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:04:06 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:39:11 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/19 19:45:22 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ static int	create_token(t_lexer *lexer, char *input, char *operator, int i)
 	{
 		if (lexer->last && str_isnumeric(lexer->last->data))
 		{
-			input -= ft_strlen(operator) - 1;
-			ft_isdigit(*input) ? lexer->last->type |= IO_NUM : PASS;
+			if (i >= 4 && i <= 11)
+			{
+				lexer->last->type = 0;
+				lexer->last->type |= IO_NUM;
+			}
 		}
 		add_token(lexer, ft_strdup(operator), i);
 	}
