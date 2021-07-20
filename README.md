@@ -69,7 +69,7 @@ sudo apt install libncurses5-dev
 - [x] Trailing pipe not implemented.
 - [ ] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
-- [ ] History exclamation expanded even if inside single quotes.
+- [x] History exclamation expanded even if inside single quotes.
 	- Exclamation parsing needs to be transfered to parser.
 - [ ] Lexer does not recognize specified fd ie. 2> and 2>&1.
 	- [ ] Redirection with specified fd ie. 2> does not work.
