@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:14:29 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/07/15 13:57:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/17 12:44:56 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,6 @@ int	test_builtin(char **argv)
 	else if (flag > flag_z)
 		if (check_binary_values(new_argv[1], new_argv[3], flag, &ret))
 			return (free_new_argv(new_argv, 2));
-	//builtin_test_ext(flag, ret, inv, new_argv);
+	// builtin_test_ext(flag, ret, inv, new_argv);
 	return (free_new_argv(new_argv, return_inv(ret, inv)));
 }

@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:37:49 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:28:02 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/16 20:35:37 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	export_variable(char *key, int print)
 	char	*value;
 
 	value = hash_get(g_shell->vars, key);
+	ft_printf("value: %s\n", value);
 	if (!value)
 		return ;
 	if (!setenv(key, value, 1) && print)

@@ -1,0 +1,7 @@
+1. export -p
+-> (null)
+** should run all env with export in front
+
+2. export
+-> (null)
+** ZSH runs all env as command env

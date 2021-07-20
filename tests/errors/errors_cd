@@ -1,0 +1,9 @@
+1. cd -P var
+-- cd -
+-- env
+-> PWD still at OLDPWD and not new
+
+2. cd -L var
+-- cd -
+-- env
+-> PWD still at OLDPWD and not new

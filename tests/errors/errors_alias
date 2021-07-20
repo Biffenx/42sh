@@ -1,0 +1,58 @@
+nbr: command
+-- : run command
+-> : output in out shell
+** : what output should be
+
+1. alias hello='echo "hello, world"'
+-- alias hello
+-> 42sh: alias: echo: not found
+-> 42sh: alias: hello world: not found
+** should print:  Print the alias definition for 'hello'. Something like: hello='echo "hello, world!"'
+
+2. alias hello=
+-- hello
+-> make: *** [noflags] Segmentation fault: 11
+
+3. alias sub='(echo abc|'
+-- sub cat -e)
+-> pipe>
+**abc$
+
+4. alias rd='ls DOESTNOEXIST 2>>err'
+-- rd; rd; rd
+-- cat err
+-> ls: DOSETNOTEXISTS: No such file or directory
+-> Process launch failed.
+-> Process launch failed.
+** ls: DOESTNOEXIST: No such file or directory
+** ls: DOESTNOEXIST: No such file or directory
+** ls: DOESTNOEXIST: No such file or directory
+
+5. alias aa='echo hello' bb='echo world'
+-- aa; bb
+-> hello
+-> Process launch failed.
+** hello
+** world
+
+6. alias mk='mkdir -v' abc='def'
+--  mk abc
+-> mkdir: created directory 'abc'
+** mkdir: created directory 'def'
+
+7. alias b=c
+-- alias c=d
+-- alias d='echo It should works'
+-- b
+-> Process launch failed.
+** It should works
+
+8. $> alias e='g'
+-- alias f='e'
+-- alias g='echo "infinite loop"; e'
+-- g
+-> infinitive loop
+-> Process launch failed.
+** Error message mentionning that the 'g' command is not found 
+
+9. unalias not working
