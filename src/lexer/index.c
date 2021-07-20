@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:40:42 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 13:26:46 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,24 @@ static void	check_trailing(t_lexer *lexer)
 	}
 }
 
-void	tokenize(t_lexer *lexer, char *input)
+static int	tokenize_escape(t_lexer *lexer, char *input)
+{
+	if (lexer->data[1] == '\n')
+	{
+		ft_putendl("how to check when the line ends");
+		add_token(lexer, ft_strsub(input, 0, 1), EXPAND_NL);
+		return (1);
+	}
+	else if (lexer->data[1] && lexer->data[1] != '\\')
+	{
+		add_token(lexer, ft_strsub(input, 1, 1), STRING);
+		return (2);
+	}
+	else
+		return (1);
+}
+
+void		tokenize(t_lexer *lexer, char *input)
 {
 	int	i;
 
@@ -44,7 +61,9 @@ void	tokenize(t_lexer *lexer, char *input)
 	ft_strlcat(lexer->data, input, ARG_MAX);
 	while (lexer->data[i] && ~ g_shell->mode & INTERRUPT)
 	{
-		if (ft_strchr(OPERATORS, lexer->data[i]))
+		if (lexer->data[i] == '\\')
+			i += tokenize_escape(lexer, &lexer->data[i]);
+		else if (ft_strchr(OPERATORS, lexer->data[i]))
 			i += tokenize_operator(lexer, &lexer->data[i]);
 		else if (!ft_strncmp(OPT_LEXER, &lexer->data[i],
 				ft_strlen(OPT_LEXER) - 1))
