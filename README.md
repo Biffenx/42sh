@@ -91,7 +91,7 @@ sudo apt install libncurses5-dev
 - [x] Decide when and where shell updates current and previous jobs (current handling is supported).
 - [x] Shady stuff going on when signal is sent to a process via kill. Try fix signals.
 	- There is no way for the programs to know about sent signals if they are in background or stopped.
-- [ ] Improve line edition (up and down)
+- [x] Improve line edition (up and down)
 - [ ] Odd files being created to directory when history file fills up to the limit.
 - [x] Reverse-i-search segfault.
 - [ ] segfault with command "alias=hello'"

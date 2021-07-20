@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/04 10:46:05 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/20 10:16:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct 				s_editor
 # include "job.h"
 # include "hash.h"
 
-# define HISTORY_SIZE 		1000
+# define HISTORY_SIZE 		100
 # define HISTORY_FILE 		"/.42history"
 
 typedef struct				s_shell
