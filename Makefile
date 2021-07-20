@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+         #
+#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/05/18 17:02:58 by jochumwilen      ###   ########.fr        #
+#    Updated: 2021/07/20 10:41:02 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,7 @@ src = src/main.c \
 	src/lexer/token_string.c \
 	src/lexer/utils.c \
 	src/parser/expand_alias.c \
+	src/parser/expand_exclamation.c \
 	src/parser/expand.c \
 	src/parser/index.c \
 	src/parser/syntax.c \

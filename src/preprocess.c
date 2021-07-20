@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preprocess.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:19:37 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:42:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,11 @@ void	preprocess(char *input, t_shell *shell)
 		lexer_debug(lexer);
 	else if (~shell->mode & INTERRUPT)
 	{
-		add_entry(lexer.data, shell);
-		parser(&lexer, shell) == PARSER_OK ? loader(&lexer) : PASS;
+		if ((parser(&lexer, shell) == PARSER_OK))
+		{
+			add_entry(lexer.first, shell);
+			loader(&lexer);
+		}
 	}
 	lexer_del(&lexer);
 }

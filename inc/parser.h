@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:03:47 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/09 17:01:19 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/20 10:40:12 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void					tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell);
 char					*split_val(const char *s);
 char					*split_key(const char *s);
 char					*parse_quotes(char *s);
+void					parse_exclamation(char **data, t_shell *shell);
 
 #endif

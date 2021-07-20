@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:54:47 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:09:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	expand_tokens(t_lexer *lexer, t_shell *shell)
 		{
 			parse_dollar(&token->data, shell);
 			parse_tilde(&token->data, shell);
+			parse_exclamation(&token->data, shell);
 			tokenize_alias(lexer, &token, shell);
 		}
 		if (token->heredoc)
