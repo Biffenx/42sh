@@ -6,13 +6,13 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 10:26:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/20 11:37:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/20 18:55:31 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static int	head(char *tmp, char *tmp2, t_shell *shell)
+static int	head(char *tmp, char **tmp2, t_shell *shell)
 {
 	int			i;
 	int			num;
@@ -25,17 +25,12 @@ static int	head(char *tmp, char *tmp2, t_shell *shell)
 		num += (tmp[i] - '0');
 		i++;
 	}
-	i = HISTORY_SIZE - 1;
-	while (!shell->history[i])
-		i--;
-	i -= num - 1;
-	if (i < 0)
-		i = 0;
-	tmp2 = ft_strjoin(tmp, shell->history[i]);
+	i = parse_index(num, ft_arrlen(shell->history, HISTORY_SIZE));
+	*tmp2 = ft_strjoin(tmp, shell->history[i]);
 	return (ft_count_digits_only(num, 10) + 1);
 }
 
-static int	tail(char *tmp, char *tmp2, t_shell *shell)
+static int	tail(char *tmp, char **tmp2, t_shell *shell)
 {
 	int			i;
 	int			num;
@@ -48,18 +43,12 @@ static int	tail(char *tmp, char *tmp2, t_shell *shell)
 		num += (tmp[i] - '0');
 		i++;
 	}
-	i = num - 1;
-	if (i >= HISTORY_SIZE)
-	{
-		i = HISTORY_SIZE - 1;
-		while (!shell->history[i] && i >= 0)
-			i--;
-	}
-	tmp2 = ft_strjoin(tmp, shell->history[i]);
+	i = parse_index(HISTORY_SIZE - num, ft_arrlen(shell->history, HISTORY_SIZE));
+	*tmp2 = ft_strjoin(tmp, shell->history[i]);
 	return (ft_count_digits_only(num, 10) + 2);
 }
 
-static int	word(char *tmp, char *tmp2, t_shell *shell)
+static int	word(char *tmp, char **tmp2, t_shell *shell)
 {
 	int			i;
 	char		*str;
@@ -73,7 +62,7 @@ static int	word(char *tmp, char *tmp2, t_shell *shell)
 	while (i < HISTORY_SIZE && shell->history[i] \
 	&& !ft_strstr(shell->history[i], str))
 		i++;
-	tmp2 = ft_strjoin(tmp, shell->history[i]);
+	*tmp2 = ft_strjoin(tmp, shell->history[i]);
 	length = ft_strlen(str);
 	free(str);
 	return (length + 1);
@@ -87,18 +76,17 @@ static int	parse(char *tmp, char **tmp2, t_shell *shell)
 		return (2);
 	}
 	else if (ft_isdigit(*(tmp + 1)))
-		return (head(tmp, *tmp2, shell));
+		return (head(tmp, tmp2, shell));
 	else if (*(tmp + 1) == '-')
-		return (tail(tmp, *tmp2, shell));
-	else if (ft_isalpha(*(tmp + 1)))
-		return (word(tmp, *tmp2, shell));
-	return (0);
+		return (tail(tmp, tmp2, shell));
+	else if (ft_isprint(*(tmp + 1)))
+		return (word(tmp, tmp2, shell));
+	return (1);
 }
 
 void			parse_exclamation(char **data, t_shell *shell)
 {
 	int			i;
-	int			j;
 	char		*tmp;
 	char		*tmp2;
 	char		*new;
@@ -107,10 +95,17 @@ void			parse_exclamation(char **data, t_shell *shell)
 	tmp = *data;
 	while ((tmp = ft_strchr(tmp, '!')))
 	{
+		if (!*(tmp + 1))
+			break ;
 		*tmp = '\0';
 		i = parse(tmp, &tmp2, shell);
-		new = ft_strjoin(tmp2, tmp + i);
-		ft_strdel(&tmp2);
+		if (tmp2)
+		{
+			new = ft_strjoin(tmp2, tmp + i);
+			ft_strdel(&tmp2);
+		}
+		else
+			new = ft_strjoin(tmp, tmp + i);
 		ft_strdel(data);
 		*data = new;
 		tmp = new;

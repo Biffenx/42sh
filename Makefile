@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/07/20 10:41:02 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/07/20 18:59:57 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,7 @@ src = src/main.c \
 	src/editor/cursor_movement_2.c \
 	src/editor/deletion.c \
 	src/editor/editor.c \
-	src/editor/exclamation.c \
 	src/editor/keypress.c \
-	src/editor/parse.c \
 	src/editor/print.c \
 	src/job/create_utils.c \
 	src/job/create.c \
