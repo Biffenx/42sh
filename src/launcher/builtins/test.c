@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:14:29 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/07/17 12:44:56 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 19:06:36 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,23 +130,27 @@ static void	initilize_inits(int *a, int *b, int *c)
 	*c = 0;
 }
 
-static void	print_new_argv(char **new_argv)
-{
-	int		i;
+/*
+** static void	print_new_argv(char **new_argv)
+** {
+** 	int		i;
+**
+**	i = 0;
+**	while (new_argv[i])
+**	{
+**		print_error(SYNTAX_ERR, new_argv[i]);
+**		i++;
+**	}
+** }
+*/
 
-	i = 0;
-	while (new_argv[i])
-	{
-		print_error(SYNTAX_ERR, new_argv[i]);
-		i++;
-	}
-}
-
-static void	builtin_test_ext(int flag, int ret, int inv, char **new_argv)
-{
-	ft_printf("%d %d\n", flag, return_inv(ret, inv));
-	print_new_argv(new_argv);
-}
+/*
+** static void	builtin_test_ext(int flag, int ret, int inv, char **new_argv)
+** {
+** 	ft_printf("%d %d\n", flag, return_inv(ret, inv));
+** 	print_new_argv(new_argv);
+** }
+*/
 
 int	test_builtin(char **argv)
 {

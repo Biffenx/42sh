@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_control.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 12:04:06 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/19 19:45:22 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/20 19:11:57 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** 		otherwise create IO redirection
 */
 
-static int	create_token(t_lexer *lexer, char *input, char *operator, int i)
+static int	create_token(t_lexer *lexer, char *operator, int i)
 {
 	if (!ft_strncmp("&", operator, ft_strlen(operator)))
 		i = BACKGROUND;
@@ -53,7 +53,7 @@ int	tokenize_operator(t_lexer *lexer, char *input)
 	while (i < OP_SLOTS)
 	{
 		if (!ft_strncmp(input, operator[i], ft_strlen(operator[i])))
-			return (create_token(lexer, input, operator[i], i));
+			return (create_token(lexer, operator[i], i));
 		i++;
 	}
 	return (1);
