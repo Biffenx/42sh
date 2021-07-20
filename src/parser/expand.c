@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 11:09:41 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/20 16:55:10 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void	expand_tokens(t_lexer *lexer, t_shell *shell)
 		}
 		if (token->type & T_NOEXPAND)
 			token->type |= (1 << STRING);
+		if (token->type & T_ESCAPE)
+			token->data = ft_strreplace(token->data, "\\", "");
 		token = token->next;
 	}
 }
