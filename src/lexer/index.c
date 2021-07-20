@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 13:26:46 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/20 17:51:00 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 **	Add tokens to linked list:
+**		Escaped characters
 **		Control tokens:
 **			"&&", "||", "|", ";", ">>", "<<", "<&", "<>", "&>", ">|", ">", "<", "&"
 **		Strings (parse quotes and dquotes)
@@ -38,19 +39,22 @@ static void	check_trailing(t_lexer *lexer)
 
 static int	tokenize_escape(t_lexer *lexer, char *input)
 {
-	if (lexer->data[1] == '\n')
-	{
-		ft_putendl("how to check when the line ends");
-		add_token(lexer, ft_strsub(input, 0, 1), EXPAND_NL);
-		return (1);
-	}
-	else if (lexer->data[1] && lexer->data[1] != '\\')
+	int i;
+
+	if (input[1] && input[1] == '\\')
 	{
 		add_token(lexer, ft_strsub(input, 1, 1), STRING);
 		return (2);
 	}
-	else
-		return (1);
+	i = 0;
+	while (input[i] && input[i + 1] && input[i + 1] != ' ' && input[i + 1] != '\\' && !ft_strchr(OPERATORS, input[i]))
+	{
+		if (input[i] != '\\' && input[i + 1] && ft_strchr(OPERATORS, input[i + 1]))
+			break;
+		i++;
+	}
+	add_token(lexer, ft_strsub(input, 0, i + 1), ESCAPE);
+	return (i + 1);
 }
 
 void		tokenize(t_lexer *lexer, char *input)
@@ -61,7 +65,7 @@ void		tokenize(t_lexer *lexer, char *input)
 	ft_strlcat(lexer->data, input, ARG_MAX);
 	while (lexer->data[i] && ~ g_shell->mode & INTERRUPT)
 	{
-		if (lexer->data[i] == '\\')
+		if (lexer->data[i] == 92)
 			i += tokenize_escape(lexer, &lexer->data[i]);
 		else if (ft_strchr(OPERATORS, lexer->data[i]))
 			i += tokenize_operator(lexer, &lexer->data[i]);

@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 16:56:02 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 13:25:51 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/20 16:44:25 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define DEBUG_JOBS		(1 << 24)
 # define T_BG			(1 << 21)
 # define T_NOEXPAND		(1 << 22)
-# define T_EXPAND_NL	(1 << 23)
+# define T_ESCAPE		(1 << 23)
 
 /*
 ** Token flag masks.
@@ -85,7 +85,7 @@
 # define HEREDOC		18
 # define BACKGROUND		21
 # define NOEXPAND		22
-# define EXPAND_NL		23
+# define ESCAPE			23
 
 # define OPT_LEXER		"--lexer"
 # define OPT_JOBS		"--jobs"

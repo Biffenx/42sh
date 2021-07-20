@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 09:45:18 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:37:04 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 17:50:11 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	lexer_del(t_lexer *lexer)
 }
 
 /*
-**	Checks if c is printable, excluding space and not an operator
+**	Checks if c is printable, excluding spaces, operators, and escapes
 */
 
 int	is_valid_char(char c)
 {
-	return ((c <= 126 && c > 32) && !ft_strchr(OPERATORS, c) ? 1 : 0);
+	return ((c <= 126 && c > 32) && !ft_strchr(OPERATORS, c) && c != 92 ? 1 : 0);
 }
 
 /*
