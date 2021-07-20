@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:28:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:16:47 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 18:56:45 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-
-int	parse_index(int nbr, int histsize)
-{
-	histsize -= 1; // BLOCKS CURRENT COMMAND
-	nbr < 0 ? nbr = histsize + nbr : 0;
-	nbr > histsize ? nbr = histsize - 1 : 0;
-	nbr < 0 ? nbr = 0 : 0;
-	return (nbr);
-}
 
 int	find_index(char *str, int *options)
 {

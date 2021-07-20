@@ -92,6 +92,7 @@ void	expand_tokens(t_lexer *lexer, t_shell *shell)
 		{
 			parse_dollar(&token->data, shell);
 			parse_tilde(&token->data, shell);
+			parse_exclamation(&token->data, shell);
 			tokenize_alias(lexer, &token, shell);
 		}
 		if (token->heredoc)

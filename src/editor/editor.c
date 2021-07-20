@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   editor.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 16:29:00 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/20 10:40:28 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static void	loop(t_shell *shell)
 		input(shell);
 		if (shell->mode & ENDOFFILE || shell->mode & INTERRUPT)
 			break ;
-		else if (exclamation(shell))
-			continue ;
 		else
 			break ;
 	}

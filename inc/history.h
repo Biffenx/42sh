@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:45:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 14:43:22 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/20 11:42:03 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@
 ** Core history management.
 */
 
-void		add_entry(char *cmd, t_shell *shell);
+void		add_entry(t_token *tokens, t_shell *shell);
 int			browse_up(t_shell *shell);
 int			browse_down(t_shell *shell);
 void		search_history(t_shell *shell);
-int			exclamation(t_shell *shell);
-size_t		parse(t_shell *shell, size_t i, char *tmp);
 void		fetch(t_shell *shell);
 void		save(t_shell *shell);
 

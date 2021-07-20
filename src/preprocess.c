@@ -67,8 +67,11 @@ void	preprocess(char *input, t_shell *shell)
 		lexer_debug(lexer);
 	else if (~shell->mode & INTERRUPT)
 	{
-		add_entry(lexer.data, shell);
-		parser(&lexer, shell) == PARSER_OK ? loader(&lexer) : PASS;
+		if ((parser(&lexer, shell) == PARSER_OK))
+		{
+			add_entry(lexer.first, shell);
+			loader(&lexer);
+		}
 	}
 	lexer_del(&lexer);
 }
