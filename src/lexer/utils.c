@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 09:45:18 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 17:50:11 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/21 13:22:08 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,21 @@ int	next_quote(char *input, int q)
 	i = 0;
 	if (ft_lfind(input, q) == -1)
 		return (-1);
-	while (input[i] && input[i] != q)
+	while (input[i])
+	{
 		i++;
-	return (i);
+		if (input[i] == q)
+		{
+			if (input[i - 1] && input[i - 1] == 92)
+				PASS;
+			else
+				break ;
+		}
+	}
+	if (input[i] == D_QUOTE || input[i] == S_QUOTE)
+		return (i);
+	else
+		return (-1);
 }
 
 /*
