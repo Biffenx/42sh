@@ -94,13 +94,12 @@ sudo apt install libncurses5-dev
 - [x] Improve line edition (up and down)
 - [ ] Odd files being created to directory when history file fills up to the limit.
 - [x] Reverse-i-search segfault.
-- [ ] segfault with command "alias=hello'"
+- [ ] segfault with command alias=hello' is cancelled with SIGINT during quote>
 - [ ] hash builtin POSIX standard?
 - [x] segfault when file is redireced as input.
 - [ ] condition neglects job control.
 - [ ] extra spaces with escape character \\.
 - [ ] escape character does not quite work when dealing with quotes.
-- [ ] segfault with command: echo'
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
