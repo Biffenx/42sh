@@ -96,7 +96,7 @@ sudo apt install libncurses5-dev
 - [x] Reverse-i-search segfault.
 - [ ] segfault with command "alias=hello'"
 - [ ] hash builtin POSIX standard?
-- [ ] segfault when file is redireced as input.
+- [x] segfault when file is redireced as input.
 - [ ] condition neglects job control.
 - [ ] extra spaces with escape character \\.
 - [ ] escape character does not quite work when dealing with quotes.

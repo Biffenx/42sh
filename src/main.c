@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:19:16 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/23 21:45:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ static void	shell(void)
 			continue ;
 		preprocess(shell.editor.buffer, &shell);
 	}
-	save(&shell);
+	if (shell.mode & INTERACTIVE)
+		save(&shell);
 }
 
 int	main(int argc, char **argv, char **env)
