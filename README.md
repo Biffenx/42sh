@@ -57,17 +57,18 @@ sudo apt install libncurses5-dev
 	- [ ] Each built-in must have the enounced options by POSIX standard execept for explicit case ad set or unset
 
 ### Modular Part Features
-- [ ] Inhibitors ” (double quote), ’ (simple quote) and \\.
-- [ ] Complete management of the history.
+- [x] Inhibitors ” (double quote), ’ (simple quote) and \\.
+- [x] Complete management of the history.
 - [x] Alias management via built-ins alias and unalias.
 - [x] A hash table and built-in hash to interact with it.
 - [x] Contextual dynamic completion.
 - [x] Built-in test with the required operators.
+- [ ] Tests for modular part features.
 
 ### Issues
 - [x] New opening quote in open quote.
 - [x] Trailing pipe not implemented.
-- [ ] Fc carbage. Rewrite the whole built-in.
+- [x] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
 - [x] History exclamation expanded even if inside single quotes.
 	- Exclamation parsing needs to be transfered to parser.
@@ -105,9 +106,3 @@ sudo apt install libncurses5-dev
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
 - Dollar sign should be put into single quotes if user wants to write the character into std_out, otherwise parser will erase it when expanding dollars.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.
-
-Jocke:
-- Check builtin POSIX standard.
-- Fix easy norminette errors from src folder (Please don't alter code too much and make pull requests for each folder.)
-- Hunt for leaks outside autocomplete.
-- Keep list of every segfaut, invalid pointer free etc. and what command led to program crash.
