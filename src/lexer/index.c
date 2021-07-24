@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 17:51:00 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/24 12:35:20 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	check_trailing(t_lexer *lexer)
 	if (lexer->last->type & T_PIPE)
 	{
 		append_data(g_shell);
-		tokenize(lexer, g_shell->editor.buffer);
+		if (~g_shell->mode & INTERRUPT)
+			tokenize(lexer, g_shell->editor.buffer);
 	}
 }
 
