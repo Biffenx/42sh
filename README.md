@@ -104,5 +104,4 @@ sudo apt install libncurses5-dev
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.
-- Dollar sign should be put into single quotes if user wants to write the character into std_out, otherwise parser will erase it when expanding dollars.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.
