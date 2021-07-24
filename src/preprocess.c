@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preprocess.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/20 13:27:30 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/07/24 10:46:52 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ static void	loader(t_lexer *lexer)
 	while (tokens)
 		append_job(&g_shell->jobs, create_job(&tokens));
 	if (lexer->flags & DEBUG_JOBS)
+	{
 		job_debug(job);
-	launcher(job);
+		return ;
+	}
+	if (~g_shell->mode & LOADJOB)
+		launcher(job);
 }
 
 void	preprocess(char *input, t_shell *shell)

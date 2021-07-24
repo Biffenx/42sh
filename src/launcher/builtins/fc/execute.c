@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 09:57:05 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:20:51 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/24 10:56:29 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ static void	execute_file(int options)
 	}
 	while (get_next_line(fd, &buff))
 	{
-		preprocess(buff, g_shell);
-		ft_strdel(&buff);
+		reset(PROMPT_NORMAL, g_shell);
+		g_shell->mode |= LOADJOB;
+		if (ft_strlen(buff) < ARG_MAX)
+			ft_strcat(g_shell->editor.buffer, buff);
+		preprocess(g_shell->editor.buffer, g_shell);
+		free(buff);
 	}
 	close(fd);
 }

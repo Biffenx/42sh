@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/20 10:16:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/24 10:46:02 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ extern char **environ;
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
 # define ENDOFFILE 			1 << 2
+# define LOADJOB			1 << 3
 
 # define PROMPT_SIZE 		10
 # define PROMPT_NORMAL 		"command> "
