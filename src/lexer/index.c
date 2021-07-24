@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/24 12:35:20 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/24 12:43:01 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		tokenize(t_lexer *lexer, char *input)
 
 	i = 0;
 	ft_strlcat(lexer->data, input, ARG_MAX);
-	while (lexer->data[i] && ~ g_shell->mode & INTERRUPT)
+	while (lexer->data[i] && ~g_shell->mode & INTERRUPT)
 	{
 		if (lexer->data[i] == 92)
 			i += tokenize_escape(lexer, &lexer->data[i]);
@@ -87,6 +87,7 @@ void		tokenize(t_lexer *lexer, char *input)
 		else
 			i++;
 	}
-	check_trailing(lexer);
+	if (~g_shell->mode & INTERRUPT)
+		check_trailing(lexer);
 	lexer->first = lexer->head;
 }

@@ -95,7 +95,7 @@ sudo apt install libncurses5-dev
 - [x] Improve line edition (up and down)
 - [ ] Odd files being created to directory when history file fills up to the limit.
 - [x] Reverse-i-search segfault.
-- [ ] segfault with command alias=hello' is cancelled with SIGINT during quote>
+- [x] segfault with command alias=hello' is cancelled with SIGINT during quote>
 - [ ] hash builtin POSIX standard?
 - [x] segfault when file is redireced as input.
 - [ ] condition neglects job control.
