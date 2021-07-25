@@ -6,7 +6,7 @@
 /*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:02:30 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/06/03 22:15:20 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/07/25 11:56:30 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,6 @@ void	free_autocomp_commands(t_shell *shell)
 void	get_autocomplete_commands(t_shell *shell)
 {
 	free_autocomp_commands(shell);
-	autocomplete_from_path(shell);
 	autocomp_commands_append_dir(".", shell);
+	autocomplete_from_path(shell);
 }
