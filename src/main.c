@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/23 21:45:40 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/25 13:17:30 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static void	shell(void)
 {
 	t_shell	shell;
 
+	ft_bzero(&shell, sizeof(shell));
 	shell.mode = isatty(STDIN_FILENO);
 	create_shell(&shell);
 	create_pgroup(&shell);
@@ -85,7 +86,7 @@ static void	shell(void)
 		reset(PROMPT_NORMAL, &shell);
 		editor(&shell);
 		if (shell.mode & ENDOFFILE)
-			break ;
+			exit(0) ;
 		else if (!shell.editor.buffer[0] || shell.mode & INTERRUPT)
 			continue ;
 		preprocess(shell.editor.buffer, &shell);
