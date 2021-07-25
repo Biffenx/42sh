@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   autocomplete.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:01:14 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/07/15 19:24:51 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:21:24 by sadawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,7 @@ char	**get_dir_commands(char *path)
 			commands = (char **)ft_memalloc(sizeof(char *) * (size + 1));
 			if (tmp)
 				ft_memcpy(commands, tmp, size * sizeof(char *));
+			free(tmp);
 			commands[size++ - 1] = join_path_and_filename(path, p_dirent);
 		}
 	}
@@ -284,28 +285,40 @@ void	complete_command(t_shell *shell, char previous_pressed_key,
 	else
 		j = j + 1;
 	ft_strcpy(shell->editor.buffer, final_string);
+	free(final_string);
 	shell->editor.cursor = ft_strlen(shell->editor.buffer);
+}
+
+void	free_2d_array(char **arr)
+{
+	int i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
 
 void	autocomplete(t_shell *shell)
 {
 	static char		*partial_command = NULL;
-	static char		**matching_commands = NULL;
 
 	if (shell->prev_key_pressed != TAB)
 	{
 		free(partial_command);
-		free(matching_commands);
+		free_2d_array(shell->matching_commands);
 		partial_command = get_partial_command(shell->editor.buffer);
 		if (partial_command[0] == '\0')
-			matching_commands = get_dir_commands(".");
+			shell->matching_commands = get_dir_commands(".");
 		else if (check_command_valid_dir(partial_command))
-			matching_commands = get_dir_commands(partial_command);
+			shell->matching_commands = get_dir_commands(partial_command);
 		else
 		{
-			matching_commands = get_matching_commands(partial_command, shell);
-			ft_printf("mc3: %s\n", matching_commands);
+			shell->matching_commands = get_matching_commands(partial_command, shell);
+			ft_printf("mc3: %s\n", shell->matching_commands);
 		}
 	}
-	complete_command(shell, shell->prev_key_pressed, matching_commands);
+	complete_command(shell, shell->prev_key_pressed, shell->matching_commands);
 }
