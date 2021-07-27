@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/27 12:40:24 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/27 13:24:09 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static int choose_builtin(char **argv)
 		return (export_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "fg"))
 		return (fg_builtin(argv + 1));
-	else if (ft_strequ(argv[0], "hash"))
-		return (hash_builtin(argv));
+	else if (ft_strequ(argv[0], "map"))
+		return (map_builtin(argv));
 	else if (ft_strequ(argv[0], "jobs"))
 		return (jobs_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "set"))

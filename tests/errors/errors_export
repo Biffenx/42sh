@@ -5,3 +5,5 @@
 2. export
 -> (null)
 ** ZSH runs all env as command env
+
+Comment: Fixed.

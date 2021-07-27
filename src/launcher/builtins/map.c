@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:52:54 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:27:12 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/27 13:21:59 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	command_set_2(char **argv)
 	return (1);
 }
 
-int	hash_builtin(char **argv)
+int	map_builtin(char **argv)
 {
 	if (argv[1] && !argv[2])
 		return (command_set_1(argv));
