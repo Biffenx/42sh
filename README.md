@@ -101,6 +101,7 @@ sudo apt install libncurses5-dev
 - [ ] condition neglects job control.
 - [ ] extra spaces with escape character \\.
 - [ ] escape character does not quite work when dealing with quotes.
+- [ ] issues with single quotes when executing set and alias builtins.
 
 ### Less serious issues.
 - Aliases are expanded in lexer. This means that if the user wishes to find out specific alias using alias builtin, the argument has to be inside single quotes. Same syntax should be carried out when adding aliases to avoid undefined behavior.

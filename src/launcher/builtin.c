@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/16 10:44:34 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/27 12:40:24 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int choose_builtin(char **argv)
 	else if (ft_strequ(argv[0], "exit"))
 		exit_builtin();
 	else if (ft_strequ(argv[0], "export"))
-		return (export_builtin(argv));
+		return (export_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "fg"))
 		return (fg_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "hash"))
@@ -41,7 +41,7 @@ static int choose_builtin(char **argv)
 	else if (ft_strequ(argv[0], "type"))
 		return (type_builtin(argv));
 	else if (ft_strequ(argv[0], "unalias"))
-		return (unalias_builtin(argv));
+		return (unalias_builtin(argv + 1));
 	else if (ft_strequ(argv[0], "unset"))
 		return (unset_builtin(argv));
 	return (1);

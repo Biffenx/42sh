@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:37:49 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/16 20:35:37 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/27 12:56:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,40 @@ static void	export_argument(char *data, int print)
 		ft_printf("export %s=%s\n", key, value);
 }
 
-int	export_builtin(char **argv)
+static void	export_all(int print)
 {
-	int	i;
-	int	print;
+	size_t	i;
+	t_hash 	*map;
 
-	i = 1;
-	print = 0;
-	if (ft_strequ(argv[i], "-p"))
+	i = 0;
+	map = g_shell->vars;
+	while (i < HASH_SIZE)
 	{
-		print = 1;
+		if (map[i].key && !setenv(map[i].key, map[i].value, 1) && print)
+			ft_printf("export %s=%s\n", map[i].key, map[i].value);
 		i += 1;
 	}
-	while (argv[i])
+}
+
+int	export_builtin(char **argv)
+{
+	int	print;
+
+	print = 0;
+	if (ft_strequ(*argv, "-p"))
 	{
-		if (ft_strchr(argv[i], '='))
-			export_argument(argv[i], print);
+		print = 1;
+		argv +=1 ;
+	}
+	if (!*argv)
+		export_all(print);
+	while (*argv)
+	{
+		if (ft_strchr(*argv, '='))
+			export_argument(*argv, print);
 		else
-			export_variable(argv[i], print);
-		i += 1;
+			export_variable(*argv, print);
+		argv += 1;
 	}
 	return (0);
 }

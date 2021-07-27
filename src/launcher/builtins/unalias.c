@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 09:39:03 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/14 12:55:46 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/27 12:22:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@
 
 int	unalias_builtin(char **argv)
 {
-	int	i;
-
-	i = 1;
-	if (!argv[i])
-		return (0);
-	if (ft_strequ(argv[i], "-a"))
-		hash_purge(g_shell->alias);
-	else
+	if (ft_strequ(*argv, "-a"))
 	{
-		while (argv[i])
-		{
-			hash_delete(g_shell->alias, argv[i]);
-			i += 1;
-		}
+		hash_purge(g_shell->alias);
+		return (0);
+	}
+	while (*argv)
+	{
+		hash_delete(g_shell->alias, *argv);
+		argv += 1;
 	}
 	return (0);
 }
