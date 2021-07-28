@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/27 13:25:11 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/28 09:48:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 ** Map builtin.
 */
 
-# define HASH_SYNTAX "42sh: map: syntax: map [function] [key]=value\n"
-# define HASH_HELP "42sh: map: functions: get, put, delete, purge, display\n"
+# define MAP_SYNTAX "42sh: map: syntax: map [function] [key]=value\n"
+# define MAP_HELP "42sh: map: functions: get, put, delete, purge, display\n"
+
+/*
+** HASH builtin.
+*/
+
+# define HASH_SYNTAX "42sh: map: syntax: hash [-r] [utility...]\n"
 
 /*
 ** Termcaps.

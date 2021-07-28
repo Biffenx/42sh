@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/25 11:53:40 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/07/28 09:43:33 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct				s_shell
 	t_hash					alias[HASH_SIZE];
 	int						alias_index; // IMO the alias expansion controlling should be the lexers job.
 	t_hash					table[HASH_SIZE];
+	t_hash					utils[HASH_SIZE];
 	t_job					*jobs;
 	t_job					*current;
 	t_job					*previous;
