@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fc.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:20:31 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/29 13:20:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	parse_options(char ***argv, char **editor)
 		{
 			if (!ft_strchr(FCOPT, (**argv)[i]))
 			{
-				ft_putstr_fd(FC_ERR_OPT, STDERR_FILENO);
+				ft_dprintf(STDERR_FILENO, FC_ERR_OPT, (**argv)[i]);
 				options |= 1 << 5;
 				return (options);
 			}
