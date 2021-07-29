@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 11:17:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/28 10:35:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/29 13:03:08 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,6 @@
 /*
 ** Returns path to a executable binary file if found, else NULL is returned.
 */
-
-static void save_utils(char *path)
-{
-	char *hits;
-	char *tmp;
-
-	hits = hash_get(g_shell->utils, path);
-	if (hits)
-	{
-		tmp = ft_itoa(ft_atoi(hits) + 1);
-		hash_put(g_shell->utils, path, tmp);
-		free(tmp);
-		return ;
-	}
-	hits = "1";
-	hash_put(g_shell->utils, path, hits);
-}
 
 char	*find_path(char *command)
 {
@@ -56,6 +39,7 @@ char	*find_path(char *command)
 	ft_arrfree(paths);
 	if (access(path, X_OK) == -1)
 		ft_strdel(&path);
-	save_utils(path);
+	else if (!hash_get(g_shell->paths, command))
+		hash_put(g_shell->paths, command, path);
 	return (path);
 }

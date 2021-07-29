@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/28 09:43:33 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/29 13:12:55 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct 				s_editor
 # define HISTORY_SIZE 		100
 # define HISTORY_FILE 		"/.42history"
 
+# define HASHOPT "r"
+
 typedef struct				s_shell
 {
 	int						exit;
@@ -82,7 +84,7 @@ typedef struct				s_shell
 	t_hash					alias[HASH_SIZE];
 	int						alias_index; // IMO the alias expansion controlling should be the lexers job.
 	t_hash					table[HASH_SIZE];
-	t_hash					utils[HASH_SIZE];
+	t_hash					paths[HASH_SIZE];
 	t_job					*jobs;
 	t_job					*current;
 	t_job					*previous;

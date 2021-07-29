@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/28 09:48:10 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/29 13:11:34 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 ** HASH builtin.
 */
 
-# define HASH_SYNTAX "42sh: map: syntax: hash [-r] [utility...]\n"
+# define HASH_SYNTAX "42sh: hash: syntax: hash [-r]\n"
+# define HASH_ERR_OPT "42sh: hash: bad option: -%c\n"
 
 /*
 ** Termcaps.
