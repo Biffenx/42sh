@@ -6,20 +6,12 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:45:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/20 11:42:03 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 11:54:21 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HISTORY_H
 # define HISTORY_H
-
-/*
-** Fc builtin definitions
-*/
-
-# define FCEDIT "nano"
-# define FCFILE "/var/tmp/42shfcfile.txt"
-# define FCOPT "elrns"
 
 /*
 ** Core history management.

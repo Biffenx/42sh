@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/29 13:12:55 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 11:55:24 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ extern char **environ;
 
 # include "errors.h"
 # include "autocomplete.h"
+# include "builtin.h"
 
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
@@ -72,8 +73,6 @@ typedef struct 				s_editor
 
 # define HISTORY_SIZE 		100
 # define HISTORY_FILE 		"/.42history"
-
-# define HASHOPT "r"
 
 typedef struct				s_shell
 {
