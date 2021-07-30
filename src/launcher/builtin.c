@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:43:11 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/28 10:07:36 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 13:21:40 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int choose_builtin(char **argv)
 {
 	if (ft_strequ(argv[0], "fc"))
-		return (fc(argv));
+		return (fc(argv + 1));
 	else if (ft_strequ(argv[0], "alias"))
 		return (alias_builtin(argv));
 	else if (ft_strequ(argv[0], "bg"))

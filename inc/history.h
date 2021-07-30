@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:45:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 11:54:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 13:03:58 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,6 @@ void		search_history(t_shell *shell);
 void		fetch(t_shell *shell);
 void		save(t_shell *shell);
 
-/*
-** Fc builtin prototypes.
-*/
-
-void		list(char **argv, char options);
-void		create_file(char **argv, int options);
-int			find_index(char *str, int *options);
 int			parse_index(int nbr, int histsize);
-void		execute_fc(char *editor, int options);
-void		fc_debug(int options);
 
 #endif
