@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 10:26:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/20 18:55:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 21:45:33 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	tail(char *tmp, char **tmp2, t_shell *shell)
 		num += (tmp[i] - '0');
 		i++;
 	}
-	i = parse_index(HISTORY_SIZE - num, ft_arrlen(shell->history, HISTORY_SIZE));
+	i = parse_index(num *= -1, ft_arrlen(shell->history, HISTORY_SIZE));
 	*tmp2 = ft_strjoin(tmp, shell->history[i]);
 	return (ft_count_digits_only(num, 10) + 2);
 }
