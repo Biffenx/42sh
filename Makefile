@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/07/30 12:55:05 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/07/30 13:40:40 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ src = src/main.c \
 	src/launcher/builtins/export.c \
 	src/launcher/builtins/fg.c \
 	src/launcher/builtins/hash.c \
+	src/launcher/builtins/history.c \
 	src/launcher/builtins/map.c \
 	src/launcher/builtins/jobs_utils.c \
 	src/launcher/builtins/jobs.c \

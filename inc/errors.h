@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 13:11:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 13:53:08 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,16 @@
 # define FC_ERR_EVENT "42sh fc: event not found: %s\n"
 # define FC_ERR_REPL "42sh fc: replace argument invalid\n"
 # define FC_SYNTAX "42sh: fc: syntax: \
-fc [-r] [-e editor] [first [last]] \
-fc -l [-nr] [first [last]] \
-fc -s [old=new] [first]"
+fc [-r] [-e editor] [first [last]]\n \
+fc -l [-nr] [first [last]]\n \
+fc -s [old=new] [first]\n"
+
+/*
+** History builtin
+*/
+
+#define HIST_ERR_OPT "42sh: history: bad option: -%c\n"
+#define HIST_SYNTAX	"42sh: history: syntax: history [-c]"
 
 /*
 ** Core history.
