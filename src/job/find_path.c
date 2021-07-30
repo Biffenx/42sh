@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 11:17:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/29 13:03:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/30 12:01:35 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ char	*find_path(char *command)
 	if (!path)
 		exit(1);
 	i = 0;
-	paths = ft_strsplit(hash_get(g_shell->vars, "PATH"), ':');
 	ft_strcat(path, command);
+	if (isbuiltin(command))
+		return (path);
+	paths = ft_strsplit(hash_get(g_shell->vars, "PATH"), ':');
 	while (access(path, X_OK) == -1 && paths[i])
 	{
 		ft_bzero(path, PATH_MAX);
