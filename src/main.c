@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sadawi <sadawi@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:47:31 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/25 13:17:30 by sadawi           ###   ########.fr       */
+/*   Updated: 2021/07/30 14:02:46 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,14 @@ static void	shell(void)
 		reset(PROMPT_NORMAL, &shell);
 		editor(&shell);
 		if (shell.mode & ENDOFFILE)
-			exit(0) ;
+			break ;
 		else if (!shell.editor.buffer[0] || shell.mode & INTERRUPT)
 			continue ;
 		preprocess(shell.editor.buffer, &shell);
 	}
 	if (shell.mode & INTERACTIVE)
 		save(&shell);
+	exit(0);
 }
 
 int	main(int argc, char **argv, char **env)
