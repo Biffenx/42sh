@@ -102,7 +102,8 @@ sudo apt install libncurses5-dev
 - [ ] extra spaces with escape character \\.
 - [ ] escape character does not quite work when dealing with quotes.
 - [ ] issues with single quotes when executing set and alias builtins.
-- [ ] Only first argument of simple command should be expanded.
+- [ ] ALIAS: Only first argument of simple command should be expanded.
+- [ ] exclamation expansion lexical analysis before moving forward.
 
 ### Less serious issues.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.

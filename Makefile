@@ -6,7 +6,7 @@
 #    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/07/30 13:40:40 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/07/30 20:45:38 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ src = src/main.c \
 	src/launcher/utils.c \
 	src/launcher/builtins/fc/fc_debug.c \
 	src/launcher/builtins/fc/fc.c \
+	src/launcher/builtins/fc/list_entries.c \
 	src/launcher/builtins/test/check_values.c \
 	src/launcher/builtins/test/flag_bcdef.c\
 	src/launcher/builtins/test/flag_binary_sym.c \
