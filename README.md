@@ -105,6 +105,7 @@ sudo apt install libncurses5-dev
 - [ ] ALIAS: Only first argument of simple command should be expanded.
 - [ ] exclamation expansion lexical analysis before moving forward.
 - [ ] fix various autocomplete bugs
+- [ ] fix bugs in history entry addition ie. redir tokens has to be put together.
 
 ### Less serious issues.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.
