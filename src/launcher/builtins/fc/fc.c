@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 20:36:13 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 15:19:41 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	**parse_options(char **argv, int *options)
 	char	c;
 
 	*options = 0;
-	while (*argv && **argv == '-')
+	while (*argv && **argv == '-' && ft_isalpha(*(*argv + 1)))
 	{
 		i = 1;
 		while ((*argv)[i])
@@ -70,6 +70,7 @@ static char	**parse_options(char **argv, int *options)
 			{
 				ft_dprintf(STDERR_FILENO, FC_ERR_OPT, (*argv)[i]);
 				ft_dprintf(STDERR_FILENO, FC_SYNTAX);
+				*options |= 1 << 5;
 				return (argv);
 			}
 			i += 1;
