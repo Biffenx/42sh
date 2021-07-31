@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 20:36:29 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 19:52:14 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 20:00:03 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ static void down(int *options, int one, int two)
 
 static void	handle_arguments(int *options, int one, int two)
 {
-	ft_putendl("hello");
-	ft_printf("%d\n%d\n", one, two);
 	if (one > two)
 	{
 		if (*options & 1 << 3)
