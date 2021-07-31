@@ -6,7 +6,7 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 21:39:35 by hege             ###   ########.fr       */
+/*   Updated: 2021/07/31 21:52:44 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ static void	set_infile_redirection_fd(int *in, char *file)
 	close(*in);
 }
 
-static void set_errfile_redirection_fd(int *err, char *file)
+static void set_errfile_redirection_fd(int *err, char *file, char *redir)
 {
 	if (*err != STDERR_FILENO)
 		close(*err);
-	*err = open(file, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR);
+	*err = open(file, O_WRONLY | O_CREAT | (redir[1] == '\0' ?
+	O_TRUNC : O_APPEND), S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR);
 	dup2(*err, STDERR_FILENO);
 	close(*err);
 }
@@ -84,5 +85,5 @@ void	switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
 	else if (redir[0] == '<' && redir[1] == '<' && !redir[2])
 		set_heredoc_fd(&j->stdin, heredoc);
 	else
-		set_errfile_redirection_fd(&j->stderr, file);
+		set_errfile_redirection_fd(&j->stderr, file, &redir[1]);
 }
