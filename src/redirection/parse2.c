@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 18:57:21 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/31 15:11:24 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,14 @@ void	switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
 	file = l->node.t_re.file;
 	redir = l->node.t_re.redir;
 	if (redir[0] == '>')
+	{
 		set_outfile_redirection_fd(outfile, file, redir);
+		dup42(STDIN_FILENO, *outfile, STDERR_FILENO);
+	}
 	else if (redir[0] == '<' && !redir[1])
 		set_infile_redirection_fd(&j->stdin, file);
 	else if (redir[0] == '<' && redir[1] == '<' && !redir[2])
 		set_heredoc_fd(&j->stdin, heredoc);
+//	else
+//		ft_putendl("redir indexi 0 on numero?");
 }
