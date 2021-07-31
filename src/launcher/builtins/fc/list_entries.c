@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 20:36:29 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 15:25:05 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 19:52:14 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,27 @@ static void down(int *options, int one, int two)
 	}
 }
 
+static void	handle_arguments(int *options, int one, int two)
+{
+	ft_putendl("hello");
+	ft_printf("%d\n%d\n", one, two);
+	if (one > two)
+	{
+		if (*options & 1 << 3)
+			down(options, two, one);
+		else 
+			up(options, one, two);
+	}
+	else
+	{
+		if (*options & 1 << 3)
+			up(options, two, one);
+		else 
+			down(options, one, two);
+	}
+	
+}
+
 void list_entries(char **argv, int *options)
 {
 	int len;
@@ -54,11 +75,13 @@ void list_entries(char **argv, int *options)
 		else 
 			down(options, parse_index(-15, len), parse_index(-1, len));
 	}
-	if (*argv && !*argv + 1)
+	else if (*argv && !*(argv + 1))
 	{
 		if (*options & 1 << 3)
 			up(options, parse_index(HISTORY_SIZE, len), parse_index(ft_atoi(*argv), len));
 		else 
 			down(options, parse_index(ft_atoi(*argv), len), parse_index(HISTORY_SIZE, len));
 	}
+	else
+		handle_arguments(options, parse_index(ft_atoi(*argv), len), parse_index(ft_atoi(*(argv + 1)), len));
 }
