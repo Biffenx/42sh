@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 15:19:41 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 20:14:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,14 @@ int	fc(char **argv)
 	argv = parse_options(argv, &options);
 	if (options & 1 << 0)
 		parse_editor(&argv, &editor, &options);
+	if (g_debug)
+		fc_debug(options, editor);
 	verify_arguments(argv, &options);
 	if (options & 1 << 5)
 		return (1);
 	else if (options & 1 << 1)
 		list_entries(argv, &options);
-	if (g_debug)
-		fc_debug(options, editor);
-	
-	return (0);
+	else
+		create_file(argv, &options);
+	return (options & 1 << 5);
 }

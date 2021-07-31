@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 11:53:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 20:44:49 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 20:13:30 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 
 void		fc_debug(int options, char *editor);
 void		list_entries(char **argv, int *options);
+void		create_file(char **argv, int *options);
 
 
 #endif
