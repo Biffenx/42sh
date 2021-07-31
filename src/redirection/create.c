@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:01:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:12:49 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/07/31 21:14:15 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ static t_re_ag	*create_re_ag_node(t_token *token)
 	new->e_flag = token->type & MASK_RE ? REDIR : AGGRE;
 	if (new->e_flag == REDIR)
 	{
-		new->node.t_re.redir = ft_strdup(token->data);
+		new->node.t_re.redir = token->prev->type & IO_NUM ? 
+		ft_strjoin(ft_strdup(token->prev->data), ft_strdup(token->data))
+		: ft_strdup(token->data);
 		new->node.t_re.file = ft_strdup(token->next->data);
 		write_heredoc(new, token);
 	}
