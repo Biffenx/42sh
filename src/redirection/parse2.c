@@ -6,7 +6,7 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 15:11:24 by hege             ###   ########.fr       */
+/*   Updated: 2021/07/31 21:39:35 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,15 @@ static void	set_infile_redirection_fd(int *in, char *file)
 	close(*in);
 }
 
+static void set_errfile_redirection_fd(int *err, char *file)
+{
+	if (*err != STDERR_FILENO)
+		close(*err);
+	*err = open(file, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR);
+	dup2(*err, STDERR_FILENO);
+	close(*err);
+}
+
 /*
 ** Switch for redirection node
 */
@@ -74,6 +83,6 @@ void	switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
 		set_infile_redirection_fd(&j->stdin, file);
 	else if (redir[0] == '<' && redir[1] == '<' && !redir[2])
 		set_heredoc_fd(&j->stdin, heredoc);
-//	else
-//		ft_putendl("redir indexi 0 on numero?");
+	else
+		set_errfile_redirection_fd(&j->stderr, file);
 }
