@@ -6,7 +6,7 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:01:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/01 14:43:13 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/01 14:49:27 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,6 @@ static void	append_re_ag(t_re_ag **head, t_re_ag *new)
 	}
 	else
 		*head = new;
-}
-
-static void	write_heredoc(t_re_ag *node, t_token *token)
-{
-	if (!(token->type & T_DLARR))
-	{
-		node->node.t_re.heredoc = NULL;
-		return ;
-	}
-	node->node.t_re.heredoc = malloc(sizeof(int) * 2);
-	pipe(node->node.t_re.heredoc);
-	ft_dprintf(node->node.t_re.heredoc[1], token->heredoc);
-	close(node->node.t_re.heredoc[1]);
 }
 
 static t_re_ag	*create_re_ag_node(t_token *token)
