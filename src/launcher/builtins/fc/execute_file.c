@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 21:25:09 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/01 21:42:21 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/01 22:06:06 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,13 @@ static void	execute(int *options)
 	}
 	while (get_next_line(fd, &buff))
 	{
-		reset(PROMPT_NORMAL, g_shell);
-		g_shell->mode |= LOADJOB;
-		ft_strlcat(g_shell->editor.buffer, buff, ARG_MAX);
-		preprocess(g_shell->editor.buffer, g_shell);
+		if (*buff)
+		{
+			reset(PROMPT_NORMAL, g_shell);
+			g_shell->mode |= LOADJOB;
+			ft_strlcat(g_shell->editor.buffer, buff, ARG_MAX);
+			preprocess(g_shell->editor.buffer, g_shell);
+		}
 		free(buff);
 	}
 	close(fd);
