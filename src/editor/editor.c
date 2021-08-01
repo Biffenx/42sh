@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:03:50 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/20 10:40:28 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/01 22:09:39 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ void	editor(t_shell *shell)
 			shell->mode = shell->mode | ENDOFFILE;
 			return ;
 		}
-		if (ft_strlen(line) < ARG_MAX)
-			ft_strcat(shell->editor.buffer, line);
+		ft_strlcat(shell->editor.buffer, line, ARG_MAX);
 		free(line);
 	}
 	else
