@@ -50,6 +50,7 @@ src = src/main.c \
 	src/launcher/job.c \
 	src/launcher/process.c \
 	src/launcher/utils.c \
+	src/launcher/builtins/fc/create_file.c \
 	src/launcher/builtins/fc/fc_debug.c \
 	src/launcher/builtins/fc/fc.c \
 	src/launcher/builtins/fc/list_entries.c \

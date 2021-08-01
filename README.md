@@ -68,7 +68,7 @@ sudo apt install libncurses5-dev
 ### Issues
 - [x] New opening quote in open quote.
 - [x] Trailing pipe not implemented.
-- [x] Fc carbage. Rewrite the whole built-in.
+- [ ] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
 - [x] History exclamation expanded even if inside single quotes.
 	- Exclamation parsing needs to be transfered to parser.
@@ -86,17 +86,17 @@ sudo apt install libncurses5-dev
 - [x] $ expansion segmentation fault if there is no value.
 - [x] ~ expansion segmentation fault if there is no value in HOME.
 - [x] $ expansion wont work if the expandable value is joined with slash ie. $HOME/Documents.
-- [ ] Invalid pointer being freed sometimes when alias expansion is done.
+- [x] Invalid pointer being freed sometimes when alias expansion is done.
 - [x] Shell "freezes" if job is stopped.
 - [x] Set signals to default when bringing job to the foreground.
 - [x] Decide when and where shell updates current and previous jobs (current handling is supported).
 - [x] Shady stuff going on when signal is sent to a process via kill. Try fix signals.
 	- There is no way for the programs to know about sent signals if they are in background or stopped.
 - [x] Improve line edition (up and down)
-- [ ] Odd files being created to directory when history file fills up to the limit.
+- [x] Odd files being created to directory when history file fills up to the limit.
 - [x] Reverse-i-search segfault.
 - [x] segfault with command alias=hello' is cancelled with SIGINT during quote>
-- [ ] hash builtin POSIX standard?
+- [x] hash builtin POSIX standard?
 - [x] segfault when file is redireced as input.
 - [ ] condition neglects job control.
 - [ ] extra spaces with escape character \\.
@@ -104,6 +104,8 @@ sudo apt install libncurses5-dev
 - [ ] issues with single quotes when executing set and alias builtins.
 - [ ] ALIAS: Only first argument of simple command should be expanded.
 - [ ] exclamation expansion lexical analysis before moving forward.
+- [ ] fix various autocomplete bugs
+- [ ] fix bugs in history entry addition ie. redir tokens has to be put together.
 
 ### Less serious issues.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.
