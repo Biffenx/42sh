@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 20:36:13 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 20:14:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	**parse_options(char **argv, int *options)
 	char	c;
 
 	*options = 0;
-	while (*argv && **argv == '-')
+	while (*argv && **argv == '-' && ft_isalpha(*(*argv + 1)))
 	{
 		i = 1;
 		while ((*argv)[i])
@@ -70,6 +70,7 @@ static char	**parse_options(char **argv, int *options)
 			{
 				ft_dprintf(STDERR_FILENO, FC_ERR_OPT, (*argv)[i]);
 				ft_dprintf(STDERR_FILENO, FC_SYNTAX);
+				*options |= 1 << 5;
 				return (argv);
 			}
 			i += 1;
@@ -110,13 +111,14 @@ int	fc(char **argv)
 	argv = parse_options(argv, &options);
 	if (options & 1 << 0)
 		parse_editor(&argv, &editor, &options);
+	if (g_debug)
+		fc_debug(options, editor);
 	verify_arguments(argv, &options);
 	if (options & 1 << 5)
 		return (1);
 	else if (options & 1 << 1)
 		list_entries(argv, &options);
-	if (g_debug)
-		fc_debug(options, editor);
-	
-	return (0);
+	else
+		create_file(argv, &options);
+	return (options & 1 << 5);
 }
