@@ -6,7 +6,7 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/01 15:01:44 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/01 15:04:30 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	write_heredoc(t_re_ag *node, t_token *token)
 
 void set_redir_tokens(t_re_ag *new, t_token *token)
 {
-	if (token && token->type & IO_NUM && ft_strequ(token->data, ft_itoa(STDERR_FILENO)))
+	if (token && token->type & IO_NUM && ft_atoi(token->data) == STDERR_FILENO)
 		new->node.t_re.redir = ft_strjoin(ft_strdup(token->data), 
 												ft_strdup(token->next->data));
 	else
