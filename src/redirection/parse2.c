@@ -6,12 +6,35 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 21:52:44 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/01 14:07:50 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 #include <sys/wait.h>
+
+
+/*
+**redirection to a file can either be truncate or append
+*/
+
+static int redir_is_truncate(char c)
+{
+	if (c == '\0')
+		return 1;
+	else
+		return 0;
+}
+
+static int create_truncate_file(char *file)
+{
+	return (open(file, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR));
+}
+
+static int create_append_file(char *file)
+{
+	return (open(file, O_WRONLY | O_CREAT | O_APPEND, S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR));
+}
 
 /*
 ** Closing heredoc write and setting heredoc read to programs fd in.
@@ -33,10 +56,17 @@ static void	set_heredoc_fd(int *in, int *heredoc)
 
 static void	set_outfile_redirection_fd(int *outfile, char *file, char *redir)
 {
+	int fd;
+
 	if (*outfile != STDOUT_FILENO)
 		close(*outfile);
-	*outfile = open(file, O_WRONLY | O_CREAT | (redir[1] == '\0' ?
-	O_TRUNC : O_APPEND), S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR);
+	if (redir_is_truncate(redir[1]))
+		fd = create_truncate_file(file);
+	else
+		fd = create_append_file(file);
+	*outfile = fd;
+	dup2(*outfile, STDOUT_FILENO);
+	close(*outfile);
 }
 
 /*
@@ -54,10 +84,15 @@ static void	set_infile_redirection_fd(int *in, char *file)
 
 static void set_errfile_redirection_fd(int *err, char *file, char *redir)
 {
+	int fd;
+
 	if (*err != STDERR_FILENO)
 		close(*err);
-	*err = open(file, O_WRONLY | O_CREAT | (redir[1] == '\0' ?
-	O_TRUNC : O_APPEND), S_IRUSR | S_IRGRP | S_IROTH | S_IWGRP | S_IWUSR);
+	if (redir_is_truncate(redir[1]))
+		fd = create_truncate_file(file);
+	else
+		fd = create_append_file(file);
+	*err = fd;
 	dup2(*err, STDERR_FILENO);
 	close(*err);
 }
@@ -76,10 +111,7 @@ void	switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
 	file = l->node.t_re.file;
 	redir = l->node.t_re.redir;
 	if (redir[0] == '>')
-	{
 		set_outfile_redirection_fd(outfile, file, redir);
-		dup42(STDIN_FILENO, *outfile, STDERR_FILENO);
-	}
 	else if (redir[0] == '<' && !redir[1])
 		set_infile_redirection_fd(&j->stdin, file);
 	else if (redir[0] == '<' && redir[1] == '<' && !redir[2])
