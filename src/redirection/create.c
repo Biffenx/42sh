@@ -6,7 +6,7 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:01:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 23:59:54 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/01 14:43:13 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,35 +40,17 @@ static void	write_heredoc(t_re_ag *node, t_token *token)
 	close(node->node.t_re.heredoc[1]);
 }
 
-static int is_error_redir(t_token *token)
-{
-	if (token->type & IO_NUM && ft_strequ(token->data, "2"))
-		return (1);
-	return (0);
-}
-
 static t_re_ag	*create_re_ag_node(t_token *token)
 {
 	t_re_ag	*new;
 
 	if (!(new = ft_memalloc(sizeof(t_re_ag))))
 		return (NULL);
-	new->e_flag = token->type & MASK_RE ? REDIR : AGGRE;
+	set_re_ag_e_flag(new, token);
 	if (new->e_flag == REDIR)
-	{
-		new->node.t_re.redir = is_error_redir(token->prev) ? 
-		ft_strjoin(ft_strdup(token->prev->data), ft_strdup(token->data))
-		: ft_strdup(token->data);
-		new->node.t_re.file = ft_strdup(token->next->data);
-		write_heredoc(new, token);
-	}
+		set_redir_tokens(new, token->prev);
 	else
-	{
-		new->node.t_ag.n = token->prev->type & IO_NUM
-			? ft_strdup(token->prev->data) : ft_strdup("1");
-		new->node.t_ag.sign = ft_strdup(token->data);
-		new->node.t_ag.word = ft_strdup(token->next->data);
-	}
+		set_aggre_tokens(new, token->prev);
 	new->next = NULL;
 	return (new);
 }
