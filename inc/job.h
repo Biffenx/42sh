@@ -6,7 +6,7 @@
 /*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/01 14:44:40 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/01 22:55:48 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,8 @@ void					dup42(int in, int out, int err);
 int						redir_is_truncate(char c);
 int 					create_truncate_file(char *file);
 int						create_append_file(char *file);
-void					set_redir_tokens(t_re_ag *new, t_token *token);
-void					set_aggre_tokens(t_re_ag *new, t_token *token);
-void					set_re_ag_e_flag(t_re_ag *new, t_token *token);
+void					set_redir_tokens(t_re_ag *new_node, t_token *token);
+void					set_aggre_tokens(t_re_ag *new_node, t_token *token);
+void					set_re_ag_e_flag(t_re_ag *new_node, t_token *token);
 
 #endif
