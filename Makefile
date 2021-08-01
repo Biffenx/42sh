@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
+#    By: hege <hege@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/07/31 20:12:31 by vkuokka          ###   ########.fr        #
+#    Updated: 2021/08/01 14:46:01 by hege             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,9 @@ src = src/main.c \
 	src/redirection/create.c \
 	src/redirection/parse.c \
 	src/redirection/parse2.c \
-	src/redirection/utils.c
+	src/redirection/utils.c \
+	src/redirection/create_helpers.c \
+	src/redirection/redirection_helpers.c
 flags = -Wall -Wextra -Werror
 
 all:

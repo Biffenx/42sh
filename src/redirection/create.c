@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:01:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:12:49 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/01 14:49:27 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,17 @@ static void	append_re_ag(t_re_ag **head, t_re_ag *new)
 		*head = new;
 }
 
-static void	write_heredoc(t_re_ag *node, t_token *token)
-{
-	if (!(token->type & T_DLARR))
-	{
-		node->node.t_re.heredoc = NULL;
-		return ;
-	}
-	node->node.t_re.heredoc = malloc(sizeof(int) * 2);
-	pipe(node->node.t_re.heredoc);
-	ft_dprintf(node->node.t_re.heredoc[1], token->heredoc);
-	close(node->node.t_re.heredoc[1]);
-}
-
 static t_re_ag	*create_re_ag_node(t_token *token)
 {
 	t_re_ag	*new;
 
 	if (!(new = ft_memalloc(sizeof(t_re_ag))))
 		return (NULL);
-	new->e_flag = token->type & MASK_RE ? REDIR : AGGRE;
+	set_re_ag_e_flag(new, token);
 	if (new->e_flag == REDIR)
-	{
-		new->node.t_re.redir = ft_strdup(token->data);
-		new->node.t_re.file = ft_strdup(token->next->data);
-		write_heredoc(new, token);
-	}
+		set_redir_tokens(new, token->prev);
 	else
-	{
-		new->node.t_ag.n = token->prev->type & IO_NUM
-			? ft_strdup(token->prev->data) : ft_strdup("1");
-		new->node.t_ag.sign = ft_strdup(token->data);
-		new->node.t_ag.word = ft_strdup(token->next->data);
-	}
+		set_aggre_tokens(new, token->prev);
 	new->next = NULL;
 	return (new);
 }
