@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hege <hege@student.42.fr>                  +#+  +:+       +#+         #
+#    By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/05 20:01:25 by vkuokka           #+#    #+#              #
-#    Updated: 2021/08/01 14:46:01 by hege             ###   ########.fr        #
+#    Updated: 2021/08/01 21:38:08 by vkuokka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ src = src/main.c \
 	src/launcher/process.c \
 	src/launcher/utils.c \
 	src/launcher/builtins/fc/create_file.c \
+	src/launcher/builtins/fc/execute_file.c \
 	src/launcher/builtins/fc/fc_debug.c \
 	src/launcher/builtins/fc/fc.c \
 	src/launcher/builtins/fc/list_entries.c \

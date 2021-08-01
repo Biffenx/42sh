@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:56:23 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 20:14:37 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/01 21:30:02 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,9 @@ int	fc(char **argv)
 	else if (options & 1 << 1)
 		list_entries(argv, &options);
 	else
+	{
 		create_file(argv, &options);
+		execute_file(editor, &options);
+	}
 	return (options & 1 << 5);
 }
