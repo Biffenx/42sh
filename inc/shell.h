@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 18:36:50 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/08/02 20:50:44 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,9 +134,5 @@ void	signals(void);
 
 void	autocomplete(t_shell *shell);
 void	get_autocomplete_commands(t_shell *shell);
-
-extern char		**environ;
-extern t_shell	*g_shell;
-extern int		g_debug;
 
 #endif
