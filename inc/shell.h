@@ -101,6 +101,10 @@ typedef struct s_shell
 # include "lexer.h"
 # include "parser.h"
 
+extern char		**environ;
+extern t_shell	*g_shell;
+extern int		g_debug;
+
 /*
 ** Line edition prototypes.
 */
@@ -121,6 +125,7 @@ int		move_cursor_down(t_editor *editor);
 int		check_clipboard_keys(int key, t_shell *shell);
 int		handle_eof(t_shell *shell);
 int		handle_backspace(t_editor *editor);
+
 void	exit_error(int err, char *msg);
 void	preprocess(char *input, t_shell *shell);
 void	print_error(int err, char *msg);
