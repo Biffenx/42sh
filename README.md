@@ -108,6 +108,7 @@ sudo apt install libncurses5-dev
 - [ ] fix bugs in history entry addition ie. redir tokens has to be put together.
 - [ ] single --jobs token segfaults.
 - [ ] Block recursive fc calls in fc builtin.
+- [ ] Figure out && and ||
 
 ### Less serious issues.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.
