@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 21:25:09 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/01 22:06:06 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 20:54:51 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	execute_file(char *editor, int *options)
 	args[0] = editor;
 	args[1] = FCFILE;
 	args[2] = NULL;
-	edit(args);
+	if (~*options & 1 << 4)
+		edit(args);
 	execute(options);
 }
