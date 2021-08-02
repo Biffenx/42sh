@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:17:19 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/31 15:11:01 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/02 12:06:04 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	parse_redir_aggre_list(t_re_ag *l, t_job *j, int *outfile)
 	while (l)
 	{
 		l->e_flag == REDIR ? switch_redir_node(l, j, outfile)
-						   : switch_agre_node(l->node.t_ag.word,
-											  l->node.t_ag.n, l->node.t_ag.sign);
+						   : switch_agre_node(l->u_node.t_ag.word,
+											  l->u_node.t_ag.n, l->u_node.t_ag.sign);
 		l = l->next;
 	}
 }

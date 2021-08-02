@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 18:33:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/01 14:07:50 by hege             ###   ########.fr       */
+/*   Updated: 2021/08/02 12:07:05 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ void	switch_redir_node(t_re_ag *l, t_job *j, int *outfile)
 	char	*file;
 	char	*redir;
 
-	heredoc = l->node.t_re.heredoc;
-	file = l->node.t_re.file;
-	redir = l->node.t_re.redir;
+	heredoc = l->u_node.t_re.heredoc;
+	file = l->u_node.t_re.file;
+	redir = l->u_node.t_re.redir;
 	if (redir[0] == '>')
 		set_outfile_redirection_fd(outfile, file, redir);
 	else if (redir[0] == '<' && !redir[1])

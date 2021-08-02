@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 16:56:02 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 16:44:25 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/08/02 13:33:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@
 # define OPT_LEXER		"--lexer"
 # define OPT_JOBS		"--jobs"
 
-typedef struct			s_token
+typedef struct s_token
 {
 	int					type;
 	int					fd;
@@ -100,11 +100,7 @@ typedef struct			s_token
 	struct s_token		*prev;
 }						t_token;
 
-# ifdef __linux__
-#  include				"linux/limits.h"
-# endif
-
-typedef struct			s_lexer
+typedef struct s_lexer
 {
 	char				data[ARG_MAX];
 	int					flags;

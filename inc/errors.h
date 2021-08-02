@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:12:17 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 13:53:08 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 12:03:56 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@
 # define FC_ERR_OPT "42sh: fc: bad option: -%c\n"
 # define FC_ERR_EDIT "42sh fc: -e: option requires an argument\n"
 # define FC_ERR_FD "42sh fc: could not open fcfile\n"
-# define FC_ERR_EXEC "42sh fc: history events can't be executed backwards, aborted\n"
 # define FC_ERR_EVENT "42sh fc: event not found: %s\n"
 # define FC_ERR_REPL "42sh fc: replace argument invalid\n"
 # define FC_SYNTAX "42sh: fc: syntax: \
@@ -67,8 +66,8 @@ fc -s [old=new] [first]\n"
 ** History builtin
 */
 
-#define HIST_ERR_OPT "42sh: history: bad option: -%c\n"
-#define HIST_SYNTAX	"42sh: history: syntax: history [-c]"
+# define HIST_ERR_OPT "42sh: history: bad option: -%c\n"
+# define HIST_SYNTAX	"42sh: history: syntax: history [-c]"
 
 /*
 ** Core history.

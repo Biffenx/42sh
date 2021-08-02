@@ -65,7 +65,7 @@ sudo apt install libncurses5-dev
 - [x] Built-in test with the required operators.
 - [ ] Tests for modular part features.
 
-### Issues
+### Issues & TODO
 - [x] New opening quote in open quote.
 - [x] Trailing pipe not implemented.
 - [ ] Fc carbage. Rewrite the whole built-in.
@@ -107,6 +107,7 @@ sudo apt install libncurses5-dev
 - [ ] fix various autocomplete bugs
 - [ ] fix bugs in history entry addition ie. redir tokens has to be put together.
 - [ ] single --jobs token segfaults.
+- [ ] Block recursive fc calls in fc builtin.
 
 ### Less serious issues.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.

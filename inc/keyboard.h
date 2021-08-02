@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 10:35:21 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/05/18 15:55:07 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/08/02 12:11:38 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,4 @@
 # define CTRL_RIGHT	346
 # define CTRL_LEFT	347
 
-# endif
+#endif

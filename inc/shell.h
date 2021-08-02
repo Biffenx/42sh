@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 11:55:24 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 13:46:02 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 
+extern char	**environ;
+
 # ifdef __linux__
 #  include <linux/limits.h>
-extern char **environ;
 # else
 #  ifdef __APPLE__
 #   include <limits.h>

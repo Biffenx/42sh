@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 09:27:31 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 12:04:53 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_re_ag
 			char	*sign;
 			char	*word;
 		}			t_ag;
-	} node;
+	} u_node;
 	struct s_re_ag	*next;
 }					t_re_ag;
 
@@ -111,8 +111,6 @@ void					free_job(t_job *job);
 /*
 ** Redirection.
 */
-
-
 
 t_re_ag					*create_re_ag_list(t_token **tokens);
 void					parse_redir_aggre_list(t_re_ag *l, t_job *j, \
