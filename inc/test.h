@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jochumwilen <jochumwilen@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:28:17 by jochumwilen       #+#    #+#             */
-/*   Updated: 2021/05/16 21:57:04 by jochumwilen      ###   ########.fr       */
+/*   Updated: 2021/08/02 15:35:11 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define TEST_H
 
 # include "shell.h"
-#include <sys/stat.h>
+# include <sys/stat.h>
 
 typedef enum e_test {
 	flag_b = 1,
