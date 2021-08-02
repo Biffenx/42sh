@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 15:31:47 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 19:58:57 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@
 # include "autocomplete.h"
 # include "builtin.h"
 
-extern char		**environ;
-extern t_shell	*g_shell;
-extern int		g_debug;
 
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
@@ -105,6 +102,10 @@ typedef struct s_shell
 # include "lexer.h"
 # include "parser.h"
 
+extern char		**environ;
+extern t_shell	*g_shell;
+extern int		g_debug;
+
 /*
 ** Line edition prototypes.
 */
@@ -125,6 +126,7 @@ int		move_cursor_down(t_editor *editor);
 int		check_clipboard_keys(int key, t_shell *shell);
 int		handle_eof(t_shell *shell);
 int		handle_backspace(t_editor *editor);
+
 void	exit_error(int err, char *msg);
 void	preprocess(char *input, t_shell *shell);
 void	print_error(int err, char *msg);
