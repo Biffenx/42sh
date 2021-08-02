@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:49:22 by srouhe            #+#    #+#             */
-/*   Updated: 2021/08/02 19:43:48 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/08/02 19:53:09 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell)
 	char		*value;
 	t_lexer		lexer_als;
 
-	// if (!hash_key_exists(shell->alias, (*token)->data))
-	// 	return ;
+	if ((*token)->prev && ft_strequ((*token)->prev->data, "unalias"))
+		return ;
 	ft_bzero(lexer_als.data, ARG_MAX);
 	lexer_als.flags = 0;
 	lexer_als.count = 0;
