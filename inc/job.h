@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   job.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: hege <hege@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:53:53 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 14:59:06 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/01 22:55:48 by hege             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,18 @@ void					free_job(t_job *job);
 ** Redirection.
 */
 
+
+
 t_re_ag					*create_re_ag_list(t_token **tokens);
 void					parse_redir_aggre_list(t_re_ag *l, t_job *j, \
 						int *outfile);
 void					switch_redir_node(t_re_ag *l, t_job *j, int *outfile);
 void					dup42(int in, int out, int err);
+int						redir_is_truncate(char c);
+int 					create_truncate_file(char *file);
+int						create_append_file(char *file);
+void					set_redir_tokens(t_re_ag *new_node, t_token *token);
+void					set_aggre_tokens(t_re_ag *new_node, t_token *token);
+void					set_re_ag_e_flag(t_re_ag *new_node, t_token *token);
 
 #endif
