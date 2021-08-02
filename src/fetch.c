@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fetch.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:05:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:17:11 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/02 14:05:37 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	fetch(t_shell *shell)
 		shell->history[i] = NULL;
 		i += 1;
 	}
-	fd = open(shell->history_file, O_RDONLY);
+	fd = open(HISTORY_FILE, O_RDONLY);
 	if (fd == -1)
 		write(2, HIST_ERR_FILE, ft_strlen(HIST_ERR_FILE));
 	else

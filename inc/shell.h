@@ -6,7 +6,7 @@
 /*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 13:46:02 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 14:07:30 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct 				s_editor
 # include "hash.h"
 
 # define HISTORY_SIZE 		100
-# define HISTORY_FILE 		"/.42history"
+# define HISTORY_FILE 		".42history"
 
 typedef struct				s_shell
 {
@@ -94,7 +94,6 @@ typedef struct				s_shell
 	t_autocomp				*autocomp_tail;
 	char					*history[HISTORY_SIZE];
 	int						history_index;
-	char					history_file[PATH_MAX];
 	int						prev_key_pressed;
 	char					**matching_commands;
 }							t_shell;
@@ -135,4 +134,5 @@ void						signals(void);
 
 void	autocomplete(t_shell *shell);
 void	get_autocomplete_commands(t_shell *shell);
+
 #endif

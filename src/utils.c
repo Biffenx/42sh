@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:33 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:21:07 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/02 14:08:03 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,6 @@ void	create_shell(t_shell *shell)
 	shell->exit = 0;
 	internal_variables(shell->vars);
 	internal_alias(shell->alias);
-	ft_bzero(shell->history_file, PATH_MAX);
-	ft_strlcat(shell->history_file, getenv("HOME"), PATH_MAX);
-	ft_strlcat(shell->history_file, HISTORY_FILE, PATH_MAX);
 	shell->prev_key_pressed = -1;
 	shell->autocomp = NULL;
 }
