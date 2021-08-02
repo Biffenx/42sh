@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:03:47 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 13:35:25 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 19:43:41 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*split_val(const char *s);
 char	*split_key(const char *s);
 char	*parse_quotes(char *s);
 void	parse_exclamation(char **data, t_shell *shell);
+void	token_del(t_token *token);
 
 #endif

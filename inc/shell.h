@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 19:57:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 19:58:57 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/08/02 18:36:50 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@
 # include "errors.h"
 # include "autocomplete.h"
 # include "builtin.h"
-
 
 # define INTERACTIVE 		1 << 0
 # define INTERRUPT 			1 << 1
@@ -81,7 +80,7 @@ typedef struct s_shell
 	pid_t			pgid;
 	t_hash			vars[HASH_SIZE];
 	t_hash			alias[HASH_SIZE];
-	int				alias_index; // IMO the alias expansion controlling should be the lexers job.
+	int				alias_index; // IMO the alias expansion controlling should be the lexers job. What is this needed for?
 	t_hash			table[HASH_SIZE];
 	t_hash			paths[HASH_SIZE];
 	t_job			*jobs;
@@ -135,5 +134,9 @@ void	signals(void);
 
 void	autocomplete(t_shell *shell);
 void	get_autocomplete_commands(t_shell *shell);
+
+extern char		**environ;
+extern t_shell	*g_shell;
+extern int		g_debug;
 
 #endif

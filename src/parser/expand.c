@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 12:23:11 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/20 16:55:10 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/08/02 19:56:34 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,29 @@ static void	parse_tilde(char **data, t_shell *shell)
 void	expand_tokens(t_lexer *lexer, t_shell *shell)
 {
 	t_token	*token;
+	t_token *del;
 
 	token = lexer->head;
 	while (token)
 	{
+		if (hash_key_exists(shell->alias, token->data))
+		{
+			if (token->prev && ft_strequ(token->prev->data, "unalias"))
+				PASS;
+			else
+			{
+				tokenize_alias(lexer, &token, shell);
+				del = token;
+				token = token->next;
+				token_del(del);
+				continue ;
+			}
+		}
 		if (token->type & T_STR)
 		{
 			parse_dollar(&token->data, shell);
 			parse_tilde(&token->data, shell);
 			parse_exclamation(&token->data, shell);
-			tokenize_alias(lexer, &token, shell);
 		}
 		if (token->heredoc)
 		{
@@ -104,6 +117,8 @@ void	expand_tokens(t_lexer *lexer, t_shell *shell)
 			token->type |= (1 << STRING);
 		if (token->type & T_ESCAPE)
 			token->data = ft_strreplace(token->data, "\\", "");
+		// ft_putendl(token->data);
 		token = token->next;
 	}
+	// lexer_debug(*lexer);
 }

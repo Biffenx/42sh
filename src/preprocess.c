@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preprocess.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:59:45 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/30 14:04:52 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 15:26:27 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,15 @@ void	preprocess(char *input, t_shell *shell)
 	lexer.first = NULL;
 	lexer.last = NULL;
 	tokenize(&lexer, input);
-	if (lexer.flags & DEBUG_LEXER)
-		lexer_debug(lexer);
-	else if (~shell->mode & INTERRUPT)
+	if (~shell->mode & INTERRUPT)
 	{
-		parser(&lexer, shell) == PARSER_OK ? loader(&lexer) : 0;
+		if (parser(&lexer, shell) == PARSER_OK)
+		{
+			if (lexer.flags & DEBUG_LEXER)
+				lexer_debug(lexer);
+			else
+				loader(&lexer);
+		}
 		add_entry(lexer.first, shell);
 	}
 	lexer_del(&lexer);

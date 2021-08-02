@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 11:06:24 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 19:18:19 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/02 19:51:25 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,29 @@ char	*hash_get(t_hash *map, char *key)
 		return (NULL);
 	}
 	return (map[i].value);
+}
+
+/*
+** Find a value of the key. On success returns
+** the value and on failure returns NULL.
+*/
+
+int		hash_key_exists(t_hash *map, char *key)
+{
+	int	i;
+
+	if (!key || !*key)
+		return (0);
+	i = hash_index(key);
+	while (i < HASH_SIZE && !ft_strequ(map[i].key, key))
+	{
+		i += 1;
+	}
+	if (i == HASH_SIZE)
+	{
+		return (0);
+	}
+	return (1);
 }
 
 /*

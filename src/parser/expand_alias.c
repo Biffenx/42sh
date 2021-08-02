@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   expand_alias.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:49:22 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:52:44 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/02 19:53:09 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
-
-static void	token_del(t_token *token)
-{
-	ft_strdel(&token->data);
-	if (token->heredoc)
-		free(token->heredoc);
-	free(token);
-}
 
 static void	converge_lexers(t_lexer *lexer_old,
 		t_lexer *lexer_new, t_token **token)
@@ -41,7 +33,6 @@ static void	converge_lexers(t_lexer *lexer_old,
 			else
 				head = lexer_new->head;
 			lexer_new->last->next = next;
-			token_del(als);
 		}
 		lexer_old->head = lexer_old->head->next;
 	}
@@ -50,6 +41,7 @@ static void	converge_lexers(t_lexer *lexer_old,
 	lexer_old->first = head;
 	lexer_old->flags |= lexer_new->flags;
 	lexer_old->count += lexer_new->count - 1;
+	(*token)->next = lexer_new->head;
 }
 
 /*
@@ -62,19 +54,19 @@ void	tokenize_alias(t_lexer *lexer, t_token **token, t_shell *shell)
 	char		*value;
 	t_lexer		lexer_als;
 
+	if ((*token)->prev && ft_strequ((*token)->prev->data, "unalias"))
+		return ;
 	ft_bzero(lexer_als.data, ARG_MAX);
 	lexer_als.flags = 0;
 	lexer_als.count = 0;
 	lexer_als.head = NULL;
 	lexer_als.first = NULL;
 	lexer_als.last = NULL;
-	if (shell->alias_index != 0)
-		return ;
+	// if (shell->alias_index != 0)
+	// 	return ;
 	value = hash_get(shell->alias, (*token)->data);
-	if (value)
-	{
-		tokenize(&lexer_als, value);
-		converge_lexers(lexer, &lexer_als, token);
-		shell->alias_index = 1;
-	}
+	tokenize(&lexer_als, value);
+	converge_lexers(lexer, &lexer_als, token);
+	// ft_printf("token: %s\n", (*token)->data);
+	// shell->alias_index = 1;
 }

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unalias.c                                          :+:      :+:    :+:   */
+/*   alias_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 09:39:03 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/08/02 19:57:39 by srouhe           ###   ########.fr       */
+/*   Created: 2021/08/02 19:43:12 by srouhe            #+#    #+#             */
+/*   Updated: 2021/08/02 19:43:44 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-/*
-** https://www.man7.org/linux/man-pages/man1/unalias.1p.html
-*/
-
-int	unalias_builtin(char **argv)
+void	token_del(t_token *token)
 {
-	if (ft_strequ(*argv, "-a"))
-	{
-		hash_purge(g_shell->alias);
-		return (0);
-	}
-	while (*argv)
-	{
-		hash_delete(g_shell->alias, *argv);
-		argv += 1;
-	}
-	return (0);
+	ft_strdel(&token->data);
+	if (token->heredoc)
+		free(token->heredoc);
+	free(token);
 }
