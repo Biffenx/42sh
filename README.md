@@ -42,8 +42,8 @@ sudo apt install libncurses5-dev
 	- [x] exit
 	- [x] type
 - Logical operators
-	- [x] "&&"
-	- [x] "||"
+	- [ ] "&&"
+	- [ ] "||"
 - Monitoring of internal shell variables
 	- [x] Internal variable creation depending on syntax: name=value
 	- [x] Internal variable exportation to the enviroment via built-in export
@@ -57,18 +57,18 @@ sudo apt install libncurses5-dev
 	- [ ] Each built-in must have the enounced options by POSIX standard execept for explicit case ad set or unset
 
 ### Modular Part Features
-- [x] Inhibitors ” (double quote), ’ (simple quote) and \\.
-- [x] Complete management of the history.
+- [ ] Inhibitors ” (double quote), ’ (simple quote) and \\.
+- [ ] Complete management of the history.
 - [x] Alias management via built-ins alias and unalias.
 - [x] A hash table and built-in hash to interact with it.
-- [x] Contextual dynamic completion.
+- [ ] Contextual dynamic completion.
 - [x] Built-in test with the required operators.
 - [ ] Tests for modular part features.
 
 ### Issues & TODO
 - [x] New opening quote in open quote.
 - [x] Trailing pipe not implemented.
-- [ ] Fc carbage. Rewrite the whole built-in.
+- [x] Fc carbage. Rewrite the whole built-in.
 - [x] Line edition with command including newlines.
 - [x] History exclamation expanded even if inside single quotes.
 	- Exclamation parsing needs to be transfered to parser.
@@ -98,17 +98,16 @@ sudo apt install libncurses5-dev
 - [x] segfault with command alias=hello' is cancelled with SIGINT during quote>
 - [x] hash builtin POSIX standard?
 - [x] segfault when file is redireced as input.
-- [ ] condition neglects job control.
 - [ ] extra spaces with escape character \\.
 - [ ] escape character does not quite work when dealing with quotes.
 - [ ] issues with single quotes when executing set and alias builtins.
 - [ ] ALIAS: Only first argument of simple command should be expanded.
 - [ ] exclamation expansion lexical analysis before moving forward.
 - [ ] fix various autocomplete bugs
-- [ ] fix bugs in history entry addition ie. redir tokens has to be put together.
-- [ ] single --jobs token segfaults.
-- [ ] Block recursive fc calls in fc builtin.
-- [ ] Figure out && and ||
+- [ ] single --jobs token segfaults
+- [ ] figure out && and ||
+- [ ] implement -s flag for fc builtin
+- [ ] fix && and ||
 
 ### Less serious issues.
 - When using kill command the termination of background jobs works well. Stopped jobs have to be raised to the foreground so they can exit.
