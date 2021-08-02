@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/24 12:43:01 by vkuokka          ###   ########.fr       */
+/*   Updated: 2021/07/31 15:24:41 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void		tokenize(t_lexer *lexer, char *input)
 	int	i;
 
 	i = 0;
+	if (!input)
+		return ;
 	ft_strlcat(lexer->data, input, ARG_MAX);
 	while (lexer->data[i] && ~g_shell->mode & INTERRUPT)
 	{
