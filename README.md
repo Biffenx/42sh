@@ -59,7 +59,7 @@ sudo apt install libncurses5-dev
 ### Modular Part Features
 - [ ] Inhibitors ” (double quote), ’ (simple quote) and \\.
 - [ ] Complete management of the history.
-- [x] Alias management via built-ins alias and unalias.
+- [ ] Alias management via built-ins alias and unalias.
 - [x] A hash table and built-in hash to interact with it.
 - [ ] Contextual dynamic completion.
 - [x] Built-in test with the required operators.
