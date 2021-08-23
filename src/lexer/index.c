@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 11:54:43 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/31 15:24:41 by srouhe           ###   ########.fr       */
+/*   Updated: 2021/08/22 20:28:20 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void		tokenize(t_lexer *lexer, char *input)
 		else
 			i++;
 	}
+
 	if (~g_shell->mode & INTERRUPT)
 		check_trailing(lexer);
 	lexer->first = lexer->head;

@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 20:10:05 by srouhe            #+#    #+#             */
-/*   Updated: 2021/07/15 18:38:46 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/22 20:37:13 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	add_token(t_lexer *lexer, char *data, int flag)
 	t_token	*tmp;
 
 	token = new_token(data, flag);
+	ft_printf("Type: %d %s\n", token->type, token->data);
 	if (!lexer->head)
 	{
 		lexer->head = token;
@@ -53,5 +54,5 @@ void	add_token(t_lexer *lexer, char *data, int flag)
 	}
 	lexer->flags |= (1 << flag);
 	lexer->count++;
-	free(data);
+	
 }

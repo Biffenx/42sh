@@ -6,7 +6,7 @@
 /*   By: jwilen <jwilen@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 17:43:18 by vkuokka           #+#    #+#             */
-/*   Updated: 2021/07/15 16:51:44 by jwilen           ###   ########.fr       */
+/*   Updated: 2021/08/22 21:37:45 by jwilen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,7 @@ t_job	*create_job(t_token **tokens)
 	job->stdout = STDOUT_FILENO;
 	job->stderr = STDERR_FILENO;
 	job->next = NULL;
+	// //OC
+	// ft_printf("Job: %s\n", job->command);
 	return (job);
 }
